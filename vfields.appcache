@@ -1,9 +1,13 @@
 CACHE MANIFEST
-
-# VERSION 0.3
-
-# 直接缓存的文件
-CACHE:
+# 2014-12-26 v1.0.0
 /themes/violet/images/hdbg01.jpg
 /themes/violet/js/common.js
 /js/scripts/shCore.min.js
+/css/font-awesome.css
+/themes/violet/images/favicon.ico
+
+NETWORK:
+*
+
+FALLBACK:
+/404.html
