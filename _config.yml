@@ -1,0 +1,81 @@
+# Where things are
+source:       .
+destination:  ./_site
+layouts:      ./_layouts
+paginate:     5
+
+# Handling Reading
+safe:         true
+include:      [".htaccess"]
+exclude:      []
+keep_files:   [".git", ".svn"]
+encoding:     "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# Filtering Content
+show_drafts:  null
+limit_posts:  0
+future:       true
+unpublished:  false
+
+# Conversion
+highlighter:  pygments
+markdown:     kramdown
+lsi:          false
+excerpt_separator: "\n\n"
+
+# Serving
+detach:       false
+port:         4000
+host:         127.0.0.1
+baseurl:      "" # does not include hostname
+
+# Outputting
+permalink:     date
+paginate_path: /page:num
+timezone:      null
+
+
+#站点基础配置
+title: vFields
+subTitle: Another Boring Blog.
+description: wait 的博客
+# local
+#url: http://127.0.0.1:4000
+url:  http://www.vfields.com
+feed: /atom.xml
+
+categories_path : /categories.html
+
+  # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
+  # ex: [BASE_PATH]/assets/themes/[THEME-NAME]
+  #
+  # Override this by defining an absolute path to assets here.
+  # ex: 
+  #   http://s3.amazonaws.com/yoursite/themes/watermelon
+  #   /assets
+ASSET_PATH : false
+
+#菜单配置
+nav:
+  - text: 首页
+    url: /index.html
+  - text: 文章
+    url: /archives.html
+  - text: 目录
+    url: /categories.html
+
+#theme config
+themes: /themes/violet
+
+#配置你喜欢的顶部背景图片
+headimg:
+  - item: /themes/violet/images/hdbg01.jpg
+
+#评论信息
+disqus:
+  config: true
+  id: vfields
+duoshuo:
+  config: false
+  id: 

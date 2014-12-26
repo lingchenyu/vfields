@@ -1,0 +1,18 @@
+{% capture jbcache %}
+  <!--
+  - Dynamically set liquid variables for working with URLs/paths
+  -->
+   {% if site.safe and site.url and site.url != '' %}
+     {% assign BASE_PATH = site.url %}
+     {% assign HOME_PATH = site.url %}
+   {% else %}
+     {% assign BASE_PATH = nil %}
+     {% assign HOME_PATH = "/" %}
+   {% endif %}
+
+   {% if site.ASSET_PATH %}
+     {% assign ASSET_PATH = site.ASSET_PATH %}
+   {% else %}
+     {% capture ASSET_PATH %}{{ BASE_PATH }}/assets/themes/{{ page.theme.name }}{% endcapture %}
+   {% endif %}  
+{% endcapture %}{% assign jbcache = nil %}

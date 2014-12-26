@@ -1,0 +1,9 @@
+CACHE MANIFEST
+
+# VERSION 0.3
+
+# 直接缓存的文件
+CACHE:
+/themes/violet/images/hdbg01.jpg
+/themes/violet/js/common.js
+/js/scripts/shCore.min.js
