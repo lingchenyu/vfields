@@ -64,22 +64,22 @@
     <script type="text/javascript" src="http://mini.jiasule.com/framework/jquery/1.8.3/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/jquery-scrollTo.min.js"></script>
     <script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/common.js"></script>
+	<script class="text/javascript" src="http://mini.jiasule.com/framework/bootstrap/2.3.1/js/bootstrap.min.js"></script>
     <script class="text/javascript" src="{{ site.url }}/js/scripts/shCore.min.js"></script>
-    <script class="text/javascript" src="http://mini.jiasule.com/framework/bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    
     {% if site.disqus.config %}
-
-	<script type="text/javascript">
-	if(document.getElementById("disqus_thread"))   
-	{   
-		//disqus
-	    var disqus_shortname = '{{ site.disqus.id }}';
-	    (function() {
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] ||
-		    document.getElementsByTagName('body')[0]).appendChild(dsq);
-	    })();
-	}
+		<script type="text/javascript">
+		if(document.getElementById("disqus_thread"))   
+		{   
+			//disqus
+			var disqus_shortname = '{{ site.disqus.id }}';
+			(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] ||
+				document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		}
 	</script>
     {% endif %}
 </body>
