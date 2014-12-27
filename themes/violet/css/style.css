@@ -218,7 +218,7 @@ a:visited {
 }
 .nav-list {
     list-style: none;
-    width: 720px;
+    width: 50%;
     margin: 0 auto;
     line-height: 48px;
     height: 48px;
@@ -257,7 +257,7 @@ a:visited {
 
 .main-article {
     width: 60%;
-	margin:0 auto;
+    margin:0 auto;
     height: auto;
     background: #f6f6f6
 }
@@ -280,7 +280,7 @@ a:visited {
 	margin-bottom: 10px;
 }
 .pagination-list {
-    width: 720px;
+    width: 100%;
     height: 32px;
     padding: 20px 0;
     margin: 0 auto;
@@ -685,6 +685,13 @@ a.toTop:hover {
     .logo,.logo a {
         width: 320px
     }
+    .nav-list {
+        list-style: none;
+        width: 85%;
+        margin: 0px auto;
+        line-height: 48px;
+        height: 48px;
+    }
 
     .violet-nav-list {
         width: 60%;
@@ -692,7 +699,7 @@ a.toTop:hover {
         padding-left: 20px;
         padding-right: 20px;
         overflow: hidden;
-		margin:0 auto;
+	margin:0 auto;
     }
 
     .violet-title .violet-title-item {
@@ -732,12 +739,18 @@ a.toTop:hover {
         padding-left: 20px;
         padding-right: 20px
     }
+    .main-article {
+        width: 90%;
+        margin:0 auto;
+        height: auto;
+        background: #f6f6f6
+    }
 
     .main-article .article-year li span {
-		width: 60%;
+	width: 100%;
         font-size: 12px;
         margin-bottom: 10px;
-		margin: 0 auto;
+	margin: 0 auto;
     }
 
     .main-article .article-year li {
@@ -897,8 +910,8 @@ ul.time-list>li.active>a>i.fa-chevron-right {
 }
 
 .nav-tabs>li>a {
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     line-height: 20px;
     border: 1px solid transparent;
     -webkit-border-radius: 4px 4px 0 0;
@@ -1035,7 +1048,10 @@ div.navbar-header>div.col-md-8 {
 
 .tabs-below>.nav-tabs,.tabs-left>.nav-tabs,.tabs-right>.nav-tabs {
     border-bottom: 0;
-	width:10%;
+    width:10%;
+}
+.tabs-right li {
+    list-style: none;
 }
 
 .tab-content {
@@ -1074,7 +1090,7 @@ div.navbar-header>div.col-md-8 {
 }
 
 .tabs-left>.nav-tabs>li>a,.tabs-right>.nav-tabs>li>a {
-	width: 100%;
+    width: 100%;
     margin-right: 0;
     margin-bottom: 3px
 }
