@@ -1123,7 +1123,7 @@ div.navbar-header>div.col-md-8 {
 
 .tabs-right>.nav-tabs>li>a {
     -webkit-border-radius: 0 4px 4px 0;
-    border-radius: 10px
+    border-radius: 8px
 }
 
 .tabs-right>.nav-tabs .active>a,.tabs-right>.nav-tabs .active>a:focus,.tabs-right>.nav-tabs .active>a:hover {
