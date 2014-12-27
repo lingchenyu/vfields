@@ -897,8 +897,6 @@ ul.time-list>li.active>a>i.fa-chevron-right {
 .nav-pills>li>a,.nav-tabs>li>a {
     padding-right: 12px;
     padding-left: 12px;
-    margin-right: 2px;
-    line-height: 30px
 }
 
 .nav-tabs {
@@ -906,7 +904,7 @@ ul.time-list>li.active>a>i.fa-chevron-right {
 }
 
 .nav-tabs>li {
-    margin-bottom: 20px
+    margin-bottom: 15px
 }
 
 .nav-tabs>li>a {
@@ -1123,7 +1121,8 @@ div.navbar-header>div.col-md-8 {
 
 .tabs-right>.nav-tabs>li>a {
     -webkit-border-radius: 0 4px 4px 0;
-    border-radius: 8px
+    border-radius: 8px;
+    display: inline-block;
 }
 
 .tabs-right>.nav-tabs .active>a,.tabs-right>.nav-tabs .active>a:focus,.tabs-right>.nav-tabs .active>a:hover {
