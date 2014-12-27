@@ -66,10 +66,6 @@ address,caption,cite,code,dfn,em,th,var {
     font-weight: 500
 }
 
-ol,ul {
-    list-style: none
-}
-
 caption,th {
     text-align: left
 }
@@ -289,6 +285,10 @@ a:visited {
     padding: 20px 0;
     margin: 0 auto;
     list-style: none;
+}
+
+.pagination ol ul {
+    list-style: none
 }
 
 .pagination-list li {
