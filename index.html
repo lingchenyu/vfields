@@ -6,46 +6,37 @@ keywords: wait, GitHub, Jekyll, vFields
 isIndex: true
 ---
 
-<!-- 按照分页插入博客文章 -->
-
-<div class="row typo">
-<div class="col-md-2"></div>
-<div class="col-md-8">
-<hr/>
-{% for post in paginator.posts %}
-  <h2 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-  <div class="post_info">
-  {% unless post.categories == empty %}
-  <ul id="post_info" class="tag_box inline">
-    <li><i class="fa fa-calendar"></i></li>
-    <li id="post-date">{{ post.date | date: " %Y 年 %m 月 %d 日" }}</li>
-    <li><i class="fa fa-folder-open"></i></li>
-    {% assign post_categories = post.categories %}
-    {% include post_categories_info %}
-  </ul>
-  {% endunless %}
-  <span>
-  </div>
-  <div class="archive">
-    {{ post.description }}
-  </div>
-  <hr />
-{% endfor %}
-{% if paginator.total_pages > 1 %}
-<nav class="pagination fn-clear" id="violet-paging">
-    <ul class="pagination-list">
-        {% for page in (1..paginator.total_pages) %}
-            {% if page == paginator.page %}
-                <li class="current"><a href="javascript:void(0);">{{ page }}</a></li>
-            {% else %}
-                <li><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-</nav>
-{% endif %}
-</div>
-</div>
-
-
+	<!-- 按照分页插入博客文章 -->
+	<hr/>
+	{% for post in paginator.posts %}
+	  <h5 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h5>
+	  <div class="post_info">
+		{% unless post.categories == empty %}
+		  <ul id="post_info" class="tag_box inline">
+			<li><i class="fa fa-calendar"></i></li>
+			<li id="post-date">{{ post.date | date: " %Y 年 %m 月 %d 日" }}</li>
+			<li><i class="fa fa-folder-open"></i></li>
+			{% assign post_categories = post.categories %}
+			{% include post_categories_info %}
+		  </ul>
+		{% endunless %}
+	  </div>
+	  <div class="archive">
+		{{ post.description }}
+	  </div>
+	  <hr />
+	{% endfor %}
+	{% if paginator.total_pages > 1 %}
+		<nav class="pagination fn-clear" id="violet-paging">
+			<ul class="pagination-list">
+				{% for page in (1..paginator.total_pages) %}
+					{% if page == paginator.page %}
+						<li class="current"><a href="javascript:void(0);">{{ page }}</a></li>
+					{% else %}
+						<li><a href="{{ site.url }}/{%if page > 1 %}page{{ page }}/{% endif %}">{{ page }}</a></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</nav>
+	{% endif %}
 

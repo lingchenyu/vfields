@@ -1,5 +1,5 @@
 var a,dp={sh:{Toolbar:{},Utils:{},RegexLib:{},Brushes:{},Strings:{AboutDialog:'<html><head><title>About...</title></head><body class="dp-about"><table cellspacing="0"><tr><td class="copy"><p class="title">dp.SyntaxHighlighter</div><div class="para">Version: {V}</p><p><a href="http://www.dreamprojections.com/syntaxhighlighter/?ref=about" target="_blank">http://www.dreamprojections.com/syntaxhighlighter</a></p>&copy;2004-2007 Alex Gorbatchev.</td></tr><tr><td class="footer"><input type="button" class="close" value="OK" onClick="window.close()"/></td></tr></table></body></html>'},
-ClipboardSwf:'http://www.vfields.com/js/scripts/clipboard.swf',Version:"1.5.1"}};dp.SyntaxHighlighter=dp.sh;
+ClipboardSwf:'http://127.0.0.1:4000/js/scripts/clipboard.swf',Version:"1.5.1"}};dp.SyntaxHighlighter=dp.sh;
 dp.sh.Toolbar.Commands={ExpandSource:{label:"+ expand source",check:function(b){return b.collapse},func:function(b,c){b.parentNode.removeChild(b);c.div.className=c.div.className.replace("collapsed","")}},ViewSource:{label:"view plain",func:function(b,c){b=dp.sh.Utils.FixForBlogger(c.originalCode).replace(/</g,"&lt;");c=window.open("","_blank","width=750, height=400, location=0, resizable=1, menubar=0, scrollbars=0");c.document.write('<textarea style="width:99%;height:99%">'+b+"</textarea>");c.document.close()}},
 CopyToClipboard:{label:"copy to clipboard",check:function(){return window.clipboardData!=null||dp.sh.ClipboardSwf!=null},func:function(b,c){b=dp.sh.Utils.FixForBlogger(c.originalCode).replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");if(window.clipboardData)window.clipboardData.setData("text",b);else if(dp.sh.ClipboardSwf!=null){var d=c.flashCopier;if(d==null){d=document.createElement("div");c.flashCopier=d;c.div.appendChild(d)}d.innerHTML='<embed src="'+dp.sh.ClipboardSwf+'" FlashVars="clipboard='+
 encodeURIComponent(b)+'" width="0" height="0" type="application/x-shockwave-flash"></embed>'}alert("The code is in your clipboard now")}},PrintSource:{label:"print",func:function(b,c){b=document.createElement("IFRAME");var d=null;b.style.cssText="position:absolute;width:0px;height:0px;left:-500px;top:-500px;";document.body.appendChild(b);d=b.contentWindow.document;dp.sh.Utils.CopyStyles(d,window.document);d.write('<div class="'+c.div.className.replace("collapsed","")+' printing">'+c.div.innerHTML+
@@ -142,7 +142,7 @@ var ZeroClipboard = {
   version: '1.0.7',
   clients: {
   },
-  moviePath: 'http://www.vfields.com/js/scripts/ZeroClipboard.swf',
+  moviePath: 'http://127.0.0.1:4000/js/scripts/ZeroClipboard.swf',
   nextId: 1,
   $: function (b) {
     if (typeof (b) == 'string') {
