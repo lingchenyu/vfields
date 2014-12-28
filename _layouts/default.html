@@ -29,58 +29,58 @@
                 <h2 class="subtitle">{{ site.subTitle }}</h2>
             </header>
        
-		   <nav class="nav" id="violet-nav">
-			   <ul class="nav-list">
-					{% for link in site.nav %}
-						{% assign active = nil %}
-						{% if page.url == link.url%}
-							  {% assign active = 'nav-item-active' %}
-						{% endif %}
-						<li class="nav-item {{ active }}">
-							<a href="{{ link.url }}">
-								{{ link.text }}
-							</a>
-							{{ indicator }}
-						</li>
-					{% endfor %}
-				</ul>
-			</nav>
+	    <nav class="nav" id="violet-nav">
+		<ul class="nav-list">
+		{% for link in site.nav %}
+		    {% assign active = nil %}
+		    {% if page.url == link.url%}
+			{% assign active = 'nav-item-active' %}
+		    {% endif %}
+		    <li class="nav-item {{ active }}">
+			<a href="{{ link.url }}">
+			    {{ link.text }}
+			</a>
+			{{ indicator }}
+		    </li>
+		{% endfor %}
+		</ul>
+	    </nav>
         </section>
         
-		<article class="main-article main-article-page">
-			{{ content }}
-		</article>
-		<footer class="foot" id="violet-foot">
-			<div class="footer fn-clear">
-				<h1 class="logo">{{ site.title }}</h1>
+	<article class="main-article main-article-page">
+		{{ content }}
+	</article>
+	<footer class="foot" id="violet-foot">
+		<div class="footer fn-clear">
+			<h1 class="logo">{{ site.title }}</h1>
+		</div>
+		<div class="copyright">
+			<div class="copyright-cnt fn-clear">
+				<p class="text">© 2014 by wait</p>
 			</div>
-			<div class="copyright">
-				<div class="copyright-cnt fn-clear">
-					<p class="text">© 2014 by wait</p>
-				</div>
-			</div>
-		</footer>
-	</div>
+		</div>
+	</footer>
+    </div>
    
     <script type="text/javascript" src="http://mini.jiasule.com/framework/jquery/1.8.3/jquery-1.8.3.min.js"></script>
-	<script class="text/javascript" src="http://mini.jiasule.com/framework/bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script class="text/javascript" src="http://mini.jiasule.com/framework/bootstrap/2.3.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/jquery-scrollTo.min.js"></script>
     <script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/common.js"></script>
 	<script type="text/javascript" src="{{ site.url }}/js/scripts/shCore.js"></script>
     
     {% if site.disqus.config %}
-		<script type="text/javascript">
-		if(document.getElementById("disqus_thread"))   
-		{   
-			//disqus
-			var disqus_shortname = '{{ site.disqus.id }}';
-			(function() {
-			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-			(document.getElementsByTagName('head')[0] ||
-				document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		}
+	<script type="text/javascript">
+	if(document.getElementById("disqus_thread"))   
+	{   
+		//disqus
+		var disqus_shortname = '{{ site.disqus.id }}';
+		(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] ||
+			document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	}
 	</script>
     {% endif %}
 </body>
