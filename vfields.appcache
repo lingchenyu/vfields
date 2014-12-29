@@ -5,6 +5,13 @@ CACHE MANIFEST
 /js/scripts/shCore.js
 /css/font-awesome.css
 /themes/violet/images/favicon.ico
+/css/images/default/ico_plain.gif
+/css/images/default/ico_copy.gif
+/css/images/warning.png
+/css/images/error.png
+/css/images/notice.png
+/css/images/success.png
+/css/images/loading.gif
 
 NETWORK:
 *
