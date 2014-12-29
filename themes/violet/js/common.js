@@ -72,5 +72,5 @@ $(document).ready(function(){var a={nodeName:"J-backTop",scrollHeight:"100",link
     }, e(document).on("click.tab.data-api", '[data-toggle="tab"], [data-toggle="pill"]', function(t) {
         t.preventDefault(), e(this).tab("show")
     })
-}(window.jQuery)
+}(window.jQuery);
 
