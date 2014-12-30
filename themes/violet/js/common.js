@@ -73,4 +73,30 @@ $(document).ready(function(){var a={nodeName:"J-backTop",scrollHeight:"100",link
         t.preventDefault(), e(this).tab("show")
     })
 }(window.jQuery);
+/** 广告点击显示/隐藏 */
+$(document).ready(function(){
+	var ad = $('#ad');
+
+	$('#ad h6').click(function(){
+		var anim	= {		
+			mb : 0,			// Margin Bottom
+			pt : 25			// Padding Top
+		};
+		
+		var el = $(this).find('.arrow');
+		
+		if(el.hasClass('down')){
+			anim = {
+				mb : -270,
+				pt : 10
+			};
+		}
+		
+		ad.stop().animate({marginBottom: anim.mb});
+		
+		ad.find('.section').stop().animate({paddingTop:anim.pt},function(){
+			el.toggleClass('down up');
+		});
+	});
+});
 
