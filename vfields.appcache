@@ -1,10 +1,12 @@
 CACHE MANIFEST
-# 2014-12-28 v1.0.9
+# 2014-12-28 v1.1.0
 /themes/violet/images/hdbg01.jpg
 /themes/violet/js/common.js
 /js/scripts/shCore.js
-/css/font-awesome.css
 /themes/violet/images/favicon.ico
+/themes/violet/images/adv.gif
+/themes/violet/images/arrows.png
+/css/font-awesome.css
 /css/images/default/ico_plain.gif
 /css/images/default/ico_copy.gif
 /css/images/warning.png
