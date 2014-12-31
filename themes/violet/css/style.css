@@ -1050,7 +1050,7 @@ hr {
     border: 1px solid #8ed9f6;
 }
 #loading {
- position:fixed;_position:absolute;top:50%;left:50%;width:124px;height:124px;overflow:hidden;background:url('/css/images/loading.gif') no-repeat;z-index:7; margin:-62px 0 0 -62px;
+ position:fixed;_position:absolute;top:90%;left:90%;height:100%;overflow:hidden;background:url('/css/images/loading.gif') no-repeat;z-index:7; margin:-62px 0 0 -62px;
 }
 #ad{
 	background-color:#f6f6f6;
