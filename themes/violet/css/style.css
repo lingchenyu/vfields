@@ -259,7 +259,8 @@ a:visited {
     width: 60%;
     margin:0 auto;
     height: auto;
-    background: #f6f6f6
+    background: #f6f6f6;
+	min-height: 500px
 }
 
 .main-article:nth-child(2n) {
@@ -865,10 +866,6 @@ ul.time-list>li.active>a>i.fa-chevron-right {
 
 .tabs-stacked .open>a:focus,.tabs-stacked .open>a:hover {
     border-color: #999
-}
-
-.tabbable {
-    min-height: 500px
 }
 
 .tabbable:after,.tabbable:before {
