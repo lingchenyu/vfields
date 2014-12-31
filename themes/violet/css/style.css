@@ -1049,6 +1049,9 @@ hr {
     background: #e3f7fc url('/css/images/notice.png') no-repeat 10px 50%;
     border: 1px solid #8ed9f6;
 }
+#loading {
+ position:fixed;_position:absolute;top:50%;left:50%;width:124px;height:124px;overflow:hidden;background:url('/css/images/loading.gif') no-repeat;z-index:7; margin:-62px 0 0 -62px;
+}
 #ad{
 	background-color:#f6f6f6;
 	width:310px;
@@ -1246,7 +1249,6 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
     }
 	
 	#ad {
-		height: 0px;
-		position: fixed;
+		display: none;
 	}
 }

@@ -29,6 +29,7 @@
     <script type="text/javascript" async="" src="//crunchify-com.disqus.com/embed.js"></script>
 </head>
 <body id="violet">
+    <div id="loading" style="position:fixed !important;position:absolute;left:50%;height:100%;"><img src="/css/images/loading.gif"></div>
     <div class="page-wrapper">
         <section class="head" id="violet-head">
             <header class="header" id="violet-header">
@@ -86,8 +87,12 @@
    
     <script type="text/javascript" src="http://mini.jiasule.com/framework/jquery/1.8.3/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/jquery-scrollTo.min.js"></script>
-    <script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/common.js"></script>
 	<script type="text/javascript" src="{{ site.url }}/js/scripts/shCore.js"></script>
+	<script type="text/javascript" src="{{ site.url }}{{ site.themes }}/js/common.js"></script>
+	<script type="text/javascript">  
+        jQuery.noConflict();  
+		jQuery("#loading").fadeOut();
+	</script>  
     
     {% if site.disqus.config %}
 	<script type="text/javascript">
