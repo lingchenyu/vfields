@@ -6,22 +6,24 @@ categories: [java]
 icon: code
 ---
 &nbsp;&nbsp;  现在应该已经没有人会用这种过期的东东了，而且网上也一大堆人说<code>Java</code>不应该用于做应用程序，说不符合<code>Java</code>跨平台或者不是<code>Java</code>的长项等等。但有时候有朋友让我帮忙做一个很简单的只是单纯套用公式的应用，让我在短时间去学<code>c++</code>或者<code>c#</code>也有点难度，所以就还是冒着被鄙视的风险，把<code>Java</code>用gcj编译成exe文件。当然，最后还是让我折腾出来了。
-   
-&nbsp;&nbsp;  首先分享一下经验:           
 
-###### 1、版本 ######                
-&nbsp;&nbsp;  现在在<code>windows</code>系统能下载到的版本暂时是<code>gcj43</code>，下载地址（我下载的是[GCC/GCJ 4.3](http://www.thisiscool.com/gcc_mingw.htm#gcj43))   
+&nbsp;&nbsp;  首先分享一下经验:
+
+###### 1、版本 ######
+
+&nbsp;&nbsp;  现在在<code>windows</code>系统能下载到的版本暂时是<code>gcj43</code>，下载地址（我下载的是[GCC/GCJ 4.3](http://www.thisiscool.com/gcc_mingw.htm#gcj43))
 
 <textarea name="code" class="html" >
 http://www.thisiscool.com/gcc_mingw.htm
 </textarea>
 
-&nbsp;&nbsp; 当然，在<code>Ubuntu</code>下的系统比这个要高一点。而且能兼容1.7，还是比较给力的，只不过，让朕做应用程序的人用的是windows系统，所以还是踏踏实实在windows下编译吧。(＞﹏＜) 
+&nbsp;&nbsp; 当然，在<code>Ubuntu</code>下的系统比这个要高一点。而且能兼容1.7，还是比较给力的，只不过，让朕做应用程序的人用的是windows系统，所以还是踏踏实实在windows下编译吧。(＞﹏＜)
 
 ###### 2、使用 ######
+
 &nbsp;&nbsp;  windows系统下<code>gcj43</code>根据我的折腾发现，<font class="red">只支持到jdk1.4</font>，这个就比较肉痛了。<font class="red">这意味着不能使用泛型（也就是很多地方要自己强制类型转换一下），还有一些Java的语法糖也不能用（这里遇到的主要是自动装箱和拆箱），还有不能使用正则</font>。这个是我自己暂时折腾到结果，具体是否是因为我打开的方式错了，要根据大神的结论。所以<code>String</code>里面的<code>spilt</code>和<code>replaceAll</code>等用到正则的方法，是我自己实现的。
 
-&nbsp;&nbsp; 下面首先介绍如何编译<code>gcj43</code>目录里面<code>example</code>里面<code>swt demo</code>（前面其实就是<code>build.sh</code>文件里面的内容，但后面内容会包括一起打包dll文件）：           
+&nbsp;&nbsp; 下面首先介绍如何编译<code>gcj43</code>目录里面<code>example</code>里面<code>swt demo</code>（前面其实就是<code>build.sh</code>文件里面的内容，但后面内容会包括一起打包dll文件）：
 
 *   首先下载完<code> gcc43-20061204.tar.tar</code>后，解压到某一个目录，并将<code>bin</code>文件夹添加到环境变量中，这个比较简单，就不一一介绍了   
 *   然后切换到<code>examples\HelloSWT</code>目录下，先练一下<code>examples</code>里面的项目。因为其实<code>gcc43\swt\win32\3218</code>这个目录有我们需要的编译脚本。<font color="red-strong">只是在这里有个天坑，就是这里路径明明是3218</font>
@@ -38,7 +40,7 @@ http://www.thisiscool.com/gcc_mingw.htm
 <img src="/images/20141207/gcj-win06.png" alt="MoleBox打包dll文件"/>
 
 ### 总结 ###
-* 对于<code>build.sh</code>文件的两条命令，其实都比较好理解，对于第一条命令   
+* 对于<code>build.sh</code>文件的两条命令，其实都比较好理解，对于第一条命令
 
 <<div class="article_content">
 <textarea name="code" class="html" >
@@ -46,7 +48,7 @@ i686-pc-mingw32-gcj -c -o swtgif.o --resource=swt.gif swt.gif
 </textarea>
 </div>
 
-  是把<code>swt.gif</code>文件编译成类似二进制文件，第二条命令比较长，                         
+  是把<code>swt.gif</code>文件编译成类似二进制文件，第二条命令比较长，
 
 <div class="article_content">
 <textarea name="code" class="html" >
@@ -144,7 +146,7 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 * 最后再送上一个<code>ant</code>编译的<code>build.xml</code>文件，首先<code>Eclipse</code>的包结构如下图：
 <img src="/images/20141207/gcj-win09.png" alt="项目成功运行截图"/>
 
-* <code>build.xml</code>文件内容如下：     
+* <code>build.xml</code>文件内容如下:
 
 <div class="article_content">
 <textarea name="code" class="xml" >
