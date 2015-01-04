@@ -1,10 +1,8 @@
 CACHE MANIFEST
-# 2014-12-28 v1.1.2
+# 2014-12-28 v1.1.3
 /css/images/loading.gif
 /themes/violet/images/adv.gif
 /themes/violet/images/hdbg01.jpg
-/themes/violet/js/common.js
-/js/scripts/shCore.js
 /themes/violet/images/favicon.ico
 /themes/violet/images/arrows.png
 /css/font-awesome.css
@@ -14,6 +12,8 @@ CACHE MANIFEST
 /css/images/error.png
 /css/images/notice.png
 /css/images/success.png
+/themes/violet/js/common.js
+/js/scripts/shCore.js
 
 NETWORK:
 *
