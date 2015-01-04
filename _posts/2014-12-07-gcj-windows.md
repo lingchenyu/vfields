@@ -10,9 +10,10 @@ icon: code
 &nbsp;&nbsp;  首先分享一下经验:           
 
 ###### 1、版本 ######                
-&nbsp;&nbsp;  现在在<code>windows</code>系统能下载到的版本暂时是<code>gcj43</code>，下载地址（我下载的是[GCC/GCJ 4.3](http://www.thisiscool.com/gcc_mingw.htm#gcj43))          
+&nbsp;&nbsp;  现在在<code>windows</code>系统能下载到的版本暂时是<code>gcj43</code>，下载地址（我下载的是[GCC/GCJ 4.3](http://www.thisiscool.com/gcc_mingw.htm#gcj43))   
+
 <textarea name="code" class="html" >
-	http://www.thisiscool.com/gcc_mingw.htm
+http://www.thisiscool.com/gcc_mingw.htm
 </textarea>
 &nbsp;&nbsp; 当然，在<code>Ubuntu</code>下的系统比这个要高一点。而且能兼容1.7，还是比较给力的，只不过，让朕做应用程序的人用的是windows系统，所以还是踏踏实实在windows下编译吧。(＞﹏＜) 
 
