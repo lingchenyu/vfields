@@ -31,10 +31,6 @@ body,button,input,select,textarea {
     font: 14px/1.5 tahoma,Microsoft YaHei,arial,"Hiragino Sans GB",\5b8b\4f53
 }
 
-input,select,textarea {
-    font-size: 100%
-}
-
 table {
     border-collapse: collapse;
     border-spacing: 0
@@ -63,7 +59,7 @@ del {
 
 address,caption,cite,code,dfn,em,th,var {
     font-style: normal;
-    font-weight: 500
+    font-weight: 500;
 }
 
 caption,th {
