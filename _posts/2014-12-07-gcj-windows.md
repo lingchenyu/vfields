@@ -43,8 +43,7 @@ http://www.thisiscool.com/gcc_mingw.htm
 
 * 对于<code>build.sh</code>文件的两条命令，其实都比较好理解，对于第一条命令
 
-
-<<div class="article_content">
+<div class="article_content">
 <textarea name="code" class="html" >
 i686-pc-mingw32-gcj -c -o swtgif.o --resource=swt.gif swt.gif
 </textarea>
