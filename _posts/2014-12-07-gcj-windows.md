@@ -12,9 +12,11 @@ icon: code
 ###### 1、版本 ######
 &nbsp;&nbsp;  现在在<code>windows</code>系统能下载到的版本暂时是<code>gcj43</code>，下载地址（我下载的是[GCC/GCJ 4.3](http://www.thisiscool.com/gcc_mingw.htm#gcj43))
 
+<div class="article_content">
 <textarea name="code" class="html" >
 http://www.thisiscool.com/gcc_mingw.htm
 </textarea>
+</div>
 
 &nbsp;&nbsp;当然，在<code>Ubuntu</code>下的系统比这个要高一点。而且能兼容1.7，还是比较给力的，只不过，让朕做应用程序的人用的是windows系统，所以还是踏踏实实在windows下编译吧。(＞﹏＜)
 
@@ -41,47 +43,58 @@ http://www.thisiscool.com/gcc_mingw.htm
 
 * 对于<code>build.sh</code>文件的两条命令，其实都比较好理解，对于第一条命令
 
+<div class="article_content">
 <textarea name="code" class="html" >
 i686-pc-mingw32-gcj -c -o swtgif.o --resource=swt.gif swt.gif
 </textarea>
+</div>
 
 &nbsp;&nbsp;是把<code>swt.gif</code>文件编译成类似二进制文件，第二条命令比较长，
 
+<div class="article_content">
 <textarea name="code" class="html" >
 i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218/swt.jar 
 -o HelloSWT.exe HelloSWT.java swtgif.o -L../../swt/win32/3218 -Wl,--whole-archive -lswtimgloader 
 -Wl,--no-whole-archive -lswt -mwindows
 </textarea>
+</div>
 
 &nbsp;&nbsp;最后一个选项，<code>-mwindows</code>，加了这个之后不会弹出那个命令行窗口，如果把这个选项去掉，执行命令：
 
+<div class="article_content">
 <textarea name="code" class="html" >
 i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218/swt.jar 
 -o HelloSWT.exe HelloSWT.java swtgif.o -L../../swt/win32/3218 -Wl,--whole-archive -lswtimgloader 
 -Wl,--no-whole-archive -lswt
 </textarea>
+</div>
 
 * 结果将会是这样子：
 <img src="/images/20141207/gcj-win07.png" alt="gcj编译后带命令窗口"/>
 * 而那个
 
+<div class="article_content">
 <textarea name="code" class="html" >
 -Wl,--whole-archive -lswtimgloader -Wl,--no-whole-archive -lswt
 </textarea>
+</div>
 
 &nbsp;&nbsp;前面主要是把所用东西打包，后面的<code>swtimgloader</code>是用于加载图片，把之前的图片加载进去成为<code>exe</code>文件的一部分。
 
 * demo项目既然都跑通了，那么其实就已经成功一半了，不过可能还是要折腾一下子，下面把一个完整项目的命令发上来：    
 
+<div class="article_content">
 <textarea name="code" class="html" >
 i686-pc-mingw32-gcj -s -fjni --main=com.wait.calsoft.StartSoft -s --classpath lib/win32/swt.jar -o abc.exe
 src/com/wait/calsoft/*.java src/com/wait/calsoft/cal/*.java src/com/wait/calsoft/UI/*.java
 src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archive -lswtimgloader -Wl,--no-whole-archive
 -lswt -mwindows
 </textarea>
+</div>
 
 &nbsp;&nbsp;这个项目的目录结构如下：
 
+<div class="article_content">
 <textarea name="code" class="html" >
 │  swt-gdip-win32-3218.dll
 │  swt-win32-3218.dll
@@ -124,6 +137,7 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
                         MixUtils.java
                         UINames.java
 </textarea>
+</div>
 
 &nbsp;&nbsp;= =一时找不到可以显示目录和文件的软件，就先用<code>tree</code>命令简单打印一下了
 
@@ -135,6 +149,7 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 
 * <code>build.xml</code>文件内容如下:
 
+<div class="article_content">
 <textarea name="code" class="xml" >
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="calTest" name="cal-test">
@@ -182,5 +197,6 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 	</target>
 </project>
 </textarea>
+</div>
 
 * 最后把<code>config</code>目录和两个<code>dll</code>文件拷贝过去，双击即可运行。

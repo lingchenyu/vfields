@@ -202,7 +202,8 @@ var ZeroClipboard = {
     while (d && (d != b)) {
       c.left += d.offsetLeft;
       c.top += d.offsetTop;
-      d = d.offsetParent
+      d = d.offsetParent;
+	  break;
     }
     return c
   },
