@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html manifest="/vfields.appcache">
+<head>
+    <!--
+     **
+     * 建议不要看本blog源码, 暂时写得比较烂, 容朕慢慢整理(>_<)
+     **
+    -->
+    <meta charset="utf-8" />
+    <title>
+        
+            swt的Text输入数字(包括负数和小数)
+                 
+    </title>
+    <meta name="generator" content="Jekyll" />
+    <meta name="author" content="" />
+    <meta name="description" content="swt的Text组件输入数字（包括小数和负数）" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <!-- //页面样式 -->
+    <link type="text/css" href="http://127.0.0.1:4000/themes/violet/css/style.css" rel="stylesheet" />
+    <link type="text/css" href="http://127.0.0.1:4000/css/font-awesome.css" rel="stylesheet">
+    <link type="image/x-icon" href="http://127.0.0.1:4000/themes/violet/images/favicon.ico" rel="shortcut icon" />
+    <!-- //代码样式 -->
+    <link type="text/css" rel="stylesheet" href="http://127.0.0.1:4000/css/syntaxhighlighter.css"></link>
+</head>
+<body id="violet">
+    <div id="loading" style="z-index:1;padding:5px;position:fixed;width:90px;"><img src="/css/images/loading.gif"></div>
+    <div class="page-wrapper">
+        <section class="head" id="violet-head">
+            <header class="header" id="violet-header">
+                <h1 class="logo"><a href="http://127.0.0.1:4000">vFields</a></h1>
+                <h2 class="subtitle">Another Boring Blog.</h2>
+            </header>
+       
+	    <nav class="nav" id="violet-nav">
+		<ul class="nav-list">
+		
+		    
+		    
+		    <li class="nav-item ">
+			<a href="/index.html">
+			    首页
+			</a>
+			
+		    </li>
+		
+		    
+		    
+		    <li class="nav-item ">
+			<a href="/archives.html">
+			    文章
+			</a>
+			
+		    </li>
+		
+		    
+		    
+		    <li class="nav-item ">
+			<a href="/categories.html">
+			    目录
+			</a>
+			
+		    </li>
+		
+		</ul>
+	    </nav>
+        </section>
+        
+	<article class="main-article main-article-page">
+			<div class="violet-title">
+		<h3 class="violet-title-item">swt的Text输入数字(包括负数和小数)</h3>
+	</div>
+	<div class="violet-post">
+		<p class="main-article-meta"><time pubdate="">2014-12-07</time></p>
+		<div id="article_content" class="main-article-contant article_content">
+			<p>   最终效果图如下：</p>
+
+<p><img src="/images/20141207/swt-num-text01.png" alt="swt-text运行效果图" /></p>
+
+<p>   代码：</p>
+
+<textarea name="code" class="java">
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.VerifyEvent;
+import org.eclipse.swt.events.VerifyListener;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+ 
+public class SWTNumberText {
+ 
+	private Shell shell;
+ 
+	private Text text1;
+	private Text text2;
+ 
+	/**
+	 * 初始化各种组件
+	 */
+	public void open() {
+		Display display = new Display();
+		shell = new Shell(display);
+
+		// 初始化监听器
+		ModifyListener modifyListener = new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				String textStr = ((Text) e.widget).getText();
+				if (textStr == null || textStr.equals("")) {
+					return;
+				}
+
+				if (textStr.equals("-") || textStr.startsWith(".") || textStr.endsWith(".") || textStr.startsWith("-.")) {
+					return;
+				}
+
+				// 注意,这里是可以进行其它操作的地方
+				// 如果能顺利通过前面的判断,那输入已合法,可以进行一些相应的操作,比如读取内容进行计算
+				// 暂时只是将两个数相乘
+				System.err.println(Double.parseDouble(text1.getText()) * Double.parseDouble(text2.getText()));
+			}
+		};
+
+		VerifyListener verifyListener = new VerifyListener() {
+
+			@Override
+			public void verifyText(VerifyEvent event) {
+				// 允许"backspace"和"delete"进行删除
+				if (event.keyCode == SWT.BS || event.keyCode == SWT.DEL) {
+					event.doit = true;
+					return;
+				}
+				event.doit = false;
+				char myChar = event.character;
+				Text text = (Text) event.widget;
+				String textStr = text.getText();
+				if (myChar == '-') {
+					if (textStr.indexOf("-") == -1) {
+						if (event.start == 0) {
+							event.doit = true;
+						}
+					}
+				} else if (myChar == '.') {
+					if (textStr.indexOf(".") == -1) {
+						if (event.start != 0) {
+							event.doit = true;
+						}
+					}
+				} else {
+					// 其余的只能输入数字
+					if ((myChar &gt;= '0' &amp;&amp; myChar &lt;= '9')) {
+						event.doit = true;
+					}
+				}
+			}
+		};
+
+		shell.setLayout(new GridLayout(2, false));
+
+		new Label(shell, SWT.NONE).setText("标签1");
+		text1 = new Text(shell, SWT.NONE);// 这里各种外观自己控制
+		text1.setText("1");
+		GridData gridData = new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.VERTICAL_ALIGN_FILL);
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.grabExcessVerticalSpace = true;
+		text1.setLayoutData(gridData);
+
+		new Label(shell, SWT.NONE).setText("标签2");
+		text2 = new Text(shell, SWT.NONE);// 这里各种外观自己控制
+		text2.setText("2");
+		gridData = new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.VERTICAL_ALIGN_FILL);
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.grabExcessVerticalSpace = true;
+		text2.setLayoutData(gridData);
+
+		// 添加监听器
+		text1.addVerifyListener(verifyListener);
+		text1.addModifyListener(modifyListener);
+
+		text2.addVerifyListener(verifyListener);
+		text2.addModifyListener(modifyListener);
+
+		shell.setSize(200, 100);
+
+		shell.open();
+	}
+ 
+	public void run() {
+		Display display = shell.getDisplay();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch())
+				display.sleep();
+		}
+	}
+ 
+	public static void main(String[] args) {
+		SWTNumberText swtNumberText = new SWTNumberText();
+		swtNumberText.open();
+		swtNumberText.run();
+	}
+ 
+}
+</textarea>
+
+<p>   上面的例子中，<code>swt</code>的<code>text</code>可以及时监听输入。注意：这里有一个前提，就是每一个<code>text</code>要有默认值，或者在计算的时候自己去判断 <code>getText()</code>为空。这里为了简便，就不判空。</p>
+
+<div class="alert-box warning"><span>注意</span><br /><code>Text</code>加了监听器之后，直接调用<code>setText()</code>方法会有问题，拿到一个空值，所以在<code>setText()</code>之前，要先remove掉这两个监听器，在<code>setText()</code>之后，再添加回来。像下面：</div>
+
+<textarea name="code" class="java">
+// 先移除监听
+text1.removeVerifyListener(verifyListener);
+text1.removeModifyListener(modifyListener);
+// 然后设置值
+text1.setText("1111");
+// 最后再添加监听器
+text1.addVerifyListener(verifyListener);
+text1.addModifyListener(modifyListener);
+</textarea>
+
+<p>   上面这一段代码看上去挺奇怪，又移除又添加的，但其实仔细一想就很容易明白，监听器监听的其实是用户的输入，而用户的输入每次都会被监听，所以如果你能确信自己set进去的内容没有问题，就应该把监听器拿掉，要不然监听器也会对<code>setText()</code>的内容进行监听。但由于<code>setText()</code>一次搞进去一个字符串，监听器好像会有点问题，具体的细节我没有去深究，-_-!先酱紫用着了</p>
+
+		</div>
+	</div>
+
+	<nav class="pagination fn-clear" id="violet-paging">
+		<div class="pagination-list">
+			
+			<a class="prev" href="/java/2014/12/07/java-runtime-encode.html" rel="bookmark"><i class="fa fa-chevron-circle-left"></i>java的Runtime在windows系统下调用ping命令乱码</a>
+			
+			
+			<a class="next" href="/java/2014/12/24/fight-system.html" rel="bookmark">传说中的战斗系统<i class="fa fa-chevron-circle-right"></i></a>
+			
+		</div>
+	</nav>
+	<div class="comment">
+	<div class="alert-box notice"><span>注意</span><br/>如果评论，请匿名评论。邮箱填“aa@126.com”之类的就妥了。表情神马的要手动上传图片= =!</div>
+		
+			<div class="comment-cnt">
+				<div id="disqus_thread"></div>
+			</div>
+		
+	</div>
+
+
+	</article>
+	
+	<footer class="foot" id="violet-foot">
+		<div class="footer fn-clear">
+			<h1 class="logo">vFields</h1>
+		</div>
+		<div class="copyright">
+			<div class="copyright-cnt fn-clear">
+				<p class="text">© 2014 by wait</p>
+			</div>
+		</div>
+	</footer>
+    </div>
+	
+	<div id="ad">
+		<span class="color color-1"></span>
+		<span class="color color-2"></span>
+		<span class="color color-3"></span>
+		<span class="color color-5"></span>
+		
+		<div class="section">
+		
+			<h6><span class="arrow up"></span>可能是东半球最牛叉的广告</h6>
+			
+			<img src="http://127.0.0.1:4000/themes/violet/images/adv.gif"></img>
+		</div>
+	</div>
+   
+    <script type="text/javascript" src="http://mini.jiasule.com/framework/jquery/1.8.3/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="http://127.0.0.1:4000/themes/violet/js/jquery-scrollTo.min.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/themes/violet/js/common.js"></script>
+	<script type="text/javascript" src="http://127.0.0.1:4000/js/scripts/shCore.js"></script>
+	<script type="text/javascript">
+		jQuery("#loading").fadeOut();
+	</script>  
+
+    
+	<script type="text/javascript">
+	if(document.getElementById("disqus_thread"))   
+	{   
+		//disqus
+		var disqus_shortname = 'vfields';
+		(function() {
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] ||
+			document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	}
+	</script>
+    
+</body>
+</html>

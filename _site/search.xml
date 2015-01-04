@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<articles xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<article>
+	<title>传说中的战斗系统</title>
+	<url>http://127.0.0.1:4000/java/2014/12/24/fight-system.html</url>
+	<date>2014-12-24</date>
+</article>
+
+<article>
+	<title>swt的Text输入数字(包括负数和小数)</title>
+	<url>http://127.0.0.1:4000/java/2014/12/07/swt-text-num.html</url>
+	<date>2014-12-07</date>
+</article>
+
+<article>
+	<title>java的Runtime在windows系统下调用ping命令乱码</title>
+	<url>http://127.0.0.1:4000/java/2014/12/07/java-runtime-encode.html</url>
+	<date>2014-12-07</date>
+</article>
+
+<article>
+	<title>gcj43在windows下编译swt项目</title>
+	<url>http://127.0.0.1:4000/java/2014/12/07/gcj-windows.html</url>
+	<date>2014-12-07</date>
+</article>
+
+<article>
+	<title>RVM is not a function</title>
+	<url>http://127.0.0.1:4000/ubuntu/2014/12/06/rvm-is-not-a-function.html</url>
+	<date>2014-12-06</date>
+</article>
+
+<article>
+	<title>传说中的第一篇blog</title>
+	<url>http://127.0.0.1:4000/life/2014/12/05/first-blog.html</url>
+	<date>2014-12-05</date>
+</article>
+
+</articles>

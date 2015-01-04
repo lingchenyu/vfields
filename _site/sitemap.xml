@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>http://127.0.0.1:4000/</loc>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>http://127.0.0.1:4000/archives.html</loc>
+        <priority>0.6</priority>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4000/java/2014/12/24/fight-system.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4000/java/2014/12/07/swt-text-num.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4000/java/2014/12/07/java-runtime-encode.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4000/java/2014/12/07/gcj-windows.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4000/ubuntu/2014/12/06/rvm-is-not-a-function.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+    <url>
+        <loc>http://127.0.0.1:4000/life/2014/12/05/first-blog.html</loc>
+        <priority>0.8</priority>
+    </url>
+    
+</urlset>

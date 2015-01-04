@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+   <title>vFields</title>
+   <link href="http://127.0.0.1:4000/atom.xml" rel="self" type="application/atom+xml"/>
+   <link href="http://127.0.0.1:4000" rel="alternate" type="text/html" />
+   <updated>2015-01-04T19:06:48+08:00</updated>
+   <id>http://127.0.0.1:4000</id>
+   <author>
+     <name></name>
+     <email></email>
+   </author>
+
+   
+   <entry>
+     <title>传说中的战斗系统</title>
+     <link href="http://127.0.0.1:4000/java/2014/12/24/fight-system.html"/>
+     <updated>2014-12-24T00:00:00+08:00</updated>
+     <id>http://127.0.0.1:4000/java/2014/12/24/fight-system</id>
+     <content type="html">&lt;p&gt;   2014想做的第3件算是差不多了吧，虽然暂时还是做得比较烂，但其实也差不多达到我想要的效果了。如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20141224/fight.gif&quot; alt=&quot;战斗系统效果图&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;  现在只是做了两个战斗角色进行战斗，多个的话，后端是可以支持的，但前端怎么显示还没折腾好。这个gif有点粗糙，还有那个特效是我随意偷过来的，在释放技能的时候，就播放一下，其实没神马意思，只是有时候不知道下一步怎么走的时候，就随意写一个循环嘚瑟一下，所以，不要注意细节。下面是它的流程图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20141224/fight-flow-chart.png&quot; alt=&quot;战斗系统流程图&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;  主要是读取excel表，然后根据流程图的节奏，开打，下面是excel表的数据截图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20141224/fight-excel-data.png&quot; alt=&quot;战斗数据来源截图&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;  根据流程图，其实最主要是根据各种属性判断命中、伤害、暴击等，然后技能进入冷却，而公式暂时是做的比较烂的，毕竟朕只是一个后端程序员，而不是一个数值，而且经验神马的还不够，公式是我乱配的，所以，不要问我为神马是酱紫的，公式如下：&lt;/p&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;html&quot;&gt;
+##战力=攻击*1.3+防御*1.8+生命*1.1+速度*0.5+命中*1+闪避*1+暴击*2.1+韧性*2.1
+#attack:攻击
+#defense
+#hp
+#speed
+#hit
+#dodge
+#crit
+#tough
+playerScore=#{attack} * 1.3 + #{defense} * 1.8 + #{hp} * 1.1 + #{speed} * 0.5 + #{hit} * 1 + #{dodge} * 1 + #{crit} * 2.1 + #{tough} * 2.1
+ 
+ 
+##=========================战斗命中============================
+##命中概率10000则表示100%命中
+##命中概率=基础命中率 + (攻击方命中值 - 防御方的闪避值) * 1.1 + (攻击方战力 - 防御方战力)
+#attackHit:攻击方命中值
+#enemyDodge:防御方的闪避值
+#srcScore:攻击方战力
+#enemyScore:防御方战力
+hitRate=9000 + (#{attackHit} - #{enemyDodge}) * 1.1 + #{srcScore} - #{enemyScore}
+ 
+##=========================战斗暴击============================
+##暴击概率10000则表示100%暴击
+##暴击概率=攻击方的暴击值 - 防御方的韧性值
+#attackCrit:攻击方的暴击值
+#enemyTough:防御方的韧性值
+critRate=#{attackCrit} - #{enemyTough}
+ 
+##=========================战斗伤害============================
+##总公式=(攻方的攻击力 * 0.9 / (1 + 防方的防御力 * 0.1)) * 技能加成
+#srcAttack:攻方的攻击力
+#enemyDefense:防方的防御力
+#skillHurt:技能附加伤害
+hurt=(#{srcAttack} * 0.9 / (1 + #{enemyDefense} * 0.1)) * #{skillHurt}
+&lt;/textarea&gt;
+
+&lt;p&gt;  下一步应该是看一下netty源码，在搭好通信之后，把这个系统扩展成一个简单的游戏，这时候其实主要的系统就是任务系统和世界boss等；最后做一个简单的管理后台，这时候可以去学&lt;code&gt;js&lt;/code&gt;、&lt;code&gt;css&lt;/code&gt;，最重要的是要学习&lt;code&gt;mysql&lt;/code&gt;。我想，我是停不下了吧。我也不知道，只是想学。。。&lt;/p&gt;
+</content>
+   </entry>
+   
+   <entry>
+     <title>swt的Text输入数字(包括负数和小数)</title>
+     <link href="http://127.0.0.1:4000/java/2014/12/07/swt-text-num.html"/>
+     <updated>2014-12-07T00:00:00+08:00</updated>
+     <id>http://127.0.0.1:4000/java/2014/12/07/swt-text-num</id>
+     <content type="html">&lt;p&gt;   最终效果图如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/20141207/swt-num-text01.png&quot; alt=&quot;swt-text运行效果图&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;   代码：&lt;/p&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;java&quot;&gt;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.VerifyEvent;
+import org.eclipse.swt.events.VerifyListener;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+ 
+public class SWTNumberText {
+ 
+	private Shell shell;
+ 
+	private Text text1;
+	private Text text2;
+ 
+	/**
+	 * 初始化各种组件
+	 */
+	public void open() {
+		Display display = new Display();
+		shell = new Shell(display);
+
+		// 初始化监听器
+		ModifyListener modifyListener = new ModifyListener() {
+			@Override
+			public void modifyText(ModifyEvent e) {
+				String textStr = ((Text) e.widget).getText();
+				if (textStr == null || textStr.equals(&quot;&quot;)) {
+					return;
+				}
+
+				if (textStr.equals(&quot;-&quot;) || textStr.startsWith(&quot;.&quot;) || textStr.endsWith(&quot;.&quot;) || textStr.startsWith(&quot;-.&quot;)) {
+					return;
+				}
+
+				// 注意,这里是可以进行其它操作的地方
+				// 如果能顺利通过前面的判断,那输入已合法,可以进行一些相应的操作,比如读取内容进行计算
+				// 暂时只是将两个数相乘
+				System.err.println(Double.parseDouble(text1.getText()) * Double.parseDouble(text2.getText()));
+			}
+		};
+
+		VerifyListener verifyListener = new VerifyListener() {
+
+			@Override
+			public void verifyText(VerifyEvent event) {
+				// 允许&quot;backspace&quot;和&quot;delete&quot;进行删除
+				if (event.keyCode == SWT.BS || event.keyCode == SWT.DEL) {
+					event.doit = true;
+					return;
+				}
+				event.doit = false;
+				char myChar = event.character;
+				Text text = (Text) event.widget;
+				String textStr = text.getText();
+				if (myChar == &#39;-&#39;) {
+					if (textStr.indexOf(&quot;-&quot;) == -1) {
+						if (event.start == 0) {
+							event.doit = true;
+						}
+					}
+				} else if (myChar == &#39;.&#39;) {
+					if (textStr.indexOf(&quot;.&quot;) == -1) {
+						if (event.start != 0) {
+							event.doit = true;
+						}
+					}
+				} else {
+					// 其余的只能输入数字
+					if ((myChar &amp;gt;= &#39;0&#39; &amp;amp;&amp;amp; myChar &amp;lt;= &#39;9&#39;)) {
+						event.doit = true;
+					}
+				}
+			}
+		};
+
+		shell.setLayout(new GridLayout(2, false));
+
+		new Label(shell, SWT.NONE).setText(&quot;标签1&quot;);
+		text1 = new Text(shell, SWT.NONE);// 这里各种外观自己控制
+		text1.setText(&quot;1&quot;);
+		GridData gridData = new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.VERTICAL_ALIGN_FILL);
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.grabExcessVerticalSpace = true;
+		text1.setLayoutData(gridData);
+
+		new Label(shell, SWT.NONE).setText(&quot;标签2&quot;);
+		text2 = new Text(shell, SWT.NONE);// 这里各种外观自己控制
+		text2.setText(&quot;2&quot;);
+		gridData = new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.VERTICAL_ALIGN_FILL);
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.grabExcessVerticalSpace = true;
+		text2.setLayoutData(gridData);
+
+		// 添加监听器
+		text1.addVerifyListener(verifyListener);
+		text1.addModifyListener(modifyListener);
+
+		text2.addVerifyListener(verifyListener);
+		text2.addModifyListener(modifyListener);
+
+		shell.setSize(200, 100);
+
+		shell.open();
+	}
+ 
+	public void run() {
+		Display display = shell.getDisplay();
+		while (!shell.isDisposed()) {
+			if (!display.readAndDispatch())
+				display.sleep();
+		}
+	}
+ 
+	public static void main(String[] args) {
+		SWTNumberText swtNumberText = new SWTNumberText();
+		swtNumberText.open();
+		swtNumberText.run();
+	}
+ 
+}
+&lt;/textarea&gt;
+
+&lt;p&gt;   上面的例子中，&lt;code&gt;swt&lt;/code&gt;的&lt;code&gt;text&lt;/code&gt;可以及时监听输入。注意：这里有一个前提，就是每一个&lt;code&gt;text&lt;/code&gt;要有默认值，或者在计算的时候自己去判断 &lt;code&gt;getText()&lt;/code&gt;为空。这里为了简便，就不判空。&lt;/p&gt;
+
+&lt;div class=&quot;alert-box warning&quot;&gt;&lt;span&gt;注意&lt;/span&gt;&lt;br /&gt;&lt;code&gt;Text&lt;/code&gt;加了监听器之后，直接调用&lt;code&gt;setText()&lt;/code&gt;方法会有问题，拿到一个空值，所以在&lt;code&gt;setText()&lt;/code&gt;之前，要先remove掉这两个监听器，在&lt;code&gt;setText()&lt;/code&gt;之后，再添加回来。像下面：&lt;/div&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;java&quot;&gt;
+// 先移除监听
+text1.removeVerifyListener(verifyListener);
+text1.removeModifyListener(modifyListener);
+// 然后设置值
+text1.setText(&quot;1111&quot;);
+// 最后再添加监听器
+text1.addVerifyListener(verifyListener);
+text1.addModifyListener(modifyListener);
+&lt;/textarea&gt;
+
+&lt;p&gt;   上面这一段代码看上去挺奇怪，又移除又添加的，但其实仔细一想就很容易明白，监听器监听的其实是用户的输入，而用户的输入每次都会被监听，所以如果你能确信自己set进去的内容没有问题，就应该把监听器拿掉，要不然监听器也会对&lt;code&gt;setText()&lt;/code&gt;的内容进行监听。但由于&lt;code&gt;setText()&lt;/code&gt;一次搞进去一个字符串，监听器好像会有点问题，具体的细节我没有去深究，-_-!先酱紫用着了&lt;/p&gt;
+</content>
+   </entry>
+   
+   <entry>
+     <title>java的Runtime在windows系统下调用ping命令乱码</title>
+     <link href="http://127.0.0.1:4000/java/2014/12/07/java-runtime-encode.html"/>
+     <updated>2014-12-07T00:00:00+08:00</updated>
+     <id>http://127.0.0.1:4000/java/2014/12/07/java-runtime-encode</id>
+     <content type="html">&lt;p&gt;   最终解决乱码的代码如下：    &lt;/p&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;java&quot;&gt;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+ 
+public class TestRuntimeExec {
+	public static void main(String[] args) {
+		Runtime r = Runtime.getRuntime();
+		Process p;
+		try {
+			p = r.exec(&quot;ping 127.0.0.1&quot;);
+			BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream(), &quot;gbk&quot;));
+			String inline;
+			while ((inline = br.readLine()) != null) {
+				String string = new String(inline.getBytes());
+				System.out.println(string);
+			}
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+&lt;/textarea&gt;
+
+&lt;p&gt;   运行结果如下：
+&lt;img src=&quot;/images/20141207/java-runtime-encode01.png&quot; alt=&quot;runtime乱码效果图&quot; /&gt;&lt;/p&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;java&quot;&gt;
+BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream(), &quot;gbk&quot;));
+&lt;/textarea&gt;
+
+&lt;p&gt;   其实关键就是上面这一句里面的“gbk”，如果没有后面的”gbk“，那么结果如下：
+&lt;img src=&quot;/images/20141207/java-runtime-encode02.png&quot; alt=&quot;runtime乱码效果图&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;      虽然知道乱码的产生是因为编码的问题，但要找到正确的编码和在合适的位置加入编码格式，有折腾过半个钟，主要是因为自己技术太菜吧o(╯□╰)o&lt;/p&gt;
+</content>
+   </entry>
+   
+   <entry>
+     <title>gcj43在windows下编译swt项目</title>
+     <link href="http://127.0.0.1:4000/java/2014/12/07/gcj-windows.html"/>
+     <updated>2014-12-07T00:00:00+08:00</updated>
+     <id>http://127.0.0.1:4000/java/2014/12/07/gcj-windows</id>
+     <content type="html">&lt;p&gt;  现在应该已经没有人会用这种过期的东东了，而且网上也一大堆人说&lt;code&gt;Java&lt;/code&gt;不应该用于做应用程序，说不符合&lt;code&gt;Java&lt;/code&gt;跨平台或者不是&lt;code&gt;Java&lt;/code&gt;的长项等等。但有时候有朋友让我帮忙做一个很简单的只是单纯套用公式的应用，让我在短时间去学&lt;code&gt;c++&lt;/code&gt;或者&lt;code&gt;c#&lt;/code&gt;也有点难度，所以就还是冒着被鄙视的风险，把&lt;code&gt;Java&lt;/code&gt;用gcj编译成exe文件。当然，最后还是让我折腾出来了。&lt;/p&gt;
+
+&lt;p&gt;  首先分享一下经验:&lt;/p&gt;
+
+&lt;h6 id=&quot;section&quot;&gt;1、版本&lt;/h6&gt;
+&lt;p&gt;    现在在&lt;code&gt;windows&lt;/code&gt;系统能下载到的版本暂时是&lt;code&gt;gcj43&lt;/code&gt;，下载地址（我下载的是&lt;a href=&quot;http://www.thisiscool.com/gcc_mingw.htm#gcj43&quot;&gt;GCC/GCJ 4.3&lt;/a&gt;)&lt;/p&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;html&quot;&gt;
+http://www.thisiscool.com/gcc_mingw.htm
+&lt;/textarea&gt;
+
+&lt;p&gt;  当然，在&lt;code&gt;Ubuntu&lt;/code&gt;下的系统比这个要高一点。而且能兼容1.7，还是比较给力的，只不过，让朕做应用程序的人用的是windows系统，所以还是踏踏实实在windows下编译吧。(＞﹏＜)&lt;/p&gt;
+
+&lt;h6 id=&quot;section-1&quot;&gt;2、使用&lt;/h6&gt;
+&lt;p&gt;  windows系统下&lt;code&gt;gcj43&lt;/code&gt;根据我的折腾发现，&lt;font class=&quot;red&quot;&gt;只支持到jdk1.4&lt;/font&gt;，这个就比较肉痛了。&lt;font class=&quot;red&quot;&gt;这意味着不能使用泛型（也就是很多地方要自己强制类型转换一下），还有一些Java的语法糖也不能用（这里遇到的主要是自动装箱和拆箱），还有不能使用正则&lt;/font&gt;。这个是我自己暂时折腾到结果，具体是否是因为我打开的方式错了，要根据大神的结论。所以&lt;code&gt;String&lt;/code&gt;里面的&lt;code&gt;spilt&lt;/code&gt;和&lt;code&gt;replaceAll&lt;/code&gt;等用到正则的方法，是我自己实现的。&lt;/p&gt;
+
+&lt;p&gt;   下面首先介绍如何编译&lt;code&gt;gcj43&lt;/code&gt;目录里面&lt;code&gt;example&lt;/code&gt;里面&lt;code&gt;swt demo&lt;/code&gt;（前面其实就是&lt;code&gt;build.sh&lt;/code&gt;文件里面的内容，但后面内容会包括一起打包dll文件）：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;首先下载完&lt;code&gt; gcc43-20061204.tar.tar&lt;/code&gt;后，解压到某一个目录，并将&lt;code&gt;bin&lt;/code&gt;文件夹添加到环境变量中，这个比较简单，就不一一介绍了   &lt;/li&gt;
+  &lt;li&gt;然后切换到&lt;code&gt;examples\HelloSWT&lt;/code&gt;目录下，先练一下&lt;code&gt;examples&lt;/code&gt;里面的项目。因为其实&lt;code&gt;gcc43\swt\win32\3218&lt;/code&gt;这个目录有我们需要的编译脚本。&lt;font color=&quot;red-strong&quot;&gt;只是在这里有个天坑，就是这里路径明明是3218&lt;/font&gt;
+&lt;img src=&quot;/images/20141207/gcj-win01.png&quot; alt=&quot;gcj目录1&quot; /&gt;
+   但在&lt;code&gt;examples\HelloSWT&lt;/code&gt;目录下的&lt;code&gt;build.sh&lt;/code&gt;文件里面编译的却是：
+&lt;img src=&quot;/images/20141207/gcj-win02.png&quot; alt=&quot;gcj目录2&quot; /&gt;
+   &lt;font color=&quot;blue&quot;&gt;两个版本，也就是路径不一样，一开始在这里折腾了好久，最后知道真相之后眼泪都掉下来了。&lt;/font&gt;把第二行的3138改成 3218之后，执行命令如下：
+&lt;img src=&quot;/images/20141207/gcj-win03.png&quot; alt=&quot;gcj编译swt demo&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;执行成功，而且完全木有报错有没有，但其实这时候你执行&lt;code&gt;HelloSWT.exe&lt;/code&gt;是神马东西都木有的，即使你使用命令窗口执行，也是虾米都没有的，like this：
+&lt;img src=&quot;/images/20141207/gcj-win04.png&quot; alt=&quot;gcj运行swt demo&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;好吧，这里当时也搞得我崩溃了，后来查了很多资料，也连蒙带撞的，把&lt;code&gt;\swt\win32\3218&lt;/code&gt;目录下的两个dll文件：&lt;code&gt;swt-gdip-win32-3218.dll&lt;/code&gt;和&lt;code&gt;swt-win32-3218.dll&lt;/code&gt;拷贝到&lt;code&gt;HelloSWT&lt;/code&gt;文件夹下，才终于可以运行了，截图纪念一下：
+&lt;img src=&quot;/images/20141207/gcj-win05.png&quot; alt=&quot;gcj成功运行swt demo&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;但&lt;font class=&quot;red&quot;&gt;其实这时候会有一个问题&lt;/font&gt;，就是一旦没有&lt;code&gt;dll&lt;/code&gt;文件就不能运行了，而且以后要打包出去给其他人使用的时候，那两个&lt;code&gt;dll&lt;/code&gt;文件看上去也有点累赘，如果能把&lt;code&gt;dll&lt;/code&gt;文件打包进去&lt;code&gt;exe&lt;/code&gt;文件中就好了。对于这个，可以用外部软件把&lt;code&gt;dll&lt;/code&gt;文件打包进去。暂时折腾过的有两个软件，一个&lt;code&gt;MoleBox&lt;/code&gt; ，这个软件只是帮忙绑在一起。而另一个软件 &lt;code&gt;EXE ResPacker&lt;/code&gt;  除了把&lt;code&gt;dll&lt;/code&gt;或者资源等打包进去之外，还可以对&lt;code&gt;exe&lt;/code&gt;进行加密。但这两个软件都是收费的。我用的是&lt;code&gt;Molebox&lt;/code&gt;打包，这里路径不用纠结，这是我为了备份，把&lt;code&gt;HelloSWT.exe&lt;/code&gt;，还有两个&lt;code&gt;dll&lt;/code&gt;文件额外拿出来折腾的。最后截图如下：
+&lt;img src=&quot;/images/20141207/gcj-win06.png&quot; alt=&quot;MoleBox打包dll文件&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;section-2&quot;&gt;总结&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;对于&lt;code&gt;build.sh&lt;/code&gt;文件的两条命令，其实都比较好理解，对于第一条命令&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;html&quot;&gt;
+i686-pc-mingw32-gcj -c -o swtgif.o --resource=swt.gif swt.gif
+&lt;/textarea&gt;
+
+&lt;p&gt;  是把&lt;code&gt;swt.gif&lt;/code&gt;文件编译成类似二进制文件，第二条命令比较长，&lt;/p&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;html&quot;&gt;
+i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218/swt.jar 
+-o HelloSWT.exe HelloSWT.java swtgif.o -L../../swt/win32/3218 -Wl,--whole-archive -lswtimgloader 
+-Wl,--no-whole-archive -lswt -mwindows
+&lt;/textarea&gt;
+
+&lt;p&gt;  最后一个选项，&lt;code&gt;-mwindows&lt;/code&gt;，加了这个之后不会弹出那个命令行窗口，如果把这个选项去掉，执行命令：&lt;/p&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;html&quot;&gt;
+i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218/swt.jar 
+-o HelloSWT.exe HelloSWT.java swtgif.o -L../../swt/win32/3218 -Wl,--whole-archive -lswtimgloader 
+-Wl,--no-whole-archive -lswt
+&lt;/textarea&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;结果将会是这样子：
+&lt;img src=&quot;/images/20141207/gcj-win07.png&quot; alt=&quot;gcj编译后带命令窗口&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;而那个&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;html&quot;&gt;
+-Wl,--whole-archive -lswtimgloader -Wl,--no-whole-archive -lswt
+&lt;/textarea&gt;
+
+&lt;p&gt;  前面主要是把所用东西打包，后面的&lt;code&gt;swtimgloader&lt;/code&gt;是用于加载图片，把之前的图片加载进去成为&lt;code&gt;exe&lt;/code&gt;文件的一部分。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;demo项目既然都跑通了，那么其实就已经成功一半了，不过可能还是要折腾一下子，下面把一个完整项目的命令发上来：    &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;html&quot;&gt;
+i686-pc-mingw32-gcj -s -fjni --main=com.wait.calsoft.StartSoft -s --classpath lib/win32/swt.jar -o abc.exe
+src/com/wait/calsoft/*.java src/com/wait/calsoft/cal/*.java src/com/wait/calsoft/UI/*.java
+src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archive -lswtimgloader -Wl,--no-whole-archive
+-lswt -mwindows
+&lt;/textarea&gt;
+
+&lt;p&gt;  这个项目的目录结构如下：&lt;/p&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;html&quot;&gt;
+│  swt-gdip-win32-3218.dll
+│  swt-win32-3218.dll
+│  
+├─config  //这个目录是我的项目的配置文件目录
+│      config.txt
+│      lang.txt
+│      testData.txt
+│      
+├─lib
+│  └─win32 //这个目录其实是用gcc43/swt目录里面拷贝过来的
+│          libswt.a
+│          libswtimgloader.a
+│          swt-gdip-win32-3218.dll
+│          swt-win32-3218.dll
+│          swt.jar
+│          swt.o
+│          
+└─src
+    │  logo.png
+    │  logo.o // 由上面的png编译而成，读取代码：MainUI.class.getResourceAsStream(&quot;/logo.png&quot;));
+    │  
+    └─com
+        └─wait
+            └─calsoft
+                │  StartSoft.java
+                │  
+                ├─cal
+                │      Calculator.java
+                │      FormulaParser.java
+                │      Operator.java
+                │      
+                ├─UI
+                │      MainUI.java
+                │      
+                └─util
+                        ExpressionNames.java
+                        LangExpressionUtil.java
+                        LangUtils.java
+                        MixUtils.java
+                        UINames.java
+&lt;/textarea&gt;
+
+&lt;p&gt;  = =一时找不到可以显示目录和文件的软件，就先用&lt;code&gt;tree&lt;/code&gt;命令简单打印一下了&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;然后就可以运行了，但要保证&lt;code&gt;config&lt;/code&gt;等外部资源的路径一致性，当然图片因为已经打包进去，就可以删掉，截图如下：
+&lt;img src=&quot;/images/20141207/gcj-win08.png&quot; alt=&quot;项目成功运行截图&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;最后再送上一个&lt;code&gt;ant&lt;/code&gt;编译的&lt;code&gt;build.xml&lt;/code&gt;文件，首先&lt;code&gt;Eclipse&lt;/code&gt;的包结构如下图：
+&lt;img src=&quot;/images/20141207/gcj-win09.png&quot; alt=&quot;项目成功运行截图&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;build.xml&lt;/code&gt;文件内容如下:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;textarea name=&quot;code&quot; class=&quot;xml&quot;&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;
+&lt;project basedir=&quot;.&quot; default=&quot;calTest&quot; name=&quot;cal-test&quot;&gt;
+	&lt;property name=&quot;gcj&quot; value=&quot;gcj&quot; /&gt;
+	&lt;property name=&quot;dist&quot; value=&quot;dist&quot; /&gt;
+	&lt;property name=&quot;outputfile&quot; value=&quot;outputfile.exe&quot; /&gt;
+ 
+	&lt;target name=&quot;calTest&quot;&gt;
+		&lt;antcall target=&quot;cleanCalTest&quot;&gt;
+		&lt;/antcall&gt;
+		&lt;antcall target=&quot;buildCalTest&quot;&gt;
+		&lt;/antcall&gt;
+		&lt;antcall target=&quot;runCalTest&quot;&gt;
+		&lt;/antcall&gt;
+	&lt;/target&gt;
+ 
+	&lt;!-- 编译项目 --&gt;
+	&lt;target name=&quot;buildCalTest&quot; description=&quot;buildCalTest&quot;&gt;
+		&lt;mkdir dir=&quot;${dist}&quot; /&gt;
+		&lt;exec executable=&quot;${gcj}&quot; dir=&quot;${basedir}/${dist}&quot;&gt;
+			&lt;arg value=&quot;--main=com.wait.calsoft.StartSoft&quot; /&gt;
+			&lt;arg value=&quot;-o&quot; /&gt;
+			&lt;arg value=&quot;${outputfile}&quot; /&gt;
+			&lt;arg value=&quot;../src/com/wait/calsoft/*.java&quot; /&gt;
+			&lt;arg value=&quot;../src/com/wait/calsoft/cal/*.java&quot; /&gt;
+			&lt;arg value=&quot;../src/com/wait/calsoft/UI/*.java&quot; /&gt;
+			&lt;arg value=&quot;../src/com/wait/calsoft/util/*.java&quot; /&gt;
+			&lt;arg value=&quot;../logo.o&quot; /&gt;
+			&lt;arg value=&quot;-lswt&quot; /&gt;
+			&lt;arg value=&quot;-L../lib/win32&quot; /&gt;
+			&lt;arg value=&quot;--classpath=../lib/win32/swt.jar&quot; /&gt;
+			&lt;arg value=&quot;-mwindows&quot; /&gt;
+		&lt;/exec&gt;
+	&lt;/target&gt;
+ 
+	&lt;!-- 运行项目  --&gt;
+	&lt;target name=&quot;runCalTest&quot; if=&quot;${basedir}/${dist}/${outputfile}&quot; description=&quot;runCalTest&quot;&gt;
+		&lt;exec executable=&quot;${basedir}/${dist}/${outputfile}&quot;&gt;
+		&lt;/exec&gt;
+	&lt;/target&gt;
+ 
+	&lt;!-- 清除项目 --&gt;
+	&lt;target name=&quot;cleanCalTest&quot; description=&quot;cleanCalTest&quot;&gt;
+		&lt;delete file=&quot;${dist}/${outputfile}&quot; /&gt;
+	&lt;/target&gt;
+&lt;/project&gt;
+&lt;/textarea&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;最后把&lt;code&gt;config&lt;/code&gt;目录和两个&lt;code&gt;dll&lt;/code&gt;文件拷贝过去，双击即可运行。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+   </entry>
+   
+   <entry>
+     <title>RVM is not a function</title>
+     <link href="http://127.0.0.1:4000/ubuntu/2014/12/06/rvm-is-not-a-function.html"/>
+     <updated>2014-12-06T00:00:00+08:00</updated>
+     <id>http://127.0.0.1:4000/ubuntu/2014/12/06/rvm-is-not-a-function</id>
+     <content type="html">&lt;p&gt;  报错如下：     &lt;/p&gt;
+
+&lt;div&gt;
+&lt;textarea name=&quot;code&quot; class=&quot;html&quot;&gt;
+wait@ubuntu:~$ rvm use 2.0.0
+
+RVM is not a function, selecting rubies with &#39;rvm use ...&#39; will not work.
+
+You need to change your terminal emulator preferences to allow login shell.
+Sometimes it is required to use `/bin/bash --login` as the command.
+Please visit https://rvm.io/integration/gnome-terminal/ for an example.
+&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;p&gt;  解决办法主要是添加环境变量，网上也有很多其他的解决办法，我是用这个解决的，如下：&lt;/p&gt;
+
+&lt;div&gt;
+&lt;textarea name=&quot;code&quot; class=&quot;html&quot;&gt;
+wait@ubuntu:~$ export PATH=&quot;$PATH:$HOME/.rvm/bin&quot; 
+[[ -s &quot;$HOME/.rvm/scripts/rvm&quot; ]] &amp;amp;&amp;amp; source &quot;$HOME/.rvm/scripts/rvm&quot;
+&lt;/textarea&gt;
+&lt;/div&gt;
+</content>
+   </entry>
+   
+   <entry>
+     <title>传说中的第一篇blog</title>
+     <link href="http://127.0.0.1:4000/life/2014/12/05/first-blog.html"/>
+     <updated>2014-12-05T00:00:00+08:00</updated>
+     <id>http://127.0.0.1:4000/life/2014/12/05/first-blog</id>
+     <content type="html">&lt;h3 id=&quot;loading&quot;&gt;一个loading&lt;/h3&gt;
+&lt;p&gt;    挺喜欢的一个小动画，本来打算弄成&lt;code&gt;gif&lt;/code&gt;用于网站的&lt;code&gt;loading&lt;/code&gt;，但折腾了几天，发现效果都不太好，终于决定放！弃！了！！！多么痛的领悟！！！&lt;/p&gt;
+
+&lt;p&gt;    为了弥补朕在这些天折腾得这么辛苦，就直接摆它上桌吧= =&lt;/p&gt;
+
+&lt;center&gt;
+&lt;object classid=&quot;clsid:d27cdb6e-ae6d-11cf-96b8-444553540000&quot; width=&quot;179&quot; height=&quot;162&quot; codebase=&quot;http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#
+version=6,0,40,0&quot;&gt;&lt;param name=&quot;src&quot; value=&quot;/images/20141205/loading.swf&quot; /&gt;&lt;param name=&quot;quality&quot; value=&quot;high&quot; /&gt;
+&lt;embed type=&quot;application/x-shockwave-flash&quot; width=&quot;179&quot; height=&quot;162&quot; src=&quot;/images/20141205/loading.swf&quot; quality=&quot;high&quot; /&gt;
+&lt;/object&gt;
+&lt;/center&gt;
+
+&lt;h3 id=&quot;blog&quot;&gt;出师未捷的blog主题&lt;/h3&gt;
+&lt;p&gt;    同时，也为我之前折腾了很久的&lt;code&gt;wordpress&lt;/code&gt;主题做个纪念，毕竟折腾了那么久，但最后却选择了&lt;code&gt;jekyll&lt;/code&gt;。。。
+&lt;img src=&quot;/images/20141205/2014-12-05_test01.png&quot; alt=&quot;出师未捷的blog&quot; height=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;section&quot;&gt;关于这个网站&lt;/h3&gt;
+&lt;p&gt;    嗯，现在做的还比较烂，而且还用了其他人的框架来改，除了头尾，基本已经被我改得面目全非了= =。但总有一天，我会自己去搞一个的。至于这个名字，来源于一首歌的名字，也是我一直在用的铃声。这个网站的诞生主要是为了练习&lt;code&gt;js&lt;/code&gt;和&lt;code&gt;css&lt;/code&gt;，还有一些关于域名的东西，为以后做管理后台神马的做点准备。而且其实&lt;code&gt;jekyll&lt;/code&gt;写blog就跟写代码一样，个人还是比较喜欢的，虽然神马都要自己动手去折腾好久好久好久好久。。。。~~~~(&amp;gt;_&amp;lt;)~~~~&lt;/p&gt;
+
+&lt;h3 id=&quot;section-1&quot;&gt;传说中的2014&lt;/h3&gt;
+&lt;p&gt;    2014，发生了很多很多事。很多时候，在犹豫自己的选择，也在害怕自己的选择，但时间限制必须要做出一个选择。无论是对是错，我只是想保护一个人。2014，其实只是想做三件事。      &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;完成一个人的一个心愿&lt;/li&gt;
+    &lt;li&gt;搞掂一个blog&lt;/li&gt;
+    &lt;li&gt;搭一个游戏服务器，只有一个战斗系统，然后用swt或者swing做一个客户端连上去，两边可以交互&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;    但第一件事因为一个人的退出，有一段时间过得比较狼狈，而且也比较恐惧，那种突然发现自己无论再怎么努力都没办法完美收场的恐惧。当然，对于自己不能掌控的事情，习惯了听天由命，而对于自己能掌控的事情，尽力而为。所以，这一年，除了代码，好像其它的都一败涂地。&lt;/p&gt;
+
+&lt;p&gt;    这就是2014，发生了很多很多事的2014，一丁点都不由我掌控的2014。不过，挺好的，生于忧患才是我的风格。好吧，第二件事也搞掂了，剩下最后一件事了，还有一个月，我想，我应该能搞掂的，嘿嘿～～&lt;/p&gt;
+
+&lt;p&gt;    好吧，就酱紫结束这传说中的第一篇blog吧，应该也是唯一一篇跟代码无关的blog。&lt;/p&gt;
+
+</content>
+   </entry>
+   
+ 
+</feed>
+
