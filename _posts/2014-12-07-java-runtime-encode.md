@@ -7,12 +7,11 @@ icon: code
 ---
 &nbsp;&nbsp; 最终解决乱码的代码如下：    
 
-<div class="article_content">
 <textarea name="code" class="java" >
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
+ 
 public class TestRuntimeExec {
 	public static void main(String[] args) {
 		Runtime r = Runtime.getRuntime();
@@ -32,7 +31,6 @@ public class TestRuntimeExec {
 	}
 }
 </textarea>
-</div>
 
 &nbsp;&nbsp; 运行结果如下：
 <img src="/images/20141207/java-runtime-encode01.png" alt="runtime乱码效果图"/>
