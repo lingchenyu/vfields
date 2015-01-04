@@ -436,7 +436,14 @@ a:visited {
     margin: 0 0 30px 0
 }
 
-.main-article-contant {
+.violet-post p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: rgba(15,15,15,0.8);
+    line-height: 35px
+}
+
+.violet-post ul li {
     margin: 6px 0;
     font-size: 14px;
     color: rgba(15,15,15,0.8);

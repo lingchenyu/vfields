@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2014-12-28 v1.1.5
+# 2014-12-28 v1.1.6
 /css/images/loading.gif
 /css/font-awesome.css
 /themes/violet/images/hdbg01.jpg
@@ -8,6 +8,8 @@ CACHE MANIFEST
 /css/images/error.png
 /css/images/notice.png
 /css/images/success.png
+/css/images/default/ico_copy.gif
+/css/images/default/ico_plain.gif
 /themes/violet/js/common.js
 /js/scripts/shCore.js
 /themes/violet/images/arrows.png
