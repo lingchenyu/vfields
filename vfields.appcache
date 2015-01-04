@@ -1,13 +1,13 @@
 CACHE MANIFEST
-# 2014-12-28 v1.1.3
+# 2014-12-28 v1.1.4
 /css/images/loading.gif
-/themes/violet/images/adv.gif
+/css/font-awesome.css
 /themes/violet/images/hdbg01.jpg
 /themes/violet/images/favicon.ico
 /themes/violet/images/arrows.png
-/css/font-awesome.css
 /css/images/default/ico_plain.gif
 /css/images/default/ico_copy.gif
+/themes/violet/images/adv.gif
 /css/images/warning.png
 /css/images/error.png
 /css/images/notice.png
