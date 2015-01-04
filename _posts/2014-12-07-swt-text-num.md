@@ -11,6 +11,7 @@ icon: code
 
 &nbsp;&nbsp; 代码：
 
+<div class="article_content">
 <textarea name="code" class="java" >
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
@@ -138,6 +139,7 @@ public class SWTNumberText {
 
 }
 </textarea>
+</div>
 
 &nbsp;&nbsp; 上面的例子中，<code>swt</code>的<code>text</code>可以及时监听输入。注意：这里有一个前提，就是每一个<code>text</code>要有默认值，或者在计算的时候自己去判断 <code>getText()</code>为空。这里为了简便，就不判空。
 

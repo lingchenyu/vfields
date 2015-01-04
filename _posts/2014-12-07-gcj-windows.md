@@ -134,6 +134,7 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 
 * <code>build.xml</code>文件内容如下：     
 
+<div class="article_content">
 <textarea name="code" class="xml" >
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="calTest" name="cal-test">
@@ -181,5 +182,6 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 	</target>
 </project>
 </textarea>
+</div>
 
 * 最后把<code>config</code>目录和两个<code>dll</code>文件拷贝过去，双击即可运行。
