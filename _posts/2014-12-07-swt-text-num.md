@@ -145,6 +145,7 @@ public class SWTNumberText {
 
 <div class="alert-box warning"><span>注意</span><br/><code>Text</code>加了监听器之后，直接调用<code>setText()</code>方法会有问题，拿到一个空值，所以在<code>setText()</code>之前，要先remove掉这两个监听器，在<code>setText()</code>之后，再添加回来。像下面：</div>
 
+<div class="article_content">
 <textarea name="code" class="java" >
 // 先移除监听
 text1.removeVerifyListener(verifyListener);
@@ -155,6 +156,7 @@ text1.setText("1111");
 text1.addVerifyListener(verifyListener);
 text1.addModifyListener(modifyListener);
 </textarea>
+</div>
 
 
 &nbsp;&nbsp; 上面这一段代码看上去挺奇怪，又移除又添加的，但其实仔细一想就很容易明白，监听器监听的其实是用户的输入，而用户的输入每次都会被监听，所以如果你能确信自己set进去的内容没有问题，就应该把监听器拿掉，要不然监听器也会对<code>setText()</code>的内容进行监听。但由于<code>setText()</code>一次搞进去一个字符串，监听器好像会有点问题，具体的细节我没有去深究，-_-!先酱紫用着了
