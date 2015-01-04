@@ -5,9 +5,9 @@ description: 把Java项目用gcj编译成exe文件从而脱离jvm
 categories: [java]
 icon: code
 ---
-&nbsp;&nbsp;  现在应该已经没有人会用这种过期的东东了，而且网上也一大堆人说<code>Java</code>不应该用于做应用程序，说不符合<code>Java</code>跨平台或者不是<code>Java</code>的长项等等。但有时候有朋友让我帮忙做一个很简单的只是单纯套用公式的应用，让我在短时间去学<code>c++</code>或者<code>c#</code>也有点难度，所以就还是冒着被鄙视的风险，把<code>Java</code>用gcj编译成exe文件。当然，最后还是让我折腾出来了。
+&nbsp;&nbsp;现在应该已经没有人会用这种过期的东东了，而且网上也一大堆人说<code>Java</code>不应该用于做应用程序，说不符合<code>Java</code>跨平台或者不是<code>Java</code>的长项等等。但有时候有朋友让我帮忙做一个很简单的只是单纯套用公式的应用，让我在短时间去学<code>c++</code>或者<code>c#</code>也有点难度，所以就还是冒着被鄙视的风险，把<code>Java</code>用gcj编译成exe文件。当然，最后还是让我折腾出来了。
 
-&nbsp;&nbsp;  首先分享一下经验:
+&nbsp;&nbsp;首先分享一下经验:
 
 ###### 1、版本 ######
 
@@ -17,11 +17,11 @@ icon: code
 http://www.thisiscool.com/gcc_mingw.htm
 </textarea>
 
-&nbsp;&nbsp; 当然，在<code>Ubuntu</code>下的系统比这个要高一点。而且能兼容1.7，还是比较给力的，只不过，让朕做应用程序的人用的是windows系统，所以还是踏踏实实在windows下编译吧。(＞﹏＜)
+&nbsp;&nbsp;当然，在<code>Ubuntu</code>下的系统比这个要高一点。而且能兼容1.7，还是比较给力的，只不过，让朕做应用程序的人用的是windows系统，所以还是踏踏实实在windows下编译吧。(＞﹏＜)
 
 ###### 2、使用 ######
 
-&nbsp;&nbsp;  windows系统下<code>gcj43</code>根据我的折腾发现，<font class="red">只支持到jdk1.4</font>，这个就比较肉痛了。<font class="red">这意味着不能使用泛型（也就是很多地方要自己强制类型转换一下），还有一些Java的语法糖也不能用（这里遇到的主要是自动装箱和拆箱），还有不能使用正则</font>。这个是我自己暂时折腾到结果，具体是否是因为我打开的方式错了，要根据大神的结论。所以<code>String</code>里面的<code>spilt</code>和<code>replaceAll</code>等用到正则的方法，是我自己实现的。
+&nbsp;&nbsp;windows系统下<code>gcj43</code>根据我的折腾发现，<font class="red">只支持到jdk1.4</font>，这个就比较肉痛了。<font class="red">这意味着不能使用泛型（也就是很多地方要自己强制类型转换一下），还有一些Java的语法糖也不能用（这里遇到的主要是自动装箱和拆箱），还有不能使用正则</font>。这个是我自己暂时折腾到结果，具体是否是因为我打开的方式错了，要根据大神的结论。所以<code>String</code>里面的<code>spilt</code>和<code>replaceAll</code>等用到正则的方法，是我自己实现的。
 
 &nbsp;&nbsp; 下面首先介绍如何编译<code>gcj43</code>目录里面<code>example</code>里面<code>swt demo</code>（前面其实就是<code>build.sh</code>文件里面的内容，但后面内容会包括一起打包dll文件）：
 
@@ -48,7 +48,7 @@ i686-pc-mingw32-gcj -c -o swtgif.o --resource=swt.gif swt.gif
 </textarea>
 </div>
 
-  是把<code>swt.gif</code>文件编译成类似二进制文件，第二条命令比较长，
+&nbsp;&nbsp;是把<code>swt.gif</code>文件编译成类似二进制文件，第二条命令比较长，
 
 <div class="article_content">
 <textarea name="code" class="html" >
@@ -58,7 +58,7 @@ i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218
 </textarea>
 </div>
 
-  最后一个选项，<code>-mwindows</code>，加了这个之后不会弹出那个命令行窗口，如果把这个选项去掉，执行命令：
+&nbsp;&nbsp;最后一个选项，<code>-mwindows</code>，加了这个之后不会弹出那个命令行窗口，如果把这个选项去掉，执行命令：
 
 <div class="article_content">
 <textarea name="code" class="html" >
@@ -78,7 +78,7 @@ i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218
 </textarea>
 </div>
 
-  前面主要是把所用东西打包，后面的<code>swtimgloader</code>是用于加载图片，把之前的图片加载进去成为<code>exe</code>文件的一部分。
+&nbsp;&nbsp;前面主要是把所用东西打包，后面的<code>swtimgloader</code>是用于加载图片，把之前的图片加载进去成为<code>exe</code>文件的一部分。
 
 * demo项目既然都跑通了，那么其实就已经成功一半了，不过可能还是要折腾一下子，下面把一个完整项目的命令发上来：    
 
@@ -91,7 +91,7 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 </textarea>
 </div>
 
-  这个项目的目录结构如下：
+&nbsp;&nbsp;这个项目的目录结构如下：
 
 <div class="article_content">
 <textarea name="code" class="html" >
@@ -138,7 +138,7 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 </textarea>
 </div>
 
-   = =一时找不到可以显示目录和文件的软件，就先用<code>tree</code>命令简单打印一下了
+&nbsp;&nbsp;= =一时找不到可以显示目录和文件的软件，就先用<code>tree</code>命令简单打印一下了
 
 * 然后就可以运行了，但要保证<code>config</code>等外部资源的路径一致性，当然图片因为已经打包进去，就可以删掉，截图如下：
 <img src="/images/20141207/gcj-win08.png" alt="项目成功运行截图"/>
