@@ -1248,7 +1248,4 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 	#ad {
 		display: none;
 	}
-	#loading {
-        display: none;
-    }
 }
