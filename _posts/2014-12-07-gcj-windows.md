@@ -40,7 +40,9 @@ http://www.thisiscool.com/gcc_mingw.htm
 <img src="/images/20141207/gcj-win06.png" alt="MoleBox打包dll文件"/>
 
 ### 总结 ###
+
 * 对于<code>build.sh</code>文件的两条命令，其实都比较好理解，对于第一条命令
+
 
 <<div class="article_content">
 <textarea name="code" class="html" >
