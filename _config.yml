@@ -41,8 +41,8 @@ title: vFields
 subTitle: Another Boring Blog.
 description: wait 的博客
 # local
-#url: http://127.0.0.1:4000
-url:  http://www.vfields.com
+url: http://127.0.0.1:4000
+#url:  http://www.vfields.com
 feed: /atom.xml
 
 categories_path : /categories.html
