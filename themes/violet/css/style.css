@@ -1035,6 +1035,7 @@ hr {
 .alert-box span {
     font-weight: bold;
     text-transform: uppercase;
+	line-height: 35px;
 }
 .error {
     background: #ffecec url('/css/images/error.png') no-repeat 10px 50%;
