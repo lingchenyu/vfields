@@ -647,14 +647,19 @@ a:visited {
 .comment {
     width: 100%;
     height: auto;
-    background: #fff
+    background: #fff;
+	margin:20px 0 10px;
 }
 
 .comment-cnt {
     padding: 5px 0;
     margin: 0 auto;
     width: 100%;
-    height: auto
+}
+.commentBtn {
+	border-radius: 10px;
+	border: 1px solid #a6ca8a;
+	padding: 10px 36px;
 }
 
 a.toTop {
