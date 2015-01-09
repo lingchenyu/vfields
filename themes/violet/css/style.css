@@ -661,6 +661,8 @@ a:visited {
 	border-radius: 10px;
 	border: 1px solid #a6ca8a;
 	padding: 10px 36px;
+	display: block;
+    text-align: center;
 }
 
 a.toTop {
