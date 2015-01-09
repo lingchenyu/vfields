@@ -68,6 +68,5 @@ disqus:
   config: false
   id: vfields
 duoshuo:
-  provider : duoshuo
   config: true
   id: vfields
