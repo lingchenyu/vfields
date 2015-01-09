@@ -90,25 +90,26 @@
 	<script type="text/javascript">
 		jQuery("#loading").fadeOut();
 	</script>  
-
-    {% if site.disqus.config %}
+    {% if site.duoshuo.config %}
 	<script type="text/javascript">
-	if(document.getElementById("disqus_thread"))   
+	
+	if(document.getElementById("ds-thread"))   
 	{   
 		$('#comment .commentBtn').on('click',function(){
 		var that = this;
-		$(that).remove();
-		var commentTips = '<div class="alert-box notice"><span>注意</span><br/>如果评论，请匿名评论。邮箱填“aa@126.com”之类的就妥了。表情神马的要手动上传图片= =!</div>';
+		var commentTips = '<div class="alert-box notice"><span>注意</span><br/>如果评论，建议匿名评论。</div>';
 		$('#comment-cnt').prepend(commentTips);
 		
-		//disqus
-		var disqus_shortname = '{{ site.disqus.id }}';
+		var duoshuoQuery = {short_name:"{{ site.duoshuo.id }}"};
 		(function() {
-		    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-		    (document.getElementsByTagName('head')[0] ||
-			    document.getElementsByTagName('body')[0]).appendChild(dsq);
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = 'http://static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0]
+			|| document.getElementsByTagName('body')[0]).appendChild(ds);
 		})();
+		$(that).remove();
     });
 	}
 	</script>

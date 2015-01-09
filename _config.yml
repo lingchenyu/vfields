@@ -65,8 +65,9 @@ headimg:
 
 #评论信息
 disqus:
-  config: true
+  config: false
   id: vfields
 duoshuo:
-  config: false
-  id: 
+  provider : duoshuo
+  config: true
+  id: vfields
