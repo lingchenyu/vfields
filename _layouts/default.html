@@ -97,6 +97,7 @@
 	{   
 		$('#comment .commentBtn').on('click',function(){
 		var that = this;
+		$(that).remove();
 		var commentTips = '<div class="alert-box notice"><span>注意</span><br/>如果评论，请匿名评论。邮箱填“aa@126.com”之类的就妥了。表情神马的要手动上传图片= =!</div>';
 		$('#comment-cnt').prepend(commentTips);
 		
@@ -108,7 +109,6 @@
 		    (document.getElementsByTagName('head')[0] ||
 			    document.getElementsByTagName('body')[0]).appendChild(dsq);
 		})();
-		$(that).remove();
     });
 	}
 	</script>

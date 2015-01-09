@@ -654,8 +654,6 @@ a:visited {
     padding: 5px 0;
     margin: 0 auto;
     width: 100%;
-	display: block;
-    text-align: center;
 }
 .commentBtn {
 	border-radius: 10px;
