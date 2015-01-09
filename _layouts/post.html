@@ -33,7 +33,7 @@ comment: false
         {% if site.duoshuo.config %}
 			<a href="#" class="commentBtn" onclick="return false;">点击查看评论</a>
 			<div class="comment-cnt">
-				<div id="ds-thread" class="ds-thread"></div>
+				<div id="ds-thread" class="ds-thread" data-url="{{ page.url }}" data-title="{{ page.title }}" data-thread-key="{{ page.title }}"></div>
 			</div>
 	   {% endif %}	
     {% endif %}

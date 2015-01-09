@@ -92,25 +92,21 @@
 	</script>  
     {% if site.duoshuo.config %}
 	<script type="text/javascript">
-	
+	var duoshuoQuery = {short_name:"{{ site.duoshuo.id }}"};
 	if(document.getElementById("ds-thread"))   
 	{   
 		$('#comment .commentBtn').on('click',function(){
-		var that = this;
-		var commentTips = '<div class="alert-box notice"><span>注意</span><br/>如果评论，建议匿名评论。</div>';
-		$('#comment-cnt').prepend(commentTips);
-		
-		var duoshuoQuery = {short_name:"{{ site.duoshuo.id }}"};
-		(function() {
-			var ds = document.createElement('script');
-			ds.type = 'text/javascript';ds.async = true;
-			ds.src = 'http://static.duoshuo.com/embed.js';
-			ds.charset = 'UTF-8';
-			(document.getElementsByTagName('head')[0]
-			|| document.getElementsByTagName('body')[0]).appendChild(ds);
-		})();
-		$(that).remove();
-    });
+            var that = this;
+			$(that).remove();
+			(function() {
+				var ds = document.createElement('script');
+				ds.type = 'text/javascript';ds.async = true;
+				ds.src = 'http://static.duoshuo.com/embed.js';
+				ds.charset = 'UTF-8';
+				(document.getElementsByTagName('head')[0]
+				|| document.getElementsByTagName('body')[0]).appendChild(ds);
+			})();
+		});
 	}
 	</script>
     {% endif %}
