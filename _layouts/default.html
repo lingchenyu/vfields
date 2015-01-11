@@ -95,18 +95,18 @@
 	var duoshuoQuery = {short_name:"{{ site.duoshuo.id }}"};
 	if(document.getElementById("ds-thread"))   
 	{   
-		$('#comment .commentBtn').on('click',function(){
-            var that = this;
-			$(that).remove();
-			(function() {
-				var ds = document.createElement('script');
-				ds.type = 'text/javascript';ds.async = true;
-				ds.src = 'http://static.duoshuo.com/embed.js';
-				ds.charset = 'UTF-8';
-				(document.getElementsByTagName('head')[0]
+	    $('#comment .commentBtn').on('click',function(){
+                var that = this;
+		$(that).remove();
+		(function() {
+		    var ds = document.createElement('script');
+		    ds.type = 'text/javascript';ds.async = true;
+		    ds.src = 'http://static.duoshuo.com/embed.js';
+		    ds.charset = 'UTF-8';
+		    (document.getElementsByTagName('head')[0]
 				|| document.getElementsByTagName('body')[0]).appendChild(ds);
-			})();
-		});
+		})();
+	    });
 	}
 	</script>
     {% endif %}
