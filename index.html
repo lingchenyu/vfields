@@ -7,6 +7,7 @@ isIndex: true
 ---
 
 	<!-- 按照分页插入博客文章 -->
+        <div class="post-list">
 	<hr/>
 	{% for post in paginator.posts %}
 	  <h5 class="title"><a href="{{ post.url }}">{{ post.title }}</a></h5>
@@ -26,6 +27,7 @@ isIndex: true
 	  </div>
 	  <hr />
 	{% endfor %}
+        </div>
 	{% if paginator.total_pages > 1 %}
 		<nav class="pagination fn-clear" id="violet-paging">
 			<ul class="pagination-list">

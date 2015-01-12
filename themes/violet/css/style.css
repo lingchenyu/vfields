@@ -57,11 +57,6 @@ del {
     text-decoration: line-through
 }
 
-address,caption,cite,code,dfn,em,th,var {
-    font-style: normal;
-    font-weight: 500;
-}
-
 caption,th {
     text-align: left
 }
@@ -80,28 +75,8 @@ q:before,q:after {
     content: ''
 }
 
-sub,sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline
-}
-
-sup {
-    top: -0.5em
-}
-
-sub {
-    bottom: -0.25em
-}
-
 ins,a {
     text-decoration: none
-}
-
-code,kbd,pre,samp {
-    font-family: monospace,serif;
-    font-size: 1em
 }
 
 a:link {
@@ -127,7 +102,7 @@ a:visited {
 }
 
 .fn-clear {
-	zoom: 1;
+    zoom: 1;
 }
 
 .fn-hide {
@@ -173,7 +148,7 @@ a:visited {
 
 #violet-header {
     width: 720px;
-	max-width:100%;
+    max-width:100%;
     height: 210px;
     margin: 0 auto
 }
@@ -210,8 +185,6 @@ a:visited {
     background: rgba(255,255,255,0.2);
     border-top: 1px solid rgba(255,255,255,0.2);
     border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-.nav {
 }
 .nav-list {
     list-style: none;
@@ -257,7 +230,7 @@ a:visited {
     margin:0 auto;
     height: auto;
     background: #f6f6f6;
-	min-height: 500px
+    min-height:500px;
 }
 
 .main-article:nth-child(2n) {
@@ -269,13 +242,16 @@ a:visited {
     padding: 6px 0;
     margin: 0 auto
 }
+.post-list{
+    min-height:500px;
+}
 
 #violet-paging {
     width: 100%;
     height: auto;
     padding: 10px 0;
     background: #f6f6f6;
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 .pagination-list {
     width: 100%;
@@ -373,30 +349,6 @@ a:visited {
     height: 28px
 }
 
-.copyright-cnt .follow {
-    display: block;
-    float: left;
-    width: 28px;
-    height: 28px;
-    margin-right: 5px;
-    line-height: 28px;
-    font-size: 18px;
-    display: block;
-    color: #fff;
-    text-align: center;
-    background: rgba(255,255,255,0.1);
-    border-radius: 3px 3px;
-    -webkit-transition: background .4s ease-in-out;
-    -moz-transition: background .4s ease-in-out;
-    -ms-transition: background .4s ease-in-out;
-    -o-transition: background .4s ease-in-out;
-    transition: background .4s ease-in-out
-}
-
-.copyright-cnt .follow:hover {
-    background: #08c
-}
-
 .copyright-cnt .text {
     float: right;
     display: inline-block;
@@ -449,15 +401,6 @@ a:visited {
     font-size: 14px;
     color: rgba(15,15,15,0.8);
     line-height: 35px
-}
-
-.main-article-contant .code {
-    background-color: #fefbf3;
-    color: #c7254e;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow: inset 0 1px 10px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.1),0 -1px 0 rgba(0,0,0,0.5);
-    box-shadow: inset 0 1px 10px rgba(0,0,0,0.3),0 1px 0 rgba(255,255,255,0.1),0 -1px 0 rgba(0,0,0,0.5)
 }
 
 .violet-title {
@@ -553,10 +496,7 @@ a:visited {
     display: block;
     max-width: 100%;
     opacity: .9;
-    margin-top: 0;
-    margin-right: auto;
-    margin-bottom: 0;
-    margin-left: auto
+    margin-top: 0 auto;
 }
 
 .main-article img:hover {
@@ -619,7 +559,6 @@ a:visited {
 
 .comment {
     width: 100%;
-    height: auto;
     background: #fff;
 }
 
@@ -629,10 +568,10 @@ a:visited {
     width: 100%;
 }
 .commentBtn {
-	border-radius: 10px;
-	border: 1px solid #a6ca8a;
-	padding: 10px 36px;
-	display: block;
+    border-radius: 10px;
+    border: 1px solid #a6ca8a;
+    padding: 10px 36px;
+    display: block;
     text-align: center;
 }
 
@@ -663,12 +602,6 @@ a.toTop:hover {
 
 .fa-double-angle-right {
     color: #F69
-}
-
-div.bottom {
-    position: relative;
-    margin-top: -60px;
-    clear: both
 }
 
 .dispear {
@@ -703,23 +636,6 @@ span.post-right-info {
     position: relative;
     font-size: 16px;
     color: #BBB
-}
-
-ul.time-list {
-    margin-top: 10px
-}
-
-ul.time-list a {
-    font-size: 14px;
-    color: #F69
-}
-
-ul.time-list a>i.fa-chevron-right {
-    color: #F3F3F3
-}
-
-ul.time-list>li.active>a>i.fa-chevron-right {
-    color: #333
 }
 
 .nav>li>a:focus,.nav>li>a:hover {
@@ -1094,7 +1010,6 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 @media screen and (min-width: 320px) and (max-width:767px),print {
     #violet-header {
         width:100%;
-        box-sizing: border-box;
         padding-left: 20px;
         padding-right: 20px
     }
@@ -1103,11 +1018,7 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
         width: 320px
     }
     .nav-list {
-        list-style: none;
         width: 85%;
-        margin: 0px auto;
-        line-height: 48px;
-        height: 48px;
     }
 
     .violet-nav-list {
@@ -1153,8 +1064,7 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
     .comment-cnt {
         width: 100%;
         box-sizing: border-box;
-        padding-left: 20px;
-        padding-right: 20px
+        padding:0 20px;
     }
     .main-article {
         width: 95%;
@@ -1181,10 +1091,6 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
         padding-left: 5px
     }
 
-    .main-article img {
-        max-width: 100%;
-        height: auto
-    }
     .main-article code {
         background: #fefbf3;
         color: #c7254e;
@@ -1206,8 +1112,7 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
     .copyright-cnt {
         width: 100%;
         box-sizing: border-box;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 0 20px;
         height: auto
     }
 
@@ -1243,9 +1148,6 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 @media only screen and (min-width: 767px) and (max-width:1366px) {
     .main-article {
         width: 80%;
-        margin:0 auto;
-        height: auto;
-        background: #f6f6f6
     }
     .copyright-cnt {
         margin: 0;
