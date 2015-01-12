@@ -90,10 +90,10 @@
     </script>  
     {% if site.duoshuo.config %}
 	<script type="text/javascript">
-        doResize(); // 用于规避由于图片加载过慢，zeroclipboard错位的问题
 	var duoshuoQuery = {short_name:"{{ site.duoshuo.id }}"};
 	if(document.getElementById("ds-thread"))   
 	{   
+            doResize(); // 用于规避由于图片加载过慢，zeroclipboard错位的问题
 	    $('#comment .commentBtn').on('click',function(){
                 var that = this;
 		$(that).remove();
