@@ -496,7 +496,7 @@ a:visited {
     display: block;
     max-width: 100%;
     opacity: .9;
-    margin-top: 0 auto;
+    margin: 0 auto;
 }
 
 .main-article img:hover {
