@@ -1285,10 +1285,12 @@ function setCopyBtn() {
 }
 
 function doResize() {
-    for (var i = 0; i < clips.length; i++) {
-        clips[i].reposition();
+    if(clips!=null) {
+         for (var i = 0; i < clips.length; i++) {
+              clips[i].reposition();
+         }
+         resizeTimer = null;
     }
-    resizeTimer = null;
 }
 
 
