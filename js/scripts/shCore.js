@@ -57,6 +57,7 @@ dp.sh.Toolbar.Commands = {
                     f.innerHTML = '<embed src="' + dp.sh.ClipboardSwf + '" FlashVars="clipboard=' + encodeURIComponent(e) + '" width="0" height="0" type="application/x-shockwave-flash"></embed>'
                 }
 				doResize();
+				alert('拷贝失败，请再拷贝一次');
 				return;
             }
             alert('The code is in your clipboard now')
