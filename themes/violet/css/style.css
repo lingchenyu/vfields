@@ -1064,9 +1064,6 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
     }
     .main-article {
         width: 95%;
-        margin:0 auto;
-        height: auto;
-        background: #f6f6f6
     }
 
     .main-article .article-year li span {
