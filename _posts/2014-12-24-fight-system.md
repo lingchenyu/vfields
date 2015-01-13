@@ -21,7 +21,7 @@ icon: code
 &nbsp;&nbsp;根据流程图，其实最主要是根据各种属性判断命中、伤害、暴击等，然后技能进入冷却，而公式暂时是做的比较烂的，毕竟朕只是一个后端程序员，而不是一个数值，而且经验神马的还不够，公式是我乱配的，所以，不要问我为神马是酱紫的，公式如下：
 
 <div class="article_content">
-<textarea name="code" class="html" >
+<textarea name="code" class="txt" >
 ##战力=攻击*1.3+防御*1.8+生命*1.1+速度*0.5+命中*1+闪避*1+暴击*2.1+韧性*2.1
 #attack:攻击
 #defense
