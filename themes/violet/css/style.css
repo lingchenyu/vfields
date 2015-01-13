@@ -1060,10 +1060,7 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
     }
 
     .comment-cnt {
-        width: 100%;
-		padding: 5px 0;
         box-sizing: border-box;
-        padding:0 20px;
     }
     .main-article {
         width: 95%;
