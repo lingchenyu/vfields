@@ -51,7 +51,7 @@ categories_path : /categories.html
 nav:
   - text: 首页
     url: /index.html
-  - text: 文章
+  - text: 归档
     url: /archives.html
   - text: 目录
     url: /categories.html
