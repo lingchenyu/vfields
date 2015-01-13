@@ -1010,8 +1010,6 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 @media screen and (min-width: 320px) and (max-width:767px),print {
     #violet-header {
         width:100%;
-        padding-left: 20px;
-        padding-right: 20px
     }
 
     .logo,.logo a {
