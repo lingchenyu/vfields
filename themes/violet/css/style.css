@@ -567,7 +567,7 @@ a.toTop {
     text-align: center;
     border-radius: 3px 3px;
     background: rgba(0,0,0,0.8);
-	z-index: 999;
+	z-index: 20;
 }
 
 a.toTop:hover {
