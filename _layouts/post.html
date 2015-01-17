@@ -31,7 +31,7 @@ comment: false
         </div>
     {% else %}
         {% if site.duoshuo.config %}
-			<a href="#" class="commentBtn" onclick="return false;">点击查看评论</a>
+			<a href="#" class="commentBtn" onclick="return false;"><span id="ccount"></span>条评论</a>
 			<div class="comment-cnt">
 				<div id="ds-thread" class="ds-thread" data-url="{{ page.url }}" data-title="{{ page.title }}" data-thread-key="{{ page.title }}"></div>
 			</div>

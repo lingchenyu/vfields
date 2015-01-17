@@ -93,8 +93,23 @@
 	var duoshuoQuery = {short_name:"{{ site.duoshuo.id }}"};
 	if(document.getElementById("ds-thread"))   
 	{   
+	    var div = document.getElementById("ds-thread");
+	    var short_name="{{ site.duoshuo.id }}";
+	    var aid = div.getAttributeNode("data-thread-key").value;
+	    var getstr = "http://api.duoshuo.com/threads/counts.jsonp?short_name="+short_name+"&threads="+aid+"&callback=?";
+            $.getJSON(getstr, function(data) {
+                if(data == "undefined"){
+		    $("#ccount").text("0");//ccount是需要设置的论评数的html元素ID
+		    return;
+                }
+                var comval=''; 
+                $.each(data.response, function(i, item) {
+		    comval += item.comments;
+                });
+                $("#ccount").text(comval);//ccount是需要设置的论评数的html元素ID
+            });
 	    $('#comment .commentBtn').on('click',function(){
-                var that = this;
+		var that = this;
 		$(that).remove();
 		(function() {
 		    var ds = document.createElement('script');
