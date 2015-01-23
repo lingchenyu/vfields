@@ -44,7 +44,7 @@ http://www.thisiscool.com/gcc_mingw.htm
 * 对于<code>build.sh</code>文件的两条命令，其实都比较好理解，对于第一条命令
 
 <div class="article_content">
-<textarea name="code" class="html" >
+<textarea name="code" class="txt" >
 i686-pc-mingw32-gcj -c -o swtgif.o --resource=swt.gif swt.gif
 </textarea>
 </div>
@@ -52,7 +52,7 @@ i686-pc-mingw32-gcj -c -o swtgif.o --resource=swt.gif swt.gif
 &nbsp;&nbsp;是把<code>swt.gif</code>文件编译成类似二进制文件，第二条命令比较长，
 
 <div class="article_content">
-<textarea name="code" class="html" >
+<textarea name="code" class="txt" >
 i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218/swt.jar 
 -o HelloSWT.exe HelloSWT.java swtgif.o -L../../swt/win32/3218 -Wl,--whole-archive -lswtimgloader 
 -Wl,--no-whole-archive -lswt -mwindows
@@ -62,7 +62,7 @@ i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218
 &nbsp;&nbsp;最后一个选项，<code>-mwindows</code>，加了这个之后不会弹出那个命令行窗口，如果把这个选项去掉，执行命令：
 
 <div class="article_content">
-<textarea name="code" class="html" >
+<textarea name="code" class="txt" >
 i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218/swt.jar 
 -o HelloSWT.exe HelloSWT.java swtgif.o -L../../swt/win32/3218 -Wl,--whole-archive -lswtimgloader 
 -Wl,--no-whole-archive -lswt
@@ -74,7 +74,7 @@ i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218
 * 而那个
 
 <div class="article_content">
-<textarea name="code" class="html" >
+<textarea name="code" class="txt" >
 -Wl,--whole-archive -lswtimgloader -Wl,--no-whole-archive -lswt
 </textarea>
 </div>
@@ -84,7 +84,7 @@ i686-pc-mingw32-gcj -s -fjni --main=HelloSWT -s --classpath ../../swt/win32/3218
 * demo项目既然都跑通了，那么其实就已经成功一半了，不过可能还是要折腾一下子，下面把一个完整项目的命令发上来：    
 
 <div class="article_content">
-<textarea name="code" class="html" >
+<textarea name="code" class="txt" >
 i686-pc-mingw32-gcj -s -fjni --main=com.wait.calsoft.StartSoft -s --classpath lib/win32/swt.jar -o abc.exe
 src/com/wait/calsoft/*.java src/com/wait/calsoft/cal/*.java src/com/wait/calsoft/UI/*.java
 src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archive -lswtimgloader -Wl,--no-whole-archive
@@ -95,7 +95,7 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 &nbsp;&nbsp;这个项目的目录结构如下：
 
 <div class="article_content">
-<textarea name="code" class="html" >
+<textarea name="code" class="txt" >
 │  swt-gdip-win32-3218.dll
 │  swt-win32-3218.dll
 │  

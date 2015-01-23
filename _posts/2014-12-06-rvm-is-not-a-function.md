@@ -9,7 +9,7 @@ icon: code
 &nbsp;&nbsp;报错如下：     
 
 <div class="article_content">
-<textarea name="code" class="html" >
+<textarea name="code" class="txt" >
 wait@ubuntu:~$ rvm use 2.0.0
 
 RVM is not a function, selecting rubies with 'rvm use ...' will not work.
@@ -23,7 +23,7 @@ Please visit https://rvm.io/integration/gnome-terminal/ for an example.
 &nbsp;&nbsp;解决办法主要是添加环境变量，网上也有很多其他的解决办法，我是用这个解决的，如下：
 
 <div class="article_content">
-<textarea name="code" class="html" >
+<textarea name="code" class="txt" >
 wait@ubuntu:~$ export PATH="$PATH:$HOME/.rvm/bin" 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 </textarea>
