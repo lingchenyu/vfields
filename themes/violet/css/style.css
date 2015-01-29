@@ -221,9 +221,10 @@ a:visited {
 }
 
 .violet-post {
-    width: 100%;
-    padding: 6px 0;
-    margin: 0 auto
+   padding: 20px;
+   border: 1px solid #DDD;
+   border-radius: 20px;
+   margin: 10px 0;
 }
 .post-list{
     min-height:500px;
@@ -1010,9 +1011,10 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
     }
 
     .violet-post {
-        width: 100%;
         box-sizing: border-box;
         padding:6px 0;
+		border: none;
+        margin: 10px 0;
     }
 
     .pagination-list {
@@ -1106,5 +1108,11 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
     }
     .copyright-cnt {
         margin: 0;
+    }
+	.violet-post {
+        box-sizing: border-box;
+        padding:6px 0;
+		border: none;
+        margin: 10px 0;
     }
 }
