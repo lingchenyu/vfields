@@ -236,6 +236,7 @@ a:visited {
     padding: 10px 0;
     background: #f6f6f6;
     margin-bottom: 10px;
+	border-radius: 10px;
 }
 .pagination-list {
     width: 100%;
