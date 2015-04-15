@@ -1,0 +1,41 @@
+h1#page_title {
+	margin-bottom:34px;
+	padding-bottom:4px;
+	padding-left:8px;
+	border-bottom:1px dotted #ccc;
+}
+h1#page_title span {
+	font-size:13px;
+	font-weight:normal;
+	margin-left:4px;
+}
+
+h1#page_title span a {
+	margin-left:4px;
+}
+#verify_instruction {
+	margin-left:10px;
+}
+#verify_instruction strong {
+	margin:0 1px;
+}
+#to_mailbox {
+	text-align:center;
+	margin:26px 0 28px;
+}
+#send_temp_password {
+	margin-left:.5em;
+}
+#skip_email_verification {
+	font-size:12px;
+	text-align:center;
+}
+form.account_form input.text {
+	width:300px;
+}
+form.account_form {
+	margin-left:4px;
+}
+form.account_form th {
+	width:128px;
+}

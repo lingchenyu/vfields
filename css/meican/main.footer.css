@@ -1,0 +1,93 @@
+/**
+ * Name: main.footer.css
+ **/
+#footer-outer {
+	height:200px;
+	color:#777;
+	padding:1px 0 1px 0;
+	font-size:12px;
+	margin-top:40px;
+	text-shadow: #fff 0 1px 0;
+}
+
+#footer {
+	width:960px;
+	margin:0 auto;
+	/*
+	border-top:1px solid #e3e3e3;
+	*/
+	padding-top:10px;
+}
+
+#footer ul {
+	display:block;
+	text-align:center;
+	margin:0;
+	padding:0;
+}
+
+#footer li {
+	display:inline-block;
+	margin:0 6px;
+}
+body.ie6 #footer li,
+body.ie7 #footer li {
+	display:inline;
+}
+
+#footer li a {
+	color:#777;
+}
+#footer li.disabled a {
+	color:#ccc
+}
+#footer li a:hover {
+	color:#444;
+	background:none;
+}
+#footer li.disabled a,
+#footer li.disabled a:hover {
+	color:#ccc;
+	cursor:default;
+}
+#footer #copyright {
+	text-align:center;
+	padding-bottom:19px;
+	margin-bottom:3px;
+	background:url('../images/footer_wave.png') center bottom no-repeat;
+}
+#footer #copyright span {
+	padding:2px 8px 0 0;
+}
+#icp_no {
+	text-align:center;
+	margin-top:20px;
+	line-height:20px;
+	margin-bottom:-40px;
+	color:#ccc;
+	color:#f3f3f3;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	-moz-user-select:none;
+	-o-user-select:none;
+	user-select:none;
+	cursor:default;
+	line-height:18px;
+}
+#icp_no a,
+#icp_no a:hover,
+#icp_no a:visited,
+#icp_no a:active {
+	cursor:default;
+	color:#ccc;
+	color:#f3f3f3;
+	text-shadow:none;
+	background:none;
+	margin-right:2px;
+}
+/*
+#icp_no span {
+	background:url('../images/footer_middot.gif') 0 center no-repeat;
+	padding-left:10px;
+}
+*/
