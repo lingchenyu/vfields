@@ -90,10 +90,13 @@
                 $("#ccount").text("0"); //ccount是需要设置的论评数的html元素ID
                 return;
             }
-            var comval = '0';
+            var comval = '';
             $.each(data.response, function(i, item) {
                 comval += item.comments;
             });
+            if (comval == '') {
+                comval = '0'
+            };
             $("#ccount").text(comval); //ccount是需要设置的论评数的html元素ID
         });
         $('#comment .commentBtn').on('click', function() {
