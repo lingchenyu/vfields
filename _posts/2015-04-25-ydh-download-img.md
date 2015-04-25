@@ -16,10 +16,10 @@ icon: code
 &nbsp;&nbsp;其实真实代码挺简单，只是刚开始折腾，神马都不懂，o(︶︿︶)o 唉
 
 &nbsp;&nbsp;展示区域一排50 * 50小图标与<code>html</code>标签位置对应关系如下：
-<img src="/images/20150425/grab-05.png" alt="展示区与html标签对应关系"/>
+<img src="/images/20150425/grab-06.png" alt="展示区与html标签对应关系"/>
 
 &nbsp;&nbsp;在这一排小图标上，当鼠标移上去时，会出现大图，这个大图的链接其实是通过<code>js</code>生成的，截图如下：
-<img src="/images/20150425/grab-06.png" alt="展示区与html标签对应关系"/>
+<img src="/images/20150425/grab-05.png" alt="展示区与html标签对应关系"/>
 
 &nbsp;&nbsp;所以我们只要按流程对小图的链接进行拼接就妥了。不过我偷了很多懒，直接就取了<code>__600x600</code>，没有去做判断：
 <div class="article_content">
