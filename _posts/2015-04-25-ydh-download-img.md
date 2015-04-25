@@ -100,3 +100,5 @@ if __name__ == '__main__':
 
 &nbsp;&nbsp;其中<code>product.xls</code>的结构图如下：
 <img src="/images/20150425/grab-07.png" alt="product.xls结构图"/>
+
+&nbsp;&nbsp;这样写出来不知道会不会被打= =，想家了。。。
