@@ -90,7 +90,7 @@
                 $("#ccount").text("0"); //ccount是需要设置的论评数的html元素ID
                 return;
             }
-            var comval = '';
+            var comval = '0';
             $.each(data.response, function(i, item) {
                 comval += item.comments;
             });
