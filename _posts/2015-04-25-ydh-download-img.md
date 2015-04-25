@@ -22,6 +22,7 @@ icon: code
 <img src="/images/20150425/grab-05.png" alt="展示区与html标签对应关系"/>
 
 &nbsp;&nbsp;所以我们只要按流程对小图的链接进行拼接就妥了。不过我偷了很多懒，直接就取了<code>__600x600</code>，没有去做判断：
+
 <div class="article_content">
 <textarea name="code" class="js" >
     if (detailparams.isBGCloth == 1) {
