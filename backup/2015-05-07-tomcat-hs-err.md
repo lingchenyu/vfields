@@ -1,7 +1,7 @@
 ---
 layout: post
 title: tomcat的hs_err_pid日志
-description: tomcat部署在阿里云服务器每小时产生一个<code>hs_err_pid.log<code>文件
+description: tomcat部署在阿里云服务器每小时产生一个<code>hs_err_pid.log</code>文件
 categories: [java]
 icon: code
 ---
@@ -25,11 +25,11 @@ icon: code
 &nbsp;&nbsp;之前看过解决方法是把<code>jdk</code>升级为1.8。但我觉得这不是解决方法。然后我在想如果禁掉<code>war</code>的部署方式是否能终结这个问题。
 
 ###### 1、禁掉war的部署方式######
-&nbsp;&nbsp;把<code>unpackWARs</code>和<code>autoDeploy</code>改为<code>false<code>，可能后面的这一个不需要改。但我想的是，如果每次都自动部署，比较容易导致<code>PermGen</code>溢出。所以基本每次都是停掉<code>tomcat</code>然后重新部署的。可能以后会搞个脚本，或者找到更好的方式，暂时比较菜，先酱紫吧= =
+&nbsp;&nbsp;把<code>unpackWARs</code>和<code>autoDeploy</code>改为<code>false</code>，可能后面的这一个不需要改。但我想的是，如果每次都自动部署，比较容易导致<code>PermGen</code>溢出。所以基本每次都是停掉<code>tomcat</code>然后重新部署的。可能以后会搞个脚本，或者找到更好的方式，暂时比较菜，先酱紫吧= =
 <img src="/images/20150507/2015-05-07_4.png" alt="阿里云服务器log截图"/>
 ###### 2、修改部署方式######
 把<code>${CALANIA_HOME}/conf/server.xml</code>的这一行<code><Context docBase="/xxpath/xx.war" path="/xx" reloadable="true"/></code>修改为<code><Context docBase="/xxpath/xx" path="/xx" reloadable="true"/></code>
 
-&nbsp;&nbsp;设置完成之后，暂时已经两次没有出现那个<code>log<code>了。
+&nbsp;&nbsp;设置完成之后，暂时已经两次没有出现那个<code>log</code>了。
 &nbsp;&nbsp;经过这次折腾，终于认识到网络安全的重要性。当初看到<code>tomcat</code>服务器里面多了一个应用，顿时就头皮发麻，我靠，这就遇上了，以后还要不要写代码了，还要不要活了= =
-&nbsp;&nbsp;后来发现是阿里云的检测，才终于淡定，然后去看了一下关于安全方面的设置，重新设置了一下，在这过程中熟悉了很多<code>linux<code>的指令和关于<code>tomcat</code>的一些部署步骤等等。这个说起来比较长，有空再写吧。总的来说，还是很感谢这次神奇的<code>log</code>的
+&nbsp;&nbsp;后来发现是阿里云的检测，才终于淡定，然后去看了一下关于安全方面的设置，重新设置了一下，在这过程中熟悉了很多<code>linux</code>的指令和关于<code>tomcat</code>的一些部署步骤等等。这个说起来比较长，有空再写吧。总的来说，还是很感谢这次神奇的<code>log</code>的
