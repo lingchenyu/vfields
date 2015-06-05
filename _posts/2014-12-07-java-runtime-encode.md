@@ -1,8 +1,8 @@
 ---
 layout: post
 title: java的Runtime在windows系统下调用ping命令乱码 
-description: java下调用windows的ping指令乱码
-categories: [java]
+description: Java下调用windows的ping指令乱码
+categories: [Java]
 icon: code
 ---
 &nbsp;&nbsp; 最终解决乱码的代码如下：    
