@@ -90,7 +90,6 @@ def download_img():
 
 def main():
     download_img()
-    pass
 
 
 if __name__ == '__main__':
