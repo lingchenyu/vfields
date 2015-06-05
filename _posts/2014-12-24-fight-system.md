@@ -59,4 +59,6 @@ hurt=(#{srcAttack} * 0.9 / (1 + #{enemyDefense} * 0.1)) * #{skillHurt}
 </div>
 
 
-&nbsp;&nbsp;下一步应该是看一下netty源码，在搭好通信之后，把这个系统扩展成一个简单的游戏，这时候其实主要的系统就是任务系统和世界boss等；最后做一个简单的管理后台，这时候可以去学<code>js</code>、<code>css</code>，最重要的是要学习<code>mysql</code>。我想，我是停不下了吧。我也不知道，只是想学。。。
+&nbsp;&nbsp;下一步应该是看一下<code>netty</code>源码，在搭好通信之后，把这个系统扩展成一个简单的游戏，这时候其实主要的系统就是任务系统和世界boss等；最后做一个简单的管理后台，这时候可以去学<code>js</code>、<code>css</code>，最重要的是要学习<code>mysql</code>。
+
+我想，我是停不下了吧。我也不知道，只是想学。。。
