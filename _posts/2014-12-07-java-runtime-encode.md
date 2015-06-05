@@ -1,6 +1,6 @@
 ---
 layout: post
-title: java的Runtime在windows系统下调用ping命令乱码 
+title: Java的Runtime在windows系统下调用ping命令乱码 
 description: Java下调用windows的ping指令乱码
 categories: [Java]
 icon: code
