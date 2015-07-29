@@ -305,7 +305,9 @@ a:visited {
     width: 100%;
     height: 220px;
     border-top: 1px solid #1c1c22;
-    background: #22272a
+    background: #22272a;
+    position:absolute;
+    bottom:0px;
 }
 
 .footer {
