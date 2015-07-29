@@ -213,7 +213,7 @@ a:visited {
     width: 60%;
     margin:0 auto;
     height: auto;
-    min-height:500px;
+    min-height:600px;
 }
 
 .main-article:nth-child(2n) {
