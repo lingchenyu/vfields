@@ -306,6 +306,7 @@ a:visited {
     height: 220px;
     border-top: 1px solid #1c1c22;
     background: #22272a;
+    position:relative;
     margin-bottom:0
 }
 
