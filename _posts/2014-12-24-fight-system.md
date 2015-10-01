@@ -2,7 +2,7 @@
 layout: post
 title: 传说中的战斗系统
 description: 2014想做的最后一件事，一个超简单的rpg战斗模拟
-categories: [java]
+categories: [Java]
 icon: code
 ---
 

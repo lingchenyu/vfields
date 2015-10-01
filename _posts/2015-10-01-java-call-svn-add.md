@@ -1,8 +1,8 @@
-﻿---
+---
 layout: post
-title: java调用bat完成svn提交
+title: Java调用bat完成svn提交
 description: java在windows下通过调用本地指令，完成svn提交。
-categories: [java]
+categories: [Java]
 icon: code
 ---
 &nbsp;&nbsp; 一个用于偶尔偷懒的小工具类╮(╯▽╰)╭：
@@ -207,7 +207,7 @@ public class PackUtil {
 </div>
 &nbsp;&nbsp;源文件目录如下：
 <img src="/images/20151001/src_file.png" alt="源文件目录"/>
-&nbsp;&nbsp;这个比较简单，在我本机上，就是把<code>E:\tmp</code>目录【这个在实际中应该是项目打包的临时目录，当然，也可以直接打包到svn目录，这样可以少一步拷贝】下的文件拷贝到<code>E:\svnwork</code>
+&nbsp;&nbsp;这个比较简单，在我本机上，就是把<code>E:\tmp</code>目录下的文件拷贝到<code>E:\svnwork</code>
 
 &nbsp;&nbsp;程序的运行结果如下：
 <img src="/images/20151001/java_run_result.png" alt="程序的运行结果"/>
