@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Java调用bat完成svn提交
-description: java在windows下通过调用本地指令，完成svn提交。
+description: Java在windows下通过调用本地指令，完成svn提交。
 categories: [Java]
 icon: code
 ---
