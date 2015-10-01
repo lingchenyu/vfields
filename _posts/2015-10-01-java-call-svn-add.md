@@ -1,32 +1,32 @@
----
+ï»¿---
 layout: post
-title: javaµ÷ÓÃbatÍê³ÉsvnÌá½»
-description: javaÔÚwindowsÏÂÍ¨¹ıµ÷ÓÃ±¾µØÖ¸Áî£¬Íê³ÉsvnÌá½»¡£
+title: javaè°ƒç”¨batå®Œæˆsvnæäº¤
+description: javaåœ¨windowsä¸‹é€šè¿‡è°ƒç”¨æœ¬åœ°æŒ‡ä»¤ï¼Œå®Œæˆsvnæäº¤ã€‚
 categories: [java]
 icon: code
 ---
-&nbsp;&nbsp; Ò»¸öÓÃÓÚÅ¼¶ûÍµÀÁµÄĞ¡¹¤¾ßÀà¨r(¨s¨Œ¨t)¨q£º
+&nbsp;&nbsp; ä¸€ä¸ªç”¨äºå¶å°”å·æ‡’çš„å°å·¥å…·ç±»â•®(â•¯â–½â•°)â•­ï¼š
 <div class="article_content">
 <textarea name="code" class="java" >
 import java.io.*;
 
 /**
- * ´ò°ü
+ * æ‰“åŒ…
  * Created by wait on 2015/9/30.
  */
 public class PackUtil {
 
     /**
-     * ¸üĞÂsvn
+     * æ›´æ–°svn
      *
-     * @param svnPath Òª¸üĞÂµÄsvnÄ¿Â¼
+     * @param svnPath è¦æ›´æ–°çš„svnç›®å½•
      * @throws IOException
      * @throws InterruptedException
      */
     public static void svnUpdate(String svnPath) throws IOException, InterruptedException {
         File file = new File(svnPath);
         if (!file.isDirectory()) {
-            throw new RuntimeException(svnPath + "²»ÊÇÄ¿Â¼");
+            throw new RuntimeException(svnPath + "ä¸æ˜¯ç›®å½•");
         }
         String diskName = file.getAbsolutePath().substring(0, 1);
         StringBuilder builder = new StringBuilder();
@@ -52,25 +52,25 @@ public class PackUtil {
 
         int exitVal = process.waitFor();
         if (exitVal != 0) {
-            throw new RuntimeException("¸üĞÂsvn³ö´í");
+            throw new RuntimeException("æ›´æ–°svnå‡ºé”™");
         }
         process.destroy();
     }
 
     /**
-     * ×¢Òâ:ÕâÀïÖ»ÊÇÌá½»ĞÂÔöºÍÓĞĞŞ¸ÄµÄÎÄ¼ş, µ«¶ÔÓÚÉ¾³ıµÄÎÄ¼ş, Ã»ÓĞ×ö´¦Àí, ĞèÒªÊÖ¶¯
+     * æ³¨æ„:è¿™é‡Œåªæ˜¯æäº¤æ–°å¢å’Œæœ‰ä¿®æ”¹çš„æ–‡ä»¶, ä½†å¯¹äºåˆ é™¤çš„æ–‡ä»¶, æ²¡æœ‰åšå¤„ç†, éœ€è¦æ‰‹åŠ¨
      *
-     * @param svnPath    svnÄ¿Â¼
-     * @param nowVersion Ìá½»Ê±µÄ°æ±¾ºÅ, »òÕß×¢ÊÍ
+     * @param svnPath    svnç›®å½•
+     * @param nowVersion æäº¤æ—¶çš„ç‰ˆæœ¬å·, æˆ–è€…æ³¨é‡Š
      * @throws IOException
      * @throws InterruptedException
      */
     public static void svnAddAndCommit(String svnPath, String nowVersion) throws IOException, InterruptedException {
         File file = new File(svnPath);
         if (!file.isDirectory()) {
-            throw new RuntimeException(svnPath + "²»ÊÇÄ¿Â¼");
+            throw new RuntimeException(svnPath + "ä¸æ˜¯ç›®å½•");
         }
-        // ¿ÉÒÔÊ¹ÓÃ svn add --depth=infinity --force *, Ò»ĞĞ¸ãµàsvn add, µ«Ê¹ÓÃforce²»ÖªµÀ»á²»»áÓĞÊ²Ã´ÎÊÌâ
+        // å¯ä»¥ä½¿ç”¨ svn add --depth=infinity --force *, ä¸€è¡Œææ‚svn add, ä½†ä½¿ç”¨forceä¸çŸ¥é“ä¼šä¸ä¼šæœ‰ä»€ä¹ˆé—®é¢˜
         String diskName = file.getAbsolutePath().substring(0, 1);
         StringBuilder builder = new StringBuilder();
         builder.append(diskName).append(":");
@@ -80,7 +80,7 @@ public class PackUtil {
         builder.append("&&");
         builder.append("svn st");
 
-        // ÏÈÈ¥»ñÈ¡µ±Ç°Ä¿Â¼ĞÂÌí¼ÓµÄÎÄ¼ş
+        // å…ˆå»è·å–å½“å‰ç›®å½•æ–°æ·»åŠ çš„æ–‡ä»¶
         String[] commands = new String[]{
                 "cmd.exe",
                 "/C",
@@ -98,14 +98,14 @@ public class PackUtil {
         builder.append("cd ");
         builder.append(svnPath);
         builder.append("&&");
-        // ¶ÁÈ¡ĞÂÌí¼ÓµÄÎÄ¼ş
+        // è¯»å–æ–°æ·»åŠ çš„æ–‡ä»¶
         while ((line = br.readLine()) != null) {
             if (line.startsWith("?")) {
                 String data = line.substring(1).trim();
                 builder.append("svn add ").append(data).append("&&");
             }
         }
-        // Ìá½»
+        // æäº¤
         builder.append("svn commit -m ").append(nowVersion);
         process.destroy();
 
@@ -119,14 +119,14 @@ public class PackUtil {
 
         int exitVal = process.waitFor();
         if (exitVal != 0) {
-            throw new RuntimeException("Ìá½»svn³ö´í");
+            throw new RuntimeException("æäº¤svnå‡ºé”™");
         }
         process.destroy();
     }
 
 
     /**
-     * ¿½±´ÎÄ¼ş¼Ğ
+     * æ‹·è´æ–‡ä»¶å¤¹
      *
      * @param src
      * @param dest
@@ -191,25 +191,25 @@ public class PackUtil {
         String svnPath = "E:\\svnwork";
         String srcPath = "E:\\tmp";
 
-        // 1.ÏÈ¸üĞÂsvnÄ¿Â¼
+        // 1.å…ˆæ›´æ–°svnç›®å½•
         svnUpdate(svnPath);
 
-        // 2.½Ó×Å´ÓÏîÄ¿µÄ´ò°üÄ¿Â¼°Ñ´ò°üºÃµÄÎÄ¼ş¿½±´µ½svnÄ¿Â¼¡¾Èç¹û´ò°üÄ¿Â¼¸úsvnÄ¿Â¼Ò»Ñù£¬Ôò¿ÉÒÔÌø¹ıÕâ²½¡¿
+        // 2.æ¥ç€ä»é¡¹ç›®çš„æ‰“åŒ…ç›®å½•æŠŠæ‰“åŒ…å¥½çš„æ–‡ä»¶æ‹·è´åˆ°svnç›®å½•ã€å¦‚æœæ‰“åŒ…ç›®å½•è·Ÿsvnç›®å½•ä¸€æ ·ï¼Œåˆ™å¯ä»¥è·³è¿‡è¿™æ­¥ã€‘
         copyFolder(new File(srcPath), new File(svnPath));
 
-        // 3.Ìá½»svn
+        // 3.æäº¤svn
         svnAddAndCommit(svnPath, "test_version");
     }
 }
 </textarea>
 </div>
-&nbsp;&nbsp;Ô´ÎÄ¼şÄ¿Â¼ÈçÏÂ£º
-<img src="/images/20151001/src_file.png" alt="Ô´ÎÄ¼şÄ¿Â¼"/>
-&nbsp;&nbsp;Õâ¸ö±È½Ï¼òµ¥£¬ÔÚÎÒ±¾»úÉÏ£¬¾ÍÊÇ°Ñ<code>E:\tmp</code>Ä¿Â¼¡¾Õâ¸öÔÚÊµ¼ÊÖĞÓ¦¸ÃÊÇÏîÄ¿´ò°üµÄÁÙÊ±Ä¿Â¼£¬µ±È»£¬Ò²¿ÉÒÔÖ±½Ó´ò°üµ½svnÄ¿Â¼£¬ÕâÑù¿ÉÒÔÉÙÒ»²½¿½±´¡¿ÏÂµÄÎÄ¼ş¿½±´µ½<code>E:\svnwork</code>
+&nbsp;&nbsp;æºæ–‡ä»¶ç›®å½•å¦‚ä¸‹ï¼š
+<img src="/images/20151001/src_file.png" alt="æºæ–‡ä»¶ç›®å½•"/>
+&nbsp;&nbsp;è¿™ä¸ªæ¯”è¾ƒç®€å•ï¼Œåœ¨æˆ‘æœ¬æœºä¸Šï¼Œå°±æ˜¯æŠŠ<code>E:\tmp</code>ç›®å½•ã€è¿™ä¸ªåœ¨å®é™…ä¸­åº”è¯¥æ˜¯é¡¹ç›®æ‰“åŒ…çš„ä¸´æ—¶ç›®å½•ï¼Œå½“ç„¶ï¼Œä¹Ÿå¯ä»¥ç›´æ¥æ‰“åŒ…åˆ°svnç›®å½•ï¼Œè¿™æ ·å¯ä»¥å°‘ä¸€æ­¥æ‹·è´ã€‘ä¸‹çš„æ–‡ä»¶æ‹·è´åˆ°<code>E:\svnwork</code>
 
-&nbsp;&nbsp;³ÌĞòµÄÔËĞĞ½á¹ûÈçÏÂ£º
-<img src="/images/20151001/java_run_result.png" alt="³ÌĞòµÄÔËĞĞ½á¹û"/>
+&nbsp;&nbsp;ç¨‹åºçš„è¿è¡Œç»“æœå¦‚ä¸‹ï¼š
+<img src="/images/20151001/java_run_result.png" alt="ç¨‹åºçš„è¿è¡Œç»“æœ"/>
 
-&nbsp;&nbsp;×îÖÕ½á¹ûÈçÏÂ£º
-<img src="/images/20151001/svn_result.png" alt="×îÖÕ½á¹û"/>
+&nbsp;&nbsp;æœ€ç»ˆç»“æœå¦‚ä¸‹ï¼š
+<img src="/images/20151001/svn_result.png" alt="æœ€ç»ˆç»“æœ"/>
 
