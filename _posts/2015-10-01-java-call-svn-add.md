@@ -6,6 +6,8 @@ categories: [java]
 icon: code
 ---
 &nbsp;&nbsp; 一个用于偶尔偷懒的小工具类╮(╯▽╰)╭：
+
+
 <div class="article_content">
 <textarea name="code" class="java" >
 import java.io.*;
