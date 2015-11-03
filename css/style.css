@@ -168,7 +168,7 @@ label {
     .warning {
         width: 458px;
         height: 48px;
-        margin: 20px auto 0 80px;
+        margin: 30px auto 0 80px;
         background: url(/css/images/warning_msg.png) no-repeat;
         outline:none;
         border:none;
