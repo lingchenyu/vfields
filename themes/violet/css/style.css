@@ -463,12 +463,17 @@ a:visited {
 
 .main-article blockquote {
     padding: 5px 20px 5px 20px;
-    margin: 20px 0 24px;
-    border-left: 3px solid #08c;
-    border-radius: 0 3px 3px 0;
+    background-color: #f5f2f0;
+    padding:1em;
+    margin: 2em;
     text-align: left;
     color: #8d8d8d;
-    font-style: italic
+    font-style: italic;
+    border-radius: 1em;
+    border-width: 0.3em;
+    border-color: #e0dfcc;
+    border-style: solid;
+    border-left: 3px solid #08c;
 }
 
 .main-article blockquote p {
