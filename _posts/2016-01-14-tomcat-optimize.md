@@ -78,7 +78,6 @@ rm -rf test
 &nbsp;&nbsp;  因为使用了<code>DbUtils</code>和<code>Logback</code>的异步邮件发送，所以在关闭的时候需要手动释放。
 &nbsp;&nbsp;  可能<code>Logback</code>的释放再搞一个<code>try...catch</code>比较好，但一直用下来没什么问题，就先这样了
 
-
 <div class="article_content">
 <textarea name="code" class="java" >
 @Service
