@@ -76,7 +76,7 @@ rm -rf test
 
 ###### 4、在webapp关闭时释放内存 ######
 &nbsp;&nbsp;  因为使用了<code>DbUtils</code>和<code>Logback</code>的异步邮件发送，所以在关闭的时候需要手动释放。
-&nbsp;&nbsp;  可能<code>Logback</code>的释放再搞一个<code>try...catch</code>比较好，但一直用下来没什么问题，就先这样了
+&nbsp;&nbsp;  可能<code>Logback</code>的释放再搞一个<code>try...catch</code>比较好，但一直用下来没什么问题，就先这样了。
 
 <div class="article_content">
 <textarea name="code" class="java" >
@@ -86,7 +86,7 @@ public class DisposeService implements DisposableBean {
     @Override
     public void destroy() throws Exception {
         try {
-            Enumeration<Driver> drivers = DriverManager.getDrivers();
+            Enumeration drivers = DriverManager.getDrivers();// Enumeration后面要加上：左尖括号Driver右尖括号，代码格式脚本有点问题，会匹配成html标签
             while (drivers.hasMoreElements()) {
                 Driver driver = drivers.nextElement();
                 try {
