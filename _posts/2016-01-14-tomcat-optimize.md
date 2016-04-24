@@ -86,7 +86,7 @@ public class DisposeService implements DisposableBean {
     @Override
     public void destroy() throws Exception {
         try {
-            Enumeration drivers = DriverManager.getDrivers();// Enumeration后面要加上：左尖括号Driver右尖括号，代码格式脚本有点问题，会匹配成html标签
+            Enumeration&lt;Driver&gt; drivers = DriverManager.getDrivers();
             while (drivers.hasMoreElements()) {
                 Driver driver = drivers.nextElement();
                 try {
