@@ -350,3 +350,24 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 #mc_embed_signup{
 background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;
 }
+.share_box {
+    position:fixed;
+    width:50px;
+    top:70%;
+    left:85%;
+    border:3px solid #a1a1a1;
+    background:#FFF;
+    padding:15px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    z-index: 19;
+}
+@media screen and (min-width: 320px) and (max-width:767px),print {
+    #ad {
+	    display: none;
+    }
+    #share_box {
+        display: none;
+    }
+}
