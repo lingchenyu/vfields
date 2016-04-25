@@ -1236,7 +1236,7 @@ ZeroClipboard.Client.prototype = {
     }
 };
 $(document).ready(function() {
-    $('.wait-post pre').each(function() {
+    $('.post-content pre').each(function() {
         var b = $(this);
         if (b.attr('class').indexOf('brush:') != -1) {
             var c = b.attr('class').split(';')[0].split(':')[1];
@@ -1247,7 +1247,7 @@ $(document).ready(function() {
             b.attr('name', 'code')
         }
     });
-    $('.wait-post textarea[name=code]').each(function() {
+    $('.post-content textarea[name=code]').each(function() {
         var b = $(this);
         if (b.attr('class').indexOf(':') != -1) {
             b.attr('class', b.attr('class').split(':')[0])
