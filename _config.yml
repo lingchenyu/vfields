@@ -23,6 +23,9 @@ paginate_path: 'page:num/'
 comments: true
 excerpt_separator: <!-- more -->
 
+# Recent posts num
+recent_posts_num: 10
+
 #评论信息
 duoshuo:
   config: true
