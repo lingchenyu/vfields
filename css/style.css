@@ -164,6 +164,23 @@ ul.posts {
     opacity: .9;
     margin: 0 auto;
 }
+.wait-post blockquote {
+    padding: 5px 20px 5px 20px;
+    background-color: #f5f2f0;
+    padding:1em;
+    margin: 2em;
+    text-align: left;
+    color: #8d8d8d;
+    font-style: italic;
+    border-radius: 10px;
+    border-width: 0.3em;
+    border-color: #e0dfcc;
+    border-style: solid;
+}
+
+.wait-post blockquote p {
+    color: #8d8d8d
+}
 .author{
     line-height: 28px;
     padding: 5px;
