@@ -2,7 +2,7 @@
 layout: post
 title: 传说中的第一篇blog
 description: 关于这个网站，和2014。
-categories: [life]
+categories: life
 icon: leaf
 ---
 

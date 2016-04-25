@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <div id="loading" style="z-index:1;padding:5px;position:fixed;width:90px;"><img src="/img/loading.gif"></div>
+    {% include head.html %}
+
+    <body>
+	<div id="wrapper">
+      {% include header.html %}
+      
+      {% include cat.html %}
+
+      {% include footer.html %}
+	</div>
+    <script type="text/javascript">
+        jQuery("#loading").fadeOut();
+    </script>
+    </body>
+</html>

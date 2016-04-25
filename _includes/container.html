@@ -1,0 +1,105 @@
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-8">
+                <!-- Blog Post -->
+                	<div class="post-list">
+						{% for post in paginator.posts %} 	
+							<h5 class="title">
+								<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+							</h5>
+                            {% unless post.categories == empty %}
+                                <div class="author">
+								    <span class="post-meta"><i class="fa fa-calendar"></i>{{ post.date | date: " %Y 年 %m 月 %d 日" }}</span>
+                                    <i class="fa fa-folder-open"></i>
+                                    {{post.categories}}
+							    </div>
+                            {% endunless %}
+							<div class="excerpt">{{ post.description }}</div>
+                        <hr>
+                        {% endfor %} 
+                    </div>
+					<!-- Pagination links -->
+					<div class="pagination">
+					  <ul>
+						{% if paginator.previous_page %}
+
+						  {% if paginator.previous_page == 1 %}
+							<li><a href="/">Previous</a></li>
+						  {% else %}
+							<li><a href="/page{{ paginator.previous_page }}">Previous</a></li>
+						  {% endif %}
+
+						{% else %}
+						  <li><span class="disabled">Previous</span></li>
+						{% endif %}
+
+						{% if paginator.page == 1 %}
+						  <li><span class="active">1</span></li>
+						{% else %}
+						  <li><a href="/">1</a></li>
+						{% endif %}
+
+						{% for count in (2..paginator.total_pages) %}
+
+						  {% if count == paginator.page %}
+							<li><span class="active">{{ count }}</span></li>
+						  {% else %}
+							<li><a href="/page{{ count }}">{{ count }}</a></li>
+						  {% endif %}
+						{% endfor %}
+
+						{% if paginator.next_page %}
+						  <li><a href="/page{{ paginator.next_page }}">Next</a></li>
+						{% else %}
+						  <li><span class="disabled">Next</span></li>
+						{% endif %}
+					  </ul>
+					</div>
+            </div>
+
+            <!-- Widget -->
+            <div class="col-md-4">
+                <!-- Blog Categories -->
+                <div class="well">
+                    <h4>Blog Categories</h4>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            {% for cat in site.categories %}
+                            {% assign cat_name = cat | first %}
+                            {% assign cat_size = cat | last | size %}
+                            {% assign cat_slug = cat_name | slugify  %}
+                                <a class="bold" href="/category/{{cat_slug | prepend: site.baseurl}}">
+                                    {{cat_name}} ({{cat_size}})
+                                </a>
+                        </div>
+                        <div class="col-lg-6">
+                        	{% endfor %}
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- end -->
+
+                <!-- Recents post -->
+                <div class="well">
+                	<h4>Recent posts</h4>
+                    <ul class="posts" span="recent">  
+                        {% for post in site.posts limit:5 %}
+                            <li>
+                                <span class="category-archive">
+                                    <i class="fa fa-{{ post.icon }} fa-border"></i>
+                                    <span>{{ post.date | date: "%Y/%m/%d" }}</span>
+                                    <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+                                </span>
+                            <li>
+                        {% endfor %}  
+                    </ul>
+                </div>
+            </div>
+        </div>
+       <hr>

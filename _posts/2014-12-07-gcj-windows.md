@@ -2,7 +2,7 @@
 layout: post
 title: gcj43在windows下编译swt项目
 description: 把Java项目用gcj编译成exe文件从而脱离jvm
-categories: [Java]
+categories: Java
 icon: code
 ---
 &nbsp;&nbsp;现在应该已经没有人会用这种过期的东东了，而且网上也一大堆人说<code>Java</code>不应该用于做应用程序，说不符合<code>Java</code>跨平台或者不是<code>Java</code>的长项等等。但有时候有朋友让我帮忙做一个很简单的只是单纯套用公式的应用，让我在短时间去学<code>c++</code>或者<code>c#</code>也有点难度，所以就还是冒着被鄙视的风险，把<code>Java</code>用gcj编译成exe文件。当然，最后还是让我折腾出来了。

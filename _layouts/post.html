@@ -1,42 +1,73 @@
----
-layout: default
-isPost: true
-comment: false
----
+<!DOCTYPE html>
+<html>
 
-
-	<div class="violet-title">
-		<h3 class="violet-title-item">{{ page.title }}</h3>
-	</div>
-	<div class="violet-post">
-		<p class="main-article-meta"><time pubdate="{{ rpost.date | date_to_utc | date: '%Y-%m-%d' }}">{{ page.date | date_to_utc | date: "%Y-%m-%d" }}</time></p>
-			{{ content }}
-	</div>
-
-	<nav class="pagination fn-clear" id="violet-paging">
-		<div class="pagination-list">
-			{% if page.previous %}
-			<a class="prev" href="{{ page.previous.url }}" rel="bookmark"><i class="fa fa-chevron-circle-left"></i>{{ page.previous.title | truncatewords:5 }}</a>
-			{% endif %}
-			{% if page.next %}
-			<a class="next" href="{{ page.next.url }}" rel="bookmark">{{ page.next.title | truncatewords:5 }}<i class="fa fa-chevron-circle-right"></i></a>
-			{% endif %}
-		</div>
-	</nav>
-	<div id="comment" class="comment">
-	 {% if site.disqus.config %}
-	    <a href="#" class="commentBtn" onclick="return false;">点击查看评论</a>
-        <div class="comment-cnt">
-            <div id="disqus_thread"></div>
+    {% include head.html %}
+    <body>
+    <div id="wrapper">
+     {% include header.html %}
+     <div class="container">
+        <div class="row wait-post">
+            <div class="box">
+                <div class="col-lg-12">
+                    <div class="intro-text text-center">
+                    <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+                    <p class="post-meta">
+                    {% unless page.categories == empty %}
+                        <div class="author" style="margin-top: -10px;">
+                            <span class="post-meta"><i class="fa fa-calendar"></i>{{ page.date | date: " %Y 年 %m 月 %d 日" }}</span>
+                            <i class="fa fa-folder-open"></i>
+                            {{page.categories}}
+                        </div>
+                    {% endunless %}
+                    </p>
+                    </div>
+                     {{ content }}
+                </div>
+            </div>
         </div>
-    {% else %}
-        {% if site.duoshuo.config %}
-			<a href="#" class="commentBtn" onclick="return false;"><span id="ccount"></span>条评论</a>
-			<div class="comment-cnt">
-				<div id="ds-thread" class="ds-thread" data-url="{{ page.url }}" data-title="{{ page.title }}" data-thread-key="{{ page.title }}"></div>
-			</div>
-	   {% endif %}	
-    {% endif %}
-   	</div>
-	
-
+      
+      {% include comment.html %}
+    </div>
+    <hr>
+     {% include footer.html %}
+    </div>
+    </body>
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "{{ site.duoshuo.id }}"
+    };
+    if (document.getElementById("ds-thread")) {
+        var div = document.getElementById("ds-thread");
+        var short_name = "{{ site.duoshuo.id }}";
+        var aid = div.getAttributeNode("data-thread-key").value;
+        var getstr = "http://api.duoshuo.com/threads/counts.jsonp?short_name=" + short_name + "&threads=" + aid + "&callback=?";
+        $.getJSON(getstr, function(data) {
+            if (data == "undefined") {
+                $("#ccount").text("0"); //ccount是需要设置的论评数的html元素ID
+                return;
+            }
+            var comval = '';
+            $.each(data.response, function(i, item) {
+                comval += item.comments;
+            });
+            if (comval == '') {
+                comval = '0'
+            };
+            $("#ccount").text(comval); //ccount是需要设置的论评数的html元素ID
+        });
+        $('#comment .commentBtn').on('click', function() {
+            var that = this;
+            $(that).remove();
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';
+                ds.async = true;
+                ds.src = 'http://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        });
+    }
+    </script>
+    <script type="text/javascript" src="{{ site.url }}/js/scripts/shCore.js"></script>
+</html>

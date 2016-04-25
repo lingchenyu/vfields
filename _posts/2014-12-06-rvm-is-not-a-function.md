@@ -2,7 +2,7 @@
 layout: post
 title: RVM is not a function 
 description: RVM is not a function, selecting rubies with 'rvm use ...' will not work. 
-categories: [ubuntu]
+categories: ubuntu
 icon: code
 ---
 

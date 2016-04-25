@@ -2,7 +2,7 @@
 layout: post
 title: swt的Text输入数字(包括负数和小数) 
 description: swt的Text组件输入数字（包括小数和负数）
-categories: [Java]
+categories: Java
 icon: code
 ---
 &nbsp;&nbsp; 最终效果图如下：

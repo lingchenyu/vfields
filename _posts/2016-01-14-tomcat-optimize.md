@@ -2,7 +2,7 @@
 layout: post
 title: Tomcat优化记录
 description: 记录Tomcat的一些小优化，记录下来以后好找。
-categories: [Java]
+categories: Java
 icon: code
 ---
 ###### 1、静态资源使用nginx代理 ######

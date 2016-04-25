@@ -2,7 +2,7 @@
 layout: post
 title: 1号店图片抓取
 description: 抓取1号店的商品展示图片
-categories: [Python]
+categories: Python
 icon: code
 ---
 &nbsp;&nbsp;最终效果图如下：

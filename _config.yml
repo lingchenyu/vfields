@@ -1,72 +1,29 @@
-# Where things are
-source:       .
-destination:  ./_site
-layouts:      ./_layouts
-paginate:     5
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-# Handling Reading
-safe:         true
-include:      [".htaccess"]
-exclude:      []
-keep_files:   [".git", ".svn"]
-encoding:     "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-# Filtering Content
-show_drafts:  null
-limit_posts:  0
-future:       true
-unpublished:  false
-
-# Conversion
-markdown:    kramdown
-highlighter: rouge
-lsi:         false
-excerpt_separator: "\n\n"
-
-# Serving
-detach:       false
-port:         4000
-host:         127.0.0.1
-baseurl:      "" # does not include hostname
-
-# Outputting
-permalink:     date
-paginate_path: /page:num
-timezone:      null
-
-
-#站点基础配置
+# Site settings
 title: vFields
-subTitle: Another Boring Blog.
-description: wait 的博客
-# local
-#url: http://127.0.0.1:4000
-url:  http://www.vfields.com
-feed: /atom.xml
+email: lingchen_yu@126.com
+description: > # this means to ignore newlines until "baseurl:"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://www.vfields.com" # the base hostname & protocol for your site
+author: wait
 
-categories_path : /categories.html
+# Gems
+gems: [jekyll-paginate]
 
-#菜单配置
-nav:
-  - text: 首页
-    url: /index.html
-  - text: 归档
-    url: /archives.html
-  - text: 目录
-    url: /categories.html
-
-#theme config
-themes: /themes/violet
-
-#配置你喜欢的顶部背景图片
-headimg:
-  - item: /themes/violet/images/hdbg01.jpg
+# Build settings
+markdown: kramdown
+paginate: 5
+paginate_path: 'page:num/'
+comments: true
+excerpt_separator: <!-- more -->
 
 #评论信息
-disqus:
-  config: false
-  id: vfields
 duoshuo:
   config: true
   id: vfields
