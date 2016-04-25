@@ -181,6 +181,12 @@ ul.posts {
 .wait-post blockquote p {
     color: #8d8d8d
 }
+.wait-post ul li {
+    margin: 6px 0;
+    font-size: 14px;
+    color: rgba(15,15,15,0.8);
+    line-height: 35px
+}
 .author{
     line-height: 28px;
     padding: 5px;
