@@ -759,21 +759,21 @@ $(document).ready(function() {
         if ($this.attr("class") != undefined) {
             if ($this.attr("class").indexOf("brush:") != -1) {
                 var lang = $this.attr("class").split(';')[0].split(':')[1];
-                $this.attr('name', 'code');
+                $this.attr('name', 'dp-code');
                 $this.attr('class', lang);
             }
             if ($this.attr("class")) {
-                $this.attr('name', 'code');
+                $this.attr('name', 'dp-code');
             }
         }
     });
-    $('.article_content textarea[name=code]').each(function() {
+    $('.article_content textarea[name=dp-code]').each(function() {
         var $this = $(this);
         if ($this.attr("class").indexOf(":") != -1) {
             $this.attr("class", $this.attr("class").split(':')[0]);
         }
     });
-    dp.SyntaxHighlighter.HighlightAll('code');
+    dp.SyntaxHighlighter.HighlightAll('dp-code');
     $('.highlighter').addClass('dp-highlighter');
     if (!window.clipboardData) {
         setTimeout("setCopyBtn()", 500);

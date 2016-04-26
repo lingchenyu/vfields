@@ -15,16 +15,16 @@ icon: code
 
 &nbsp;&nbsp;其实真实代码挺简单，只是刚开始折腾，神马都不懂，o(︶︿︶)o 唉
 
-&nbsp;&nbsp;展示区域一排50 * 50小图标与<code>html</code>标签位置对应关系如下：
+&nbsp;&nbsp;展示区域一排50 * 50小图标与<xcode>html</xcode>标签位置对应关系如下：
 <img src="/images/20150425/grab-06.png" alt="展示区与html标签对应关系"/>
 
-&nbsp;&nbsp;在这一排小图标上，当鼠标移上去时，会出现大图，这个大图的链接其实是通过<code>js</code>生成的，截图如下：
+&nbsp;&nbsp;在这一排小图标上，当鼠标移上去时，会出现大图，这个大图的链接其实是通过<xcode>js</xcode>生成的，截图如下：
 <img src="/images/20150425/grab-05.png" alt="展示区与html标签对应关系"/>
 
-&nbsp;&nbsp;所以我们只要按流程对小图的链接进行拼接就妥了。不过我偷了很多懒，直接就取了<code>__600x600</code>，没有去做判断：
+&nbsp;&nbsp;所以我们只要按流程对小图的链接进行拼接就妥了。不过我偷了很多懒，直接就取了<xcode>__600x600</xcode>，没有去做判断：
 
 <div class="article_content">
-<textarea name="code" class="js" >
+<textarea name="dp-code" class="js" >
     if (detailparams.isBGCloth == 1) {
         n = "_600x600";
         y = "_332*464"
@@ -34,7 +34,7 @@ icon: code
 &nbsp;&nbsp;最终代码如下：
 
 <div class="article_content">
-<textarea name="code" class="python" >
+<textarea name="dp-code" class="python" >
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
@@ -97,7 +97,7 @@ if __name__ == '__main__':
 </textarea>
 </div>
 
-&nbsp;&nbsp;其中<code>product.xls</code>的结构图如下：
+&nbsp;&nbsp;其中<xcode>product.xls</xcode>的结构图如下：
 <img src="/images/20150425/grab-07.png" alt="product.xls结构图"/>
 
 &nbsp;&nbsp;这样写出来不知道会不会被打= =，想家了。。。

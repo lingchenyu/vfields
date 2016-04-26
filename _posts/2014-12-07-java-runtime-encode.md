@@ -8,7 +8,7 @@ icon: code
 &nbsp;&nbsp; 最终解决乱码的代码如下：    
 
 <div class="article_content">
-<textarea name="code" class="java" >
+<textarea name="dp-code" class="java" >
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -38,7 +38,7 @@ public class TestRuntimeExec {
 <img src="/images/20141207/java-runtime-encode01.png" alt="runtime乱码效果图"/>
 
 <div class="article_content">
-<textarea name="code" class="java" >
+<textarea name="dp-code" class="java" >
 BufferedReader br = new BufferedReader(new InputStreamReader(p.getInputStream(), "gbk"));
 </textarea>
 </div>

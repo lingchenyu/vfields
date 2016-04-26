@@ -5,11 +5,10 @@ description: 记录Tomcat的一些小优化，记录下来以后好找。
 categories: java
 icon: code
 ---
-###### 1、静态资源使用nginx代理 ######
-&nbsp;&nbsp;  <code>nginx</code>配置，端口神马的只是示例。这里这个<code>X-Real-IP</code>在后面<code>Tomcat</code>的<code>access_log</code>有用到。
+##### 1、静态资源使用nginx代理 #####
+&nbsp;&nbsp;  <xcode>nginx</xcode>配置，端口神马的只是示例。这里这个<xcode>X-Real-IP</xcode>在后面<xcode>Tomcat</xcode>的<xcode>access_log</xcode>有用到。
 
-<div class="article_content">
-<textarea name="code" class="txt" >
+{% highlight nginx %}
 http {
 
     upstream local_tomcat {
@@ -36,14 +35,13 @@ http {
         }
     }
 }
-</textarea>
-</div>
+{% endhighlight %}
 
-###### 2、访问日志记录真实IP ######
+##### 2、访问日志记录真实IP #####
 &nbsp;&nbsp;  这里配置有个问题，就是没有热部署，找了挺多资料也还没搞掂，还在折腾中╮(╯▽╰)╭
 
 <div class="article_content">
-<textarea name="code" class="txt" >
+<textarea name="dp-code" class="xml" >
 <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true" deployOnStartup="false">
     <!--这里的docBase路径改到非webapps目录, 否则会导致初始化两次-->
 	<Context path="/" docBase="/usr/local/tomcat/apps/xxxxx" debug="0" privileged="true" reloadable="true"/>
@@ -56,11 +54,10 @@ http {
 </textarea>
 </div>
 
-###### 3、隐藏Tomcat版本号 ######
-&nbsp;&nbsp;  这个就比较简单了。但是修改必须要先关闭<code>Tomcat</code>，要不然会报找不到<code>org.catalina.core</code>包的一些类，不要问我怎么知道的，真的，我出手很重！！！！
+##### 3、隐藏Tomcat版本号 #####
+&nbsp;&nbsp;  这个就比较简单了。但是修改必须要先关闭<xcode>Tomcat</xcode>，要不然会报找不到<xcode>org.catalina.core</xcode>包的一些类，不要问我怎么知道的，真的，我出手很重！！！！
 
-<div class="article_content">
-<textarea name="code" class="txt" >
+{% highlight shell %}
 mkdir test
 cd test
 jar xf ../catalina.jar
@@ -71,15 +68,14 @@ server.built=Jan 10 2015 15:52:20 UTC
 jar cf ../catalina.jar ./*
 cd ..
 rm -rf test
-</textarea>
-</div>
+{% endhighlight %}
 
-###### 4、在webapp关闭时释放内存 ######
-&nbsp;&nbsp;  因为使用了<code>DbUtils</code>和<code>Logback</code>的异步邮件发送，所以在关闭的时候需要手动释放。
-&nbsp;&nbsp;  可能<code>Logback</code>的释放再搞一个<code>try...catch</code>比较好，但一直用下来没什么问题，就先这样了。
+##### 4、在webapp关闭时释放内存 #####
+&nbsp;&nbsp;  因为使用了<xcode>DbUtils</xcode>和<xcode>Logback</xcode>的异步邮件发送，所以在关闭的时候需要手动释放。
+&nbsp;&nbsp;  可能<xcode>Logback</xcode>的释放再搞一个<xcode>try...catch</xcode>比较好，但一直用下来没什么问题，就先这样了。
 
 <div class="article_content">
-<textarea name="code" class="java" >
+<textarea name="dp-code" class="java" >
 @Service
 public class DisposeService implements DisposableBean {
 

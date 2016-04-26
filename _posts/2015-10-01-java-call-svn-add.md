@@ -9,7 +9,7 @@ icon: code
 
 
 <div class="article_content">
-<textarea name="code" class="java" >
+<textarea name="dp-code" class="java" >
 import java.io.*;
 
 /**
@@ -207,7 +207,7 @@ public class PackUtil {
 </div>
 &nbsp;&nbsp;源文件目录如下：
 <img src="/images/20151001/src_file.png" alt="源文件目录"/>
-&nbsp;&nbsp;这个比较简单，在我本机上，就是把<code>E:\tmp</code>目录下的文件拷贝到<code>E:\svnwork</code>
+&nbsp;&nbsp;这个比较简单，在我本机上，就是把<xcode>E:\tmp</xcode>目录下的文件拷贝到<xcode>E:\svnwork</xcode>
 
 &nbsp;&nbsp;程序的运行结果如下：
 <img src="/images/20151001/java_run_result.png" alt="程序的运行结果"/>
