@@ -25,13 +25,16 @@ dp.sh.Toolbar.Commands = {
             if (window.clipboardData)
                 window.clipboardData.setData("text", b);
             else if (dp.sh.ClipboardSwf != null) {
-                var d = c.flashCopier;
-                if (d == null) {
-                    d = document.createElement("div");
-                    c.flashCopier = d;
-                    c.div.appendChild(d);
-                }
-                d.innerHTML = '<embed src="' + dp.sh.ClipboardSwf + '" FlashVars="clipboard=' + encodeURIComponent(b) + '" width="0" height="0" type="application/x-shockwave-flash"></embed>';
+                //var d = c.flashCopier;
+                //if (d == null) {
+                //    d = document.createElement("div");
+                //    c.flashCopier = d;
+                //    c.div.appendChild(d);
+                //}
+                //d.innerHTML = '<embed src="' + dp.sh.ClipboardSwf + '" FlashVars="clipboard=' + encodeURIComponent(b) + '" width="0" height="0" type="application/x-shockwave-flash"></embed>';
+                doResize();
+				alert('拷贝失败，请再拷贝一次');
+				return;
             }
             alert("The code is in your clipboard now");
         }
@@ -776,9 +779,12 @@ $(document).ready(function() {
         setTimeout("setCopyBtn()", 500);
     }
 });
+var clips = [];
 function setCopyBtn() {
+    clips.length = 0;
     $('.CopyToClipboard').each(function() {
         var clip = new ZeroClipboard.Client();
+        clips.push(clip);
         clip.setHandCursor(true);
         clip.addEventListener('load', function(client) {
         });
@@ -796,4 +802,10 @@ function setCopyBtn() {
             clip.reposition();   
         });
     });
+}
+
+function doResize() {
+    for (var i = 0; i < clips.length; i++) {
+        clips[i].reposition();
+    }
 }
