@@ -8,7 +8,7 @@ $(window).scroll(function(){
         }
 	});		
 	$("#elevator").click(function(){
-		$("html,body").animate({scrollTop: 0}, 1000);	
+		$("html,body").animate({scrollTop: 0}, 500);	
 	});
 });
 /** 广告点击显示/隐藏 */
