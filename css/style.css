@@ -245,27 +245,6 @@ hr {
     background: #e3f7fc url('../img/notice.png') no-repeat 10px 50%;
     border: 1px solid #8ed9f6;
 }
-a.toTop {
-    width: 40px;
-    height: 40px;
-    display: block;
-    font-size: 36px;
-    color: #fff;
-    text-align: center;
-    border-radius: 3px 3px;
-    background: rgba(0,0,0,0.8);
-	z-index: 20;
-}
-
-a.toTop:hover {
-    background: #08c
-}
-
-.toTop i {
-    font-size: 24px;
-    line-height: 40px;
-    vertical-align: top
-}
 
 #ad{
     background-color:#f6f6f6;
@@ -323,51 +302,74 @@ margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = d
 #ad h6:hover .down{ background-position:left bottom;}
 #ad .arrow.up{ background-position:right top;}
 #ad h6:hover .up{ background-position:right bottom;}
-#mc_embed_signup .button:hover {
-    background-color: #1C5484;
-}
-#mc_embed_signup .button {
-    clear: both;
-    background-color: #337ab7;
-    border: 0 none;
-    border-radius: 4px;
-    transition: all 0.23s ease-in-out 0s;
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 15px;
-    font-weight: normal;
-    height: 32px;
-    line-height: 32px;
-    margin: 0 5px 10px 0;
-    padding: 0 22px;
+#elevator_item {
+    width: 50px;
+    height: 100px;
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+    -webkit-transition: opacity .4s ease-in-out;
+    -moz-transition: opacity .4s ease-in-out;
+    -o-transition: opacity .4s ease-in-out;
+    opacity: 1;
+    line-height: 40px;
+    font-size:36px;
+    z-index: 100020;
     text-align: center;
-    text-decoration: none;
+}
+#elevator_item i {
+    color: #FFF
+}
+
+#elevator_item.off {
+    opacity: 0;
+    visibility: hidden
+}
+#elevator {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 3px 3px;
+    background-color: #444;
+    background-color: rgba(0,0,0,.6);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+}
+#elevator:hover {
+    background-color: rgba(0,0,0,.7)
+}
+#elevator:active {
+    background-color: rgba(0,0,0,.75)
+}
+#elevator_item .head_page {
+    display: block;
+    width: 50px;
+    height: 40px;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    cursor: pointer;
+    background-color: #444;
+    background-color: rgba(0,0,0,.6);
+    text-align:center;
     vertical-align: top;
-    white-space: nowrap;
-    width: auto;
 }
-#mc_embed_signup{
-background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif;
+#elevator_item .head_page:hover {
+    background-color: rgba(0,0,0,.7)
 }
-.share_box {
-    position:fixed;
-    width:50px;
-    top:70%;
-    left:85%;
-    border:3px solid #a1a1a1;
-    background:#FFF;
-    padding:15px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    z-index: 19;
+#elevator_item .head_page:active {
+    background-color: rgba(0,0,0,.75)
 }
-@media screen and (min-width: 320px) and (max-width:767px),print {
-    #ad {
+
+@media (max-width:767px) {
+    #ad,#elevator_item {
 	    display: none;
     }
-    #share_box {
-        display: none;
+}
+@media print{
+    #ad,#elevator_item {
+	    display: none;
     }
 }
