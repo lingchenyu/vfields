@@ -111,10 +111,6 @@ a h2{
 .fa-double-angle-right {
     color: #F69
 }
-
-.comment {
-    width: 100%;
-}
 .fa-border{
     border:solid .08em #CCD2D9
 }
@@ -127,15 +123,17 @@ ul.posts {
     padding:0; 
     list-style:none;
 }
-.comment-cnt {
-    padding: 5px 0;
-    margin: 0 auto;
-    width: 100%;
+#comment{
+    border:1px solid #DDD;
+    border-radius:10px;
+    -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.1);
+    box-shadow: 1px 2px 5px rgba(0,0,0,.1);
 }
-.commentBtn {
-    border-radius: 10px;
-    border: 1px solid #d8d8d8;
-    padding: 10px 36px;
+#comment-cnt {
+    margin: 0 20px;
+}
+#commentBtn {
+    padding: 10px 0;
     display: block;
     text-align: center;
 }
@@ -149,6 +147,8 @@ ul.posts {
     border: 1px solid #DDD;
     border-radius: 10px;
     margin: 10px 0;
+    -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.1);
+    box-shadow: 1px 2px 5px rgba(0,0,0,.1);
 }
 .wait-post p {
     margin: 6px 0;
