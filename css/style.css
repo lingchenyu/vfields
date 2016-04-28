@@ -9,6 +9,17 @@ body {
 body,button,input,select,textarea {
     font: 14px/1.5 tahoma,Microsoft YaHei,arial,"Hiragino Sans GB",\5b8b\4f53
 }
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 150px;
+}
 .navbar-nav {
     float: right;
     margin: 0;
@@ -24,19 +35,19 @@ body,button,input,select,textarea {
     border: none;
 }
 .navbar-brand {
-	color: #FFFFFF !important;
-	font-size: 30px;
+    color: #FFFFFF !important;
+    font-size: 30px;
 }
 .navbar-nav>li>a {
     color: #FFFFFF !important;
     font-size: 25px;
 }
 header.intro-header {
-	background-image: url('../img/bg.png');
-	background-repeat: repeat;
-	color: #FFFFFF;
-	padding-bottom: 30px;
-	padding-top: 20px;
+    background-image: url('../img/bg.png');
+    background-repeat: repeat;
+    color: #FFFFFF;
+    padding-bottom: 30px;
+    padding-top: 20px;
     margin-bottom: 30px;
 }
 .well {
@@ -78,12 +89,9 @@ a:focus, a:hover {
 .title-image {
     width: 50px;
 }
-.sciblog {
-
-}
 .pagination ul > li > a:hover {
     background-color: #2582F2;
-	color: #fff;
+    color: #fff;
 }
 
 .pagination ul > li > a, .pagination ul > li > span {
@@ -93,12 +101,12 @@ a:focus, a:hover {
     text-decoration: none;
     background-color: #ffffff;
     border-top: 1px solid #dddddd;
-	border-bottom: 1px solid #dddddd;
-	border-left: 1px solid #dddddd;
-	border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
 }
 .pagination ul > li {
-display: inline;
+    display: inline;
 }
 a h2{
     color: #08c;
@@ -258,8 +266,8 @@ hr {
 }
 
 *html #ad { /* ie6 hack */
-position: absolute;
-margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');
+    position: absolute;
+    margin-top: expression(0 - parseInt(this.offsetHeight / 2) + (TBWindowMargin = document.documentElement && document.documentElement.scrollTop || document.body.scrollTop) + 'px');
 }
 
 
