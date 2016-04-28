@@ -16,7 +16,7 @@
                                 <div class="author">
 								    <span class="post-meta"><i class="fa fa-calendar"></i>{{ post.date | date: " %Y 年 %m 月 %d 日" }}</span>
                                     <i class="fa fa-folder-open"></i>
-                                    <a href="/category/{{post.categories}}">
+                                    <a href="/category/{{post.categories[0]}}">
                                         {{post.categories}}
                                     </a>
 							    </div>
