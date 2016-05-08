@@ -1,0 +1,43 @@
+.anchorific {
+	position: fixed;
+    width: 300px;
+	margin-left: -30px;
+}
+
+a.anchor {
+    text-decoration: none;
+    padding-left: 1%;
+    opacity: .5;
+    color: #238b90;
+    font-size: .7em;
+    font-family: Baumans,cursive
+}
+
+a:hover.anchor {
+    opacity: 1
+}
+
+.anchorific ul {
+    list-style-type: none
+}
+
+.anchorific li ul {
+    list-style-type: none;
+    display: none
+}
+
+.anchorific ul li a {
+    font-size: .8em;
+    display: block;
+    background-color: #f7f7f7;
+    margin-bottom: 3px;
+    padding-left: 5px
+}
+
+.anchorific li.active>a {
+    border-right: #e54339 2px solid
+}
+
+.anchorific li.active>ul {
+    display: block
+}
