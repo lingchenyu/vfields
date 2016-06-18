@@ -9,7 +9,7 @@ icon: code
 
 <img src="/images/20160618/tomcat-check-flow.png" alt="业务流程图" />
 
-&nbsp;&nbsp;  一开始代码写成这样，只是在web项目里面直接调用check逻辑
+&nbsp;&nbsp;  一开始代码写成这样，只是在<code>web</code>项目里面直接调用<code>check</code>逻辑
 
 <div class="article_content">
 <textarea name="dp-code" class="java" >
@@ -67,6 +67,7 @@ icon: code
 </div>
 
 &nbsp;&nbsp;  但是这样会有一个问题，就是即使<code>ClassLoader</code>关闭了，但因为加载了一些<code>static</code>用作缓存，像<code>logback</code>日志类库等，会导致内存慢慢泄露。
+
 &nbsp;&nbsp;  然后这个问题一直在纠结，而<code>ClassLoader</code>的机制我又不是很熟，有一天突然灵光一闪，想到了用子进程。然后代码改成了这样：
 
 <div class="article_content">
@@ -115,7 +116,7 @@ icon: code
 </textarea>
 </div>
 
-&nbsp;&nbsp;  这个思路很简单，就是起一个子进程，然后让这个子进程去执行check逻辑，上面那个CheckMain代码如下：
+&nbsp;&nbsp;  这个思路很简单，就是起一个子进程，然后让这个子进程去执行<code>check</code>逻辑，上面那个<code>CheckMain</code>代码如下：
 
 <div class="article_content">
 <textarea name="dp-code" class="java" >
@@ -213,5 +214,7 @@ public class CheckMain {
 </div>
 
 &nbsp;&nbsp;  <code>/usr/local/tomcat/apps</code>目录下放置<code>CheckMain.java</code>和<code>CheckMain.class</code>，然后就搞掂了。
+
 &nbsp;&nbsp;  由于地图寻路算法需要做的预处理比较多，导致初始化比较慢，而其实验证配置并不需要寻路，所以我就把项目的<code>Q_mapConfig</code>初始化寻路那部分代码注释掉了。
-&nbsp;&nbsp;  这个检测接口的目的很简单，如果重启配置验证不过，会导致起不了服而导致测试的工作中断，所以才在重启前还有配置被修改时让他们先验证一下。但这个简简单单的接口，真是折腾了挺久的。只能说对<code>ClassLoader</code>的机制太不熟，我想了一下，应该像tomcat那种，独立加载<code>webapp</code>的可以实现资源分离的方法才是正解，但那个还需要去看看书，以后看到了再折腾了。
+
+&nbsp;&nbsp;  这个检测接口的目的很简单，如果重启配置验证不过，会导致起不了服而导致测试的工作中断，所以才在重启前还有配置被修改时让他们先验证一下。但这个简简单单的接口，真是折腾了挺久的。只能说对<code>ClassLoader</code>的机制太不熟，我想了一下，应该像<code>tomcat</code>那种，独立加载<code>webapp</code>的可以实现资源分离的方法才是正解，但那个还需要去看看书，以后看到了再折腾了。
