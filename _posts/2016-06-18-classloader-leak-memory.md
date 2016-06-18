@@ -1,15 +1,15 @@
 ---
 layout: post
-title: ClassLoader��Tomcat�����ڴ�й¶����
-description: ������Tomcat�������һ��Ӧ�ã�ִ�����߼�֮���ٰ����Ӧ��ж��
+title: ClassLoader在Tomcat里面内存泄露问题
+description: 场景是Tomcat里面加载一个应用，执行完逻辑之后，再把这个应用卸掉
 categories: java
 icon: code
 ---
-&nbsp;&nbsp;  ��Ŀ������һ����֤���õĹ��ܡ���Ҫ�������£�
+&nbsp;&nbsp;  项目里面有一个验证配置的功能。主要流程如下：
 
-<img src="/images/20160618/tomcat-check-flow.png" alt="ҵ������ͼ" />
+<img src="/images/20160618/tomcat-check-flow.png" alt="业务流程图" />
 
-&nbsp;&nbsp;  һ��ʼ����д��������ֻ����web��Ŀ����ֱ�ӵ���check�߼�
+&nbsp;&nbsp;  一开始代码写成这样，只是在web项目里面直接调用check逻辑
 
 <div class="article_content">
 <textarea name="dp-code" class="java" >
@@ -18,7 +18,7 @@ icon: code
         File dataFile = new File("xx.jar");
         File checkFile = new File("resourceDir");
         try {
-            // �����ֹ�ڴ�й¶,��ΪclassLoader�ͷ���,�������jar�Ѿ��л���,û���ͷ�
+            // 这里防止内存泄露,因为classLoader释放了,但里面的jar已经有缓存,没有释放
             URL jarUrl = dataFile.toURI().toURL();
             URLConnection jarConnection = jarUrl.openConnection();
             jarConnection.setUseCaches(true);
@@ -66,8 +66,8 @@ icon: code
 </textarea>
 </div>
 
-&nbsp;&nbsp;  ������������һ�����⣬���Ǽ�ʹ<code>ClassLoader</code>�ر��ˣ�����Ϊ������һЩ<code>static</code>�������棬��<code>logback</code>��־���ȣ��ᵼ���ڴ�����й¶��
-&nbsp;&nbsp;  Ȼ���������һֱ�ھ��ᣬ��<code>ClassLoader</code>�Ļ������ֲ��Ǻ��죬��һ��ͻȻ���һ�����뵽�����ӽ��̡�Ȼ�����ĳ���������
+&nbsp;&nbsp;  但是这样会有一个问题，就是即使<code>ClassLoader</code>关闭了，但因为加载了一些<code>static</code>用作缓存，像<code>logback</code>日志类库等，会导致内存慢慢泄露。
+&nbsp;&nbsp;  然后这个问题一直在纠结，而<code>ClassLoader</code>的机制我又不是很熟，有一天突然灵光一闪，想到了用子进程。然后代码改成了这样：
 
 <div class="article_content">
 <textarea name="dp-code" class="java" >
@@ -75,7 +75,7 @@ icon: code
         URLClassLoader classLoader = null;
         File dataFile = new File("xx.jar");
         File checkFile = new File("resourceDir");
-        // ������Դ�ʹ���, ��ִ�м���߼�
+        // 更新资源和代码, 并执行检测逻辑
         StringWriter stringWriter = new StringWriter();
         PrintWriter outputStream = new PrintWriter(stringWriter);
         try {
@@ -115,7 +115,7 @@ icon: code
 </textarea>
 </div>
 
-&nbsp;&nbsp;  ���˼·�ܼ򵥣�������һ���ӽ��̣�Ȼ��������ӽ���ȥִ��check�߼��������Ǹ�CheckMain�������£�
+&nbsp;&nbsp;  这个思路很简单，就是起一个子进程，然后让这个子进程去执行check逻辑，上面那个CheckMain代码如下：
 
 <div class="article_content">
 <textarea name="dp-code" class="java" >
@@ -129,7 +129,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 /**
- * ��Ϊ��tomcat����ֱ��ִ���������߼�, �ᵼ����һЩ��̬�������ڴ�й¶, ������ʱ���õĽ������ʱ��Runtime����һ���ӽ�����ִ������߼�
+ * 因为在tomcat里面直接执行这个检测逻辑, 会导致有一些静态变量的内存泄露, 所以暂时采用的解决方法时用Runtime启动一个子进程来执行这个逻辑
  * Created by wait on 2016/6/15.
  */
 public class CheckMain {
@@ -143,7 +143,7 @@ public class CheckMain {
         }
 
         public Class<?> loadClass(String name) throws ClassNotFoundException {
-            // ���������滻��ͼ, ��ʱ��Ҫ�Ǹ�Ѱ·�㷨
+            // 这里用来替换地图, 暂时不要那个寻路算法
             if (name.equals("com.xx.data.game.config.impl.Q_mapConfig")) {
                 try {
                     byte[] buf = Files.readAllBytes(Paths.get(path, "Q_mapConfig.class"));
@@ -212,6 +212,6 @@ public class CheckMain {
 </textarea>
 </div>
 
-&nbsp;&nbsp;  <code>/usr/local/tomcat/apps</code>Ŀ¼�·���<code>CheckMain.java</code>��<code>CheckMain.class</code>��Ȼ��͸���ˡ�
-&nbsp;&nbsp;  ���ڵ�ͼѰ·�㷨��Ҫ����Ԥ�����Ƚ϶࣬���³�ʼ���Ƚ���������ʵ��֤���ò�����ҪѰ·�������ҾͰ���Ŀ��<code>Q_mapConfig</code>��ʼ��Ѱ·�ǲ��ִ���ע�͵��ˡ�
-&nbsp;&nbsp;  ������ӿڵ�Ŀ�ĺܼ򵥣��������������֤�������ᵼ�����˷������²��ԵĹ����жϣ����Բ�������ǰ�������ñ��޸�ʱ����������֤һ�¡��������򵥵��Ľӿڣ�����������ͦ�õġ�ֻ��˵��<code>ClassLoader</code>�Ļ���̫���죬������һ�£�Ӧ����tomcat���֣���������<code>webapp</code>�Ŀ���ʵ����Դ����ķ����������⣬���Ǹ�����Ҫȥ�����飬�Ժ󿴵����������ˡ�
+&nbsp;&nbsp;  <code>/usr/local/tomcat/apps</code>目录下放置<code>CheckMain.java</code>和<code>CheckMain.class</code>，然后就搞掂了。
+&nbsp;&nbsp;  由于地图寻路算法需要做的预处理比较多，导致初始化比较慢，而其实验证配置并不需要寻路，所以我就把项目的<code>Q_mapConfig</code>初始化寻路那部分代码注释掉了。
+&nbsp;&nbsp;  这个检测接口的目的很简单，如果重启配置验证不过，会导致起不了服而导致测试的工作中断，所以才在重启前还有配置被修改时让他们先验证一下。但这个简简单单的接口，真是折腾了挺久的。只能说对<code>ClassLoader</code>的机制太不熟，我想了一下，应该像tomcat那种，独立加载<code>webapp</code>的可以实现资源分离的方法才是正解，但那个还需要去看看书，以后看到了再折腾了。
