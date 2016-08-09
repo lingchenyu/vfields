@@ -85,11 +85,12 @@ public class TestA {
 
     public static void main(String[] args) throws IOException, UnmodifiableClassException, ClassNotFoundException {
         SkyData skyData = new SkyData();
-        skyData.add();
+        skyData.add(); // 模拟进行了逻辑
         System.err.println(skyData);
         if (JavaAgent.getIns() != null) {
             byte[] data = Files.readAllBytes(Paths.get("E:/iwork/w/target/classes/com/wait/test/", "SkyData.class"));
             Instrumentation ins = JavaAgent.getIns();
+            // 动态加载类, 只是为了测试写死, 用在真实项目的话, 可以把类名和byte数据通过socket等传进来
             ins.redefineClasses(new ClassDefinition(SkyData.class, data));
             System.err.println(skyData);
         }
@@ -154,6 +155,10 @@ public class TestA {
 > This method does not cause any initialization except that which would occur under the customary JVM semantics
 
 就是不会调用初始化，从<code>SkyData</code>的<code>toString</code>方法看来，里面的数据和引用都没有发生改变，而且我用过<code>Guice</code>测试过，调用<code>redefineClasses</code>之后的类，<code>Guice</code>里面也能直接生效。
+
+* 又看了一下，发现这个<code>redefineClasses</code>还可以新增<code>private static/final</code>的方法，犀利。
+<img src="/images/20160806/redefine-method-desc.png" alt="redefineClasses方法的功能"/>
+参考：[JVM源码分析之javaagent原理完全解读](http://www.infoq.com/cn/articles/javaagent-illustrated)
 
 
 [=====================代码下载=======================](/files/20160806/java-instrumentation-demo.zip)
