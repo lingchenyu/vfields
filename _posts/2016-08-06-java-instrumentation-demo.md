@@ -160,5 +160,5 @@ public class TestA {
     <img src="/images/20160806/redefine-method-desc.png" alt="redefineClasses方法的功能"/>
     参见：[JVM源码分析之javaagent原理完全解读](http://www.infoq.com/cn/articles/javaagent-illustrated)
 
-
-[=====================代码下载=======================](/files/20160806/java-instrumentation-demo.zip)
+#### 测试代码 ####
+[=======代码下载=======](/files/20160806/java-instrumentation-demo.zip)
