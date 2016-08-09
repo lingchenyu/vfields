@@ -100,7 +100,7 @@ public class TestA {
 </div>
 
 #### 注意点和收获 ####
-* 在<code>pom</code>中自定义<code>MAINFEST.MF</code>。以前没折腾过，现在知道了。其中<code><Can-Redefine-Classes>true</Can-Redefine-Classes></code>这个参数一定要设置，要不然调用<code>redefineClasses</code>会抛出<code>UnsupportedOperationException</code>异常
+1. 在<code>pom</code>中自定义<code>MAINFEST.MF</code>。以前没折腾过，现在知道了。其中<code><Can-Redefine-Classes>true</Can-Redefine-Classes></code>这个参数一定要设置，要不然调用<code>redefineClasses</code>会抛出<code>UnsupportedOperationException</code>异常
     <div class="article_content">
     <textarea name="dp-code" class="xml" >
     <plugin>
@@ -125,7 +125,7 @@ public class TestA {
     </textarea>
     </div>
 
-* 需要在<code>pom.xml</code>中增加这个，要不然打包会报找不到类定义的错。
+2. 需要在<code>pom.xml</code>中增加这个，要不然打包会报找不到类定义的错。
     <div class="article_content">
     <textarea name="dp-code" class="xml" >
     <profiles>
@@ -150,13 +150,13 @@ public class TestA {
     </textarea>
     </div>
 
-* 这个<code>redefineClasses</code>有一个比较好的地方。
+3. 这个<code>redefineClasses</code>有一个比较好的地方。
 
     > This method does not cause any initialization except that which would occur under the customary JVM semantics
 
     就是不会调用初始化，从<code>SkyData</code>的<code>toString</code>方法看来，里面的数据和引用都没有发生改变，而且我用过<code>Guice</code>测试过，调用<code>redefineClasses</code>之后的类，<code>Guice</code>里面也能直接生效。
 
-* 又看了一下，发现这个<code>redefineClasses</code>还可以新增<code>private static/final</code>的方法，犀利。
+4. 又看了一下，发现这个<code>redefineClasses</code>还可以新增<code>private static/final</code>的方法，犀利。
     <img src="/images/20160806/redefine-method-desc.png" alt="redefineClasses方法的功能"/>
     参见：[JVM源码分析之javaagent原理完全解读](http://www.infoq.com/cn/articles/javaagent-illustrated)
 
