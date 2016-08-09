@@ -101,64 +101,64 @@ public class TestA {
 
 #### 注意点和收获 ####
 * 在<code>pom</code>中自定义<code>MAINFEST.MF</code>。以前没折腾过，现在知道了。其中<code><Can-Redefine-Classes>true</Can-Redefine-Classes></code>这个参数一定要设置，要不然调用<code>redefineClasses</code>会抛出<code>UnsupportedOperationException</code>异常
-<div class="article_content">
-<textarea name="dp-code" class="xml" >
-<plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-jar-plugin</artifactId>
-    <version>3.0.2</version>
-    <configuration>
-        <archive>
-            <manifest>
-                <mainClass>com.wait.test.TestA</mainClass>
-            </manifest>
-            <manifestEntries>
-                <Premain-Class>com.wait.test.JavaAgent</Premain-Class>
-                <Agent-Class>com.wait.test.JavaAgent</Agent-Class>
-                <Can-Redefine-Classes>true</Can-Redefine-Classes>
-                <Can-Retransform-Classes>true</Can-Retransform-Classes>
-                <Boot-Class-Path>w-1.0-SNAPSHOT.jar</Boot-Class-Path>
-            </manifestEntries>
-        </archive>
-    </configuration>
-</plugin>
-</textarea>
-</div>
+    <div class="article_content">
+    <textarea name="dp-code" class="xml" >
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+            <archive>
+                <manifest>
+                    <mainClass>com.wait.test.TestA</mainClass>
+                </manifest>
+                <manifestEntries>
+                    <Premain-Class>com.wait.test.JavaAgent</Premain-Class>
+                    <Agent-Class>com.wait.test.JavaAgent</Agent-Class>
+                    <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                    <Can-Retransform-Classes>true</Can-Retransform-Classes>
+                    <Boot-Class-Path>w-1.0-SNAPSHOT.jar</Boot-Class-Path>
+                </manifestEntries>
+            </archive>
+        </configuration>
+    </plugin>
+    </textarea>
+    </div>
 
 * 需要在<code>pom.xml</code>中增加这个，要不然打包会报找不到类定义的错。
-<div class="article_content">
-<textarea name="dp-code" class="xml" >
-<profiles>
-    <profile>
-        <id>windows_profile</id>
-        <activation>
-            <os>
-                <family>Windows</family>
-            </os>
-        </activation>
-        <dependencies>
-            <dependency>
-                <groupId>com.sun</groupId>
-                <artifactId>tools</artifactId>
-                <version>1.8</version>
-                <scope>system</scope>
-                <systemPath>${java.home}/../lib/tools.jar</systemPath>
-            </dependency>
-        </dependencies>
-    </profile>
-</profiles>
-</textarea>
-</div>
+    <div class="article_content">
+    <textarea name="dp-code" class="xml" >
+    <profiles>
+        <profile>
+            <id>windows_profile</id>
+            <activation>
+                <os>
+                    <family>Windows</family>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>com.sun</groupId>
+                    <artifactId>tools</artifactId>
+                    <version>1.8</version>
+                    <scope>system</scope>
+                    <systemPath>${java.home}/../lib/tools.jar</systemPath>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+    </textarea>
+    </div>
 
 * 这个<code>redefineClasses</code>有一个比较好的地方。
 
-> This method does not cause any initialization except that which would occur under the customary JVM semantics
+    > This method does not cause any initialization except that which would occur under the customary JVM semantics
 
-就是不会调用初始化，从<code>SkyData</code>的<code>toString</code>方法看来，里面的数据和引用都没有发生改变，而且我用过<code>Guice</code>测试过，调用<code>redefineClasses</code>之后的类，<code>Guice</code>里面也能直接生效。
+    就是不会调用初始化，从<code>SkyData</code>的<code>toString</code>方法看来，里面的数据和引用都没有发生改变，而且我用过<code>Guice</code>测试过，调用<code>redefineClasses</code>之后的类，<code>Guice</code>里面也能直接生效。
 
 * 又看了一下，发现这个<code>redefineClasses</code>还可以新增<code>private static/final</code>的方法，犀利。
-<img src="/images/20160806/redefine-method-desc.png" alt="redefineClasses方法的功能"/>
-参考：[JVM源码分析之javaagent原理完全解读](http://www.infoq.com/cn/articles/javaagent-illustrated)
+    <img src="/images/20160806/redefine-method-desc.png" alt="redefineClasses方法的功能"/>
+    参见：[JVM源码分析之javaagent原理完全解读](http://www.infoq.com/cn/articles/javaagent-illustrated)
 
 
 [=====================代码下载=======================](/files/20160806/java-instrumentation-demo.zip)
