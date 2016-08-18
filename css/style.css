@@ -5,7 +5,7 @@
 /* background-image: url('../img/body.png');*/
 body { 
     background: #f6f6f6;
-    color:black;
+    color:#333;
  }
 body,button,input,select,textarea {
     font: 14px/1.5 tahoma,Microsoft YaHei,arial,"Hiragino Sans GB",\5b8b\4f53
