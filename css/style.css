@@ -5,6 +5,7 @@
 /* background-image: url('../img/body.png');*/
 body { 
     background: #f6f6f6;
+    color:black;
  }
 body,button,input,select,textarea {
     font: 14px/1.5 tahoma,Microsoft YaHei,arial,"Hiragino Sans GB",\5b8b\4f53
@@ -161,7 +162,6 @@ ul.posts {
 .wait-post p {
     margin: 6px 0;
     font-size: 14px;
-    color: rgba(15,15,15,0.8);
     line-height: 35px;
 }
 .wait-post img {
