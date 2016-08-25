@@ -24,7 +24,6 @@ comments: true
 excerpt_separator: <!-- more -->
 
 # Recent posts num
-# 这里配置不知道为什么不能替换container.html的参数,暂时在container.html里写死10
 recent_posts_num: 10
 
 #评论信息
