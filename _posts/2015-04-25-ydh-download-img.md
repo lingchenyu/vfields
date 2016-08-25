@@ -100,4 +100,4 @@ if __name__ == '__main__':
 &nbsp;&nbsp;其中<xcode>product.xls</xcode>的结构图如下：
 <img src="/images/20150425/grab-07.png" alt="product.xls结构图"/>
 
-&nbsp;&nbsp;这样写出来不知道会不会被打= =，想家了。。。
+&nbsp;&nbsp;对于大神来说，其实这些都超级简单，只不过我现在比较菜，而且第一次折腾，顺便记录一下= =
