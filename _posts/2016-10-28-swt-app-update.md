@@ -13,7 +13,8 @@ icon: code
 
 #### 更新流程 ####
 
-更新流程比较简单，就不画图了，简单描述如下：
+更新流程比较简单，就不画图了，简单描述如下:
+
 1. 添加钩子，钩子里面用<code>Runtime</code>把替换当前<code>swtApp</code>交给另一个<code>update.exe</code>
 2. <code>update.exe</code>把下载好的新版本<code>swtApp</code>替换，然后启动新版本<code>swtApp</code>
 
