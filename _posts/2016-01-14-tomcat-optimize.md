@@ -40,8 +40,7 @@ http {
 ##### 2、访问日志记录真实IP #####
 &nbsp;&nbsp;  这里配置有个问题，就是没有热部署，找了挺多资料也还没搞掂，还在折腾中╮(╯▽╰)╭
 
-<div class="article_content">
-<textarea name="dp-code" class="xml" >
+{% highlight xml %}
 <Host name="localhost" appBase="webapps" unpackWARs="true" autoDeploy="true" deployOnStartup="false">
     <!--这里的docBase路径改到非webapps目录, 否则会导致初始化两次-->
 	<Context path="/" docBase="/usr/local/tomcat/apps/xxxxx" debug="0" privileged="true" reloadable="true"/>
@@ -49,10 +48,8 @@ http {
     <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
            prefix="access_log" suffix=".txt"
            pattern="%{X-Real-IP}i  %t &quot;%r&quot; %s %D" />
-
 </Host>
-</textarea>
-</div>
+{% endhighlight %}
 
 ##### 3、隐藏Tomcat版本号 #####
 &nbsp;&nbsp;  这个就比较简单了。但是修改必须要先关闭<xcode>Tomcat</xcode>，要不然会报找不到<xcode>org.catalina.core</xcode>包的一些类，不要问我怎么知道的，真的，我出手很重！！！！
@@ -74,9 +71,8 @@ rm -rf test
 &nbsp;&nbsp;  因为使用了<xcode>DbUtils</xcode>和<xcode>Logback</xcode>的异步邮件发送，所以在关闭的时候需要手动释放。
 &nbsp;&nbsp;  可能<xcode>Logback</xcode>的释放再搞一个<xcode>try...catch</xcode>比较好，但一直用下来没什么问题，就先这样了。
 
-<div class="article_content">
-<textarea name="dp-code" class="java" >
-@Service
+<pre class="prettyprint">
+<icode class="java">@Service
 public class DisposeService implements DisposableBean {
 
     @Override
@@ -105,7 +101,7 @@ public class DisposeService implements DisposableBean {
         }
     }
 }
-</textarea>
-</div>
+</icode>
+</pre>
 
 &nbsp;&nbsp;  完。

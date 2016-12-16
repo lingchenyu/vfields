@@ -8,9 +8,8 @@ icon: code
 &nbsp;&nbsp; 一个用于偶尔偷懒的小工具类╮(╯▽╰)╭：
 
 
-<div class="article_content">
-<textarea name="dp-code" class="java" >
-import java.io.*;
+<pre class="prettyprint">
+<icode class="java">import java.io.*;
 
 /**
  * 打包
@@ -203,8 +202,8 @@ public class PackUtil {
         svnAddAndCommit(svnPath, "test_version");
     }
 }
-</textarea>
-</div>
+</icode>
+</pre>
 &nbsp;&nbsp;源文件目录如下：
 <img src="/images/20151001/src_file.png" alt="源文件目录"/>
 &nbsp;&nbsp;这个比较简单，在我本机上，就是把<xcode>E:\tmp</xcode>目录下的文件拷贝到<xcode>E:\svnwork</xcode>

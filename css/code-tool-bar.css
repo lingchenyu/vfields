@@ -1,0 +1,51 @@
+/*代码高亮优化*/
+.code-pretty-container {
+    position: relative;
+    padding-top: 9px;
+    margin-top: 18px;
+}
+.code-pretty-toolbar {
+	position: absolute;
+	top: -17px;
+	left: 0;
+	color: #ddd;
+}
+.code-pretty-toolbar span,.code-pretty-toolbar a {
+	display: inline-block;
+	vertical-align: top;
+}
+.code-pretty-toolbar .title {
+	padding: 4px 14px 2px;
+	margin-right: 12px;
+	line-height: 1.75;
+	background-color: #2d2d2d;
+	border-radius: 8px 8px 0 0;
+	border-bottom: none; 
+	font-size: 12px;
+}
+.code-pretty-toolbar .tool {
+	margin-right:3px;
+	height: 24px;
+	width: 24px;
+	font-size: 16px;
+	color: #777777;
+}
+.code-pretty-toolbar .tool:hover {
+	color: #2080df;
+}
+.code-pretty-toolbar .back-to-pretty {
+	display: none;
+}
+.code-pretty-toolbar .msg {
+    margin-left: 10px;
+	margin-right: 12px;
+	line-height: 19px;
+	font-size: 12px;
+	color: #272822;
+}
+.code-pretty-toolbar a:hover{
+	text-decoration: none;
+}
+.linenums li {
+    list-style-type: decimal;
+}

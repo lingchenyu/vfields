@@ -11,9 +11,8 @@ icon: code
 
 主测试类：
 
-<div class="article_content">
-<textarea name="dp-code" class="java" >
-import java.io.IOException;
+<pre class="prettyprint">
+<icode class="java">import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class TestProcessThread {
@@ -36,14 +35,13 @@ public class TestProcessThread {
         Thread.sleep(1000 * 60 * 2);
     }
 }
-</textarea>
-</div>
+</icode>
+</pre>
 
 另一个测试类：
 
-<div class="article_content">
-<textarea name="dp-code" class="java" >
-import java.io.IOException;
+<pre class="prettyprint">
+<icode class="java">import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -73,8 +71,8 @@ public class ProcessThread {
         Files.write(Paths.get("/home/wait/", "abc.txt"), "end".getBytes(), StandardOpenOption.APPEND);
     }
 }
-</textarea>
-</div>
+</icode>
+</pre>
 
 #### 运行结果 ####
 运行<code>TestProcessThread</code>，结果如下：

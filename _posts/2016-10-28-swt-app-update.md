@@ -21,9 +21,8 @@ icon: code
 #### 代码 ####
 
 1. 检测更新的代码如下：
-    <div class="article_content">
-    <textarea name="dp-code" class="java" >
-    import com.bigao.diff.MainUI;
+    <pre class="prettyprint">
+    <icode class="java"> import com.bigao.diff.MainUI;
     import com.bigao.diff.util.HttpUtil;
     import com.bigao.diff.util.PathUtil;
     import org.apache.commons.io.FileUtils;
@@ -116,13 +115,12 @@ icon: code
             System.exit(0);
         }
     }
-    </textarea>
-    </div>
+    </icode>
+    </pre>
 
 2. 更新应用的代码如下：            
-    <div class="article_content">
-    <textarea name="dp-code" class="java" >
-    import java.io.File;
+    <pre class="prettyprint">
+    <icode class="java"> import java.io.File;
     import java.io.FileInputStream;
     import java.io.FileOutputStream;
     import java.io.IOException;
@@ -176,17 +174,14 @@ icon: code
             }
         }
     }
-    </textarea>
-    </div>
+    </icode>
+    </pre>
 
 3. <code>version.txt</code>内容如下：
-    <div class="article_content">
-    <textarea name="dp-code" class="txt" >
+    {% highlight txt %}
     version=2.2.5
     downloadUrl=http://xx.xx.xx.xx/xx/diff-tool/downloads/diff-tool225.exe
-    updateExeUrl=http://xx.xx.xx.xx/xx/update.exe
-    </textarea>
-    </div>
+    updateExeUrl=http://xx.xx.xx.xx/xx/update.exe {% endhighlight %}
 
 
 #### 结束 ####

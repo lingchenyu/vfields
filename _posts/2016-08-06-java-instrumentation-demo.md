@@ -11,8 +11,7 @@ icon: code
 
 用<code>tree /f</code>指令查看如下：
 
-<div class="article_content">
-<textarea name="dp-code" class="txt" >
+{% highlight txt %}
 │  pom.xml // maven项目pom文件
 │          
 ├─src
@@ -40,8 +39,7 @@ icon: code
     │                  Sky.class
     │                  SkyData.class
     │                  TestA.class
-</textarea>
-</div>
+{% endhighlight %}
 
 #### 增加运行参数 ####
 首先用<code>maven</code>生成<code>target/w-1.0-SNAPSHOT.jar</code>，接着编辑<code>Run-->Edit Configurations</code>，增加运行参数，如下图：
@@ -50,26 +48,24 @@ icon: code
 #### 修改SkyData并编译 ####
 修改<code>SkyData</code>里的<code>toString</code>方法如下（其实就是加了一句打印）：
 
-<div class="article_content">
-<textarea name="dp-code" class="java" >
-    @Override
-    public String toString() {
-        System.err.println("=====================");
-        return "SkyData{" +
-                "number=" + number +
-                ", skies=" + skies.hashCode() + "(" + skies + ")" +
-                '}';
-    }
-</textarea>
-</div>
+<pre class="prettyprint">
+<icode class="java">@Override
+public String toString() {
+    System.err.println("=====================");
+    return "SkyData{" +
+            "number=" + number +
+            ", skies=" + skies.hashCode() + "(" + skies + ")" +
+            '}';
+}
+</icode>
+</pre>
 
 <code>Ctrl+Shif+F9</code>重新编译<code>SkyData</code>，运行<code>TestA</code>，由于<code>TestA</code>是直接去读取<code>target</code>下的<code>class</code>文件，这样可以免去拷贝（我比较懒- -），运行结果如下：
 <img src="/images/20160806/run-result.png" alt="运行结果"/>
 
 其中，<code>TestA</code>的代码如下：
-<div class="article_content">
-<textarea name="dp-code" class="java" >
-package com.wait.test;
+<pre class="prettyprint">
+<icode class="java">package com.wait.test;
 
 import java.io.IOException;
 import java.lang.instrument.ClassDefinition;
@@ -96,13 +92,12 @@ public class TestA {
         }
     }
 }
-</textarea>
-</div>
+</icode>
+</pre>
 
 #### 注意点和收获 ####
 1. 在<code>pom</code>中自定义<code>MAINFEST.MF</code>。以前没折腾过，现在知道了。其中<code><Can-Redefine-Classes>true</Can-Redefine-Classes></code>这个参数一定要设置，要不然调用<code>redefineClasses</code>会抛出<code>UnsupportedOperationException</code>异常
-    <div class="article_content">
-    <textarea name="dp-code" class="xml" >
+    {% highlight xml %}
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -121,13 +116,10 @@ public class TestA {
                 </manifestEntries>
             </archive>
         </configuration>
-    </plugin>
-    </textarea>
-    </div>
+    </plugin>    {% endhighlight %}
 
 2. 需要在<code>pom.xml</code>中增加这个，要不然打包会报找不到类定义的错。
-    <div class="article_content">
-    <textarea name="dp-code" class="xml" >
+    {% highlight xml %}
     <profiles>
         <profile>
             <id>windows_profile</id>
@@ -146,9 +138,7 @@ public class TestA {
                 </dependency>
             </dependencies>
         </profile>
-    </profiles>
-    </textarea>
-    </div>
+    </profiles>    {% endhighlight %}
 
 3. 这个<code>redefineClasses</code>有一个比较好的地方。
 

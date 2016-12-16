@@ -78,8 +78,7 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 
 &nbsp;&nbsp;这个项目的目录结构如下：
 
-<div class="article_content">
-<textarea name="dp-code" class="txt" >
+{% highlight txt %}
 │  swt-gdip-win32-3218.dll
 │  swt-win32-3218.dll
 │  
@@ -120,8 +119,7 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
                         LangUtils.java
                         MixUtils.java
                         UINames.java
-</textarea>
-</div>
+{% endhighlight %}
 
 &nbsp;&nbsp;= =一时找不到可以显示目录和文件的软件，就先用<xcode>tree</xcode>命令简单打印一下了
 
@@ -133,8 +131,7 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 
 * <xcode>build.xml</xcode>文件内容如下:
 
-<div class="article_content">
-<textarea name="dp-code" class="xml" >
+{% highlight xml%}
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="calTest" name="cal-test">
 	<property name="gcj" value="gcj" />
@@ -180,7 +177,6 @@ src/com/wait/calsoft/util/*.java src/logo.o -lswt -Llib/win32/ -Wl,--whole-archi
 		<delete file="${dist}/${outputfile}" />
 	</target>
 </project>
-</textarea>
-</div>
+{% endhighlight %}
 
 * 最后把<xcode>config</xcode>目录和两个<xcode>dll</xcode>文件拷贝过去，双击即可运行。

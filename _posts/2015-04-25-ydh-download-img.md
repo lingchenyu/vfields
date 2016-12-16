@@ -23,19 +23,17 @@ icon: code
 
 &nbsp;&nbsp;所以我们只要按流程对小图的链接进行拼接就妥了。不过我偷了很多懒，直接就取了<xcode>__600x600</xcode>，没有去做判断：
 
-<div class="article_content">
-<textarea name="dp-code" class="js" >
-    if (detailparams.isBGCloth == 1) {
-        n = "_600x600";
-        y = "_332*464"
-    }
-</textarea>
-</div>
+<pre class="prettyprint">
+<icode class="js">if (detailparams.isBGCloth == 1) {
+    n = "_600x600";
+    y = "_332*464"
+}
+</icode>
+</pre>
 &nbsp;&nbsp;最终代码如下：
 
-<div class="article_content">
-<textarea name="dp-code" class="python" >
-#!/usr/bin/env python
+<pre class="prettyprint">
+<icode class="python">#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 __title__ = ''
@@ -94,9 +92,8 @@ def main():
 
 if __name__ == '__main__':
     main()
-</textarea>
-</div>
-
+</icode>
+</pre>
 &nbsp;&nbsp;其中<xcode>product.xls</xcode>的结构图如下：
 <img src="/images/20150425/grab-07.png" alt="product.xls结构图"/>
 

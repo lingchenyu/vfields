@@ -20,8 +20,7 @@ icon: code
 
 &nbsp;&nbsp;根据流程图，其实最主要是根据各种属性判断命中、伤害、暴击等，然后技能进入冷却，而公式暂时是做的比较烂的，毕竟朕只是一个后端程序员，而不是一个数值，而且经验神马的还不够，公式是我乱配的，所以，不要问我为神马是酱紫的，公式如下：
 
-<div class="article_content">
-<textarea name="dp-code" class="txt" >
+{% highlight txt %}
 ##战力=攻击*1.3+防御*1.8+生命*1.1+速度*0.5+命中*1+闪避*1+暴击*2.1+韧性*2.1
 #attack:攻击
 #defense
@@ -55,9 +54,7 @@ critRate=#{attackCrit} - #{enemyTough}
 #enemyDefense:防方的防御力
 #skillHurt:技能附加伤害
 hurt=(#{srcAttack} * 0.9 / (1 + #{enemyDefense} * 0.1)) * #{skillHurt}
-</textarea>
-</div>
-
+{% endhighlight %}
 
 &nbsp;&nbsp;下一步应该是看一下<xcode>netty</xcode>源码，在搭好通信之后，把这个系统扩展成一个简单的游戏，这时候其实主要的系统就是任务系统和世界boss等；最后做一个简单的管理后台，这时候可以去学<xcode>js</xcode>、<xcode>css</xcode>，最重要的是要学习<xcode>mysql</xcode>。
 
