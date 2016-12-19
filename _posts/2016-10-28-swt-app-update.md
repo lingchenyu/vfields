@@ -50,7 +50,7 @@ icon: code
             String downloadUrl = null;
             String updateExeUrl = null;
             try {
-                List<String> data = IOUtils.readLines(HttpUtil.getInputStream(VERSION_URL));
+                List&lt;String&gt; data = IOUtils.readLines(HttpUtil.getInputStream(VERSION_URL));
                 for (String line : data) {
                     // 这里使用key, value方式相对灵活一点
                     if (line.startsWith("version")) {

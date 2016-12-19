@@ -379,6 +379,10 @@ hr {
     border-radius: 4px;
 }
 
+figure pre {
+    background-color: #ebebeb;
+}
+
 @media (max-width:767px) {
     #ad,#elevator_item {
 	    display: none;
