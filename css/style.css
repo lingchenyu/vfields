@@ -372,11 +372,9 @@ hr {
 }
 
 .code-pretty-container pre{
-    display: block;
-    padding: 9.5px;
-    word-break: break-all;
-    word-wrap: break-word;
     border-radius: 0 4px 4px;
+    margin-bottom: 0px;
+    font-size: 10px;
 }
 
 figure pre {

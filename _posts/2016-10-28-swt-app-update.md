@@ -114,8 +114,7 @@ icon: code
 
             System.exit(0);
         }
-    }
-    </icode>
+    }</icode>
     </pre>
 
 2. 更新应用的代码如下：            
@@ -173,8 +172,7 @@ icon: code
                 e.printStackTrace();
             }
         }
-    }
-    </icode>
+    }</icode>
     </pre>
 
 3. <code>version.txt</code>内容如下：

@@ -24,6 +24,10 @@
 				case 'cpp':
 					_lang = lang.toUpperCase();
 					break;
+                case 'txt':
+                case 'plain':
+                    _lang = 'txt';
+                    break;
 				default:
 					_lang = lang; 
 			}
