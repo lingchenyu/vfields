@@ -5,7 +5,7 @@ description: Java使用子进程Process，如果在Process产生了线程A，关
 categories: java
 icon: code
 ---
-#### 测试代码 ####
+### 测试代码 ###
 
 测试代码很简单，就是一个java类里面起一个子进程，子进程里面开一个线程，如下：
 
@@ -74,7 +74,7 @@ public class ProcessThread {
 </icode>
 </pre>
 
-#### 运行结果 ####
+### 运行结果 ###
 运行<code>TestProcessThread</code>，结果如下：
 <img src="/images/20161007/test-process-result-1.jpg" alt="TestProcessThread运行结果"/>
 可以很清晰的看到，执行到end而且即使<code>TestProcessThread</code>已经结束，<code>ProcessThread</code>还在运行。

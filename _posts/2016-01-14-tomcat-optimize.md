@@ -5,7 +5,7 @@ description: 记录Tomcat的一些小优化，记录下来以后好找。
 categories: java
 icon: code
 ---
-##### 1、静态资源使用nginx代理 #####
+### 1、静态资源使用nginx代理 ###
 &nbsp;&nbsp;  <xcode>nginx</xcode>配置，端口神马的只是示例。这里这个<xcode>X-Real-IP</xcode>在后面<xcode>Tomcat</xcode>的<xcode>access_log</xcode>有用到。
 
 {% highlight nginx %}
@@ -37,7 +37,7 @@ http {
 }
 {% endhighlight %}
 
-##### 2、访问日志记录真实IP #####
+### 2、访问日志记录真实IP ###
 &nbsp;&nbsp;  这里配置有个问题，就是没有热部署，找了挺多资料也还没搞掂，还在折腾中╮(╯▽╰)╭
 
 {% highlight xml %}
@@ -51,7 +51,7 @@ http {
 </Host>
 {% endhighlight %}
 
-##### 3、隐藏Tomcat版本号 #####
+### 3、隐藏Tomcat版本号 ###
 &nbsp;&nbsp;  这个就比较简单了。但是修改必须要先关闭<xcode>Tomcat</xcode>，要不然会报找不到<xcode>org.catalina.core</xcode>包的一些类，不要问我怎么知道的，真的，我出手很重！！！！
 
 {% highlight shell %}
@@ -67,7 +67,7 @@ cd ..
 rm -rf test
 {% endhighlight %}
 
-##### 4、在webapp关闭时释放内存 #####
+### 4、在webapp关闭时释放内存 ###
 &nbsp;&nbsp;  因为使用了<xcode>DbUtils</xcode>和<xcode>Logback</xcode>的异步邮件发送，所以在关闭的时候需要手动释放。
 &nbsp;&nbsp;  可能<xcode>Logback</xcode>的释放再搞一个<xcode>try...catch</xcode>比较好，但一直用下来没什么问题，就先这样了。
 

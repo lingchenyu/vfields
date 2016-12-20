@@ -5,7 +5,7 @@ description: Instrumentation里面有一个redefineClasses方法，可以用于�
 categories: java
 icon: code
 ---
-#### 项目结构 ####
+### 项目结构 ###
 
 <img src="/images/20160806/project-desc.png" alt="项目结构效果图"/>
 
@@ -41,11 +41,11 @@ icon: code
     │                  TestA.class
 {% endhighlight %}
 
-#### 增加运行参数 ####
+### 增加运行参数 ###
 首先用<code>maven</code>生成<code>target/w-1.0-SNAPSHOT.jar</code>，接着编辑<code>Run-->Edit Configurations</code>，增加运行参数，如下图：
 <img src="/images/20160806/edit-java-vm-command.png" alt="编辑java的运行参数"/>
 
-#### 修改SkyData并编译 ####
+### 修改SkyData并编译 ###
 修改<code>SkyData</code>里的<code>toString</code>方法如下（其实就是加了一句打印）：
 
 <pre class="prettyprint">
@@ -95,7 +95,7 @@ public class TestA {
 </icode>
 </pre>
 
-#### 注意点和收获 ####
+### 注意点和收获 ###
 1. 在<code>pom</code>中自定义<code>MAINFEST.MF</code>。以前没折腾过，现在知道了。其中<code><Can-Redefine-Classes>true</Can-Redefine-Classes></code>这个参数一定要设置，要不然调用<code>redefineClasses</code>会抛出<code>UnsupportedOperationException</code>异常
     {% highlight xml %}
     <plugin>
@@ -150,5 +150,5 @@ public class TestA {
     <img src="/images/20160806/redefine-method-desc.png" alt="redefineClasses方法的功能"/>
     参见：[JVM源码分析之javaagent原理完全解读](http://www.infoq.com/cn/articles/javaagent-illustrated)
 
-#### 测试代码 ####
+### 测试代码 ###
 [=======代码下载=======](/files/20160806/java-instrumentation-demo.zip)

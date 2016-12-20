@@ -5,20 +5,20 @@ description: swt打包成单独可运行的exe文件后，每次启动检测是�
 categories: java
 icon: code
 ---
-#### 运行结果 ####
+### 运行结果 ###
 
 <img src="/images/20161028/run-result.gif" alt="swtApp更新效果图" />
 
 为了图片小一点，删减了图片，用了16位色，看起来有点怪。但用文字来说明就是，检测到更新-->确认更新-->弹出更新程序运行-->更新完成并重启。左上角版本号已从2.2.3变成2.2.5
 
-#### 更新流程 ####
+### 更新流程 ###
 
 更新流程比较简单，就不画图了，简单描述如下:
 
 1. 添加钩子，钩子里面用<code>Runtime</code>把替换当前<code>swtApp</code>交给另一个<code>update.exe</code>
 2. <code>update.exe</code>把下载好的新版本<code>swtApp</code>替换，然后启动新版本<code>swtApp</code>
 
-#### 代码 ####
+### 代码 ###
 
 1. 检测更新的代码如下：
     <pre class="prettyprint">
@@ -182,7 +182,7 @@ icon: code
     updateExeUrl=http://xx.xx.xx.xx/xx/update.exe {% endhighlight %}
 
 
-#### 结束 ####
+### 结束 ###
 看代码也知道，逻辑真的超级简单。当然，我的异常处理写得不好。
 
 1. 首先判断<code>update.exe</code>存不存在，如果不存在，则去下载；如果存在，则下载新版本的<code>swtApp</code>
