@@ -27,6 +27,9 @@
                 </div>
             </div>
         </div>
+      
+      {% include comment.html %}
+    </div>
     <hr>
      {% include footer.html %}
     </div>
@@ -35,6 +38,43 @@
         <a id="elevator" onclick="return false;" title="Back To Top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
     </div>
     </body>
+    <script type="text/javascript">
+    var duoshuoQuery = {
+        short_name: "{{ site.duoshuo.id }}"
+    };
+    if (document.getElementById("ds-thread")) {
+        var div = document.getElementById("ds-thread");
+        var short_name = "{{ site.duoshuo.id }}";
+        var aid = div.getAttributeNode("data-thread-key").value;
+        var getstr = "http://api.duoshuo.com/threads/counts.jsonp?short_name=" + short_name + "&threads=" + aid + "&callback=?";
+        $.getJSON(getstr, function(data) {
+            if (data == "undefined") {
+                $("#ccount").text("0"); //ccount是需要设置的论评数的html元素ID
+                return;
+            }
+            var comval = '';
+            $.each(data.response, function(i, item) {
+                comval += item.comments;
+            });
+            if (comval == '') {
+                comval = '0'
+            };
+            $("#ccount").text(comval); //ccount是需要设置的论评数的html元素ID
+        });
+        $('#commentBtn').on('click', function() {
+            var that = this;
+            $(that).remove();
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';
+                ds.async = true;
+                ds.src = 'http://static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        });
+    }
+    </script>
     <script type="text/javascript" src="{{ site.url }}/js/prettify.js"></script>
     <script type="text/javascript" src="{{ site.url }}/js/clipboard.min.js"></script>
     <script type="text/javascript" src="{{ site.url }}/js/code-tool-bar.js"></script>
