@@ -11,7 +11,7 @@ icon: code
 
 ### 实现 ###
 <pre class="prettyprint">
-<icode class="java"> import org.eclipse.swt.SWT;
+<icode class="java">import org.eclipse.swt.SWT;
 import org.eclipse.swt.internal.win32.OS;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Display;
