@@ -263,6 +263,8 @@ hr {
     right:40px;
     margin-bottom:-270px;
     z-index:10000;
+    border: 1px solid #808f81;
+    border-bottom: none;
 }
 
 *html #ad { /* ie6 hack */
@@ -272,7 +274,6 @@ hr {
 
 
 #ad .section{
-    border:1px solid #808f81;
     border-bottom:none;
     padding:10px 25px 25px;
 }
