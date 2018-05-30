@@ -196,3 +196,22 @@ icon: code
 4. 其实用<code>Java</code>写桌面应用真的不好，我也在学<code>pyqt</code>，但<code>pyqt</code>没找到[NatTable](http://www.eclipse.org/nattable/)这么好用的<code>table</code>处理框架，就又回来折腾<code>Java</code>了，哭/(ㄒoㄒ)/~~
 
 5. 之前一直觉得想想就好难，但没想过可以这么简单，哎，还是要鼓起勇气多折腾= =
+
+### 2018.05.30更新 ###
+之前的<code>update.exe</code>是用<code>Java</code>写的，更新之后会出现文件拖拽失效的问题。一直没找到原因，后来改用<code>Python</code>写可以解决问题。
+<pre class="prettyprint">
+<icode class="python">#!/usr/bin/env python3
+import os
+import sys
+from shutil import copyfile
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        sys.exit()
+    nowExe = sys.argv[1]
+    updateExe = sys.argv[2]
+    if os.path.isfile(nowExe):
+        copyfile(updateExe, nowExe)
+        os.system("cmd.exe /c" + nowExe)
+</icode>
+</pre>
