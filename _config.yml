@@ -10,7 +10,7 @@ title: vFields
 email: lingchen_yu@126.com
 description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.vfields.com" # the base hostname & protocol for your site
+url: "https://vfields.com" # the base hostname & protocol for your site
 host: "vfields.com" # the base hostname
 author: wait
 
