@@ -7,7 +7,7 @@ icon: leaf
 ---
 
 ### 一个loading ###
-&nbsp; &nbsp; 挺喜欢的一个小动画，本来打算弄成<xcode>gif</xcode>用于网站的<xcode>loading</xcode>，但折腾了几天，发现效果都不太好，终于决定放！弃！了！！！多么痛的领悟！！！
+&nbsp; &nbsp; 挺喜欢的一个小动画，本来打算弄成<xcode>gif</xcode>用于网站的<xcode>loading</xcode>，但折腾了几天，发现效果都不太好，终于决定放！弃！了！！！
 
 &nbsp; &nbsp; 为了弥补朕在这些天折腾得这么辛苦，就直接摆它上桌吧= =
 
