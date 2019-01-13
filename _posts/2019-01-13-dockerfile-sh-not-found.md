@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker运行报错
+title: Docker运行报错"/bin/sh ./run.sh&#58; not found"
 description: Docker运行报错"/bin/sh ./run.sh&#58; not found"或者"standard_init_linux.go：207&#58; exec user process caused"
 categories: docker
 icon: code
