@@ -54,11 +54,9 @@ echo "********************************************************"^M
 因为电脑装了<xcode>cygwin</xcode>，所以可以直接使用<xcode>dos2unix</xcode>转换：
 
 {% highlight shell %}
-wait@404-pc /cygdrive/d/gitcode/inaction/spmia-chapter5/confsvr/src/main/docker
 $ dos2unix Dockerfile
 dos2unix: 正在转换文件 Dockerfile 为Unix格式...
 
-wait@404-pc /cygdrive/d/gitcode/inaction/spmia-chapter5/confsvr/src/main/docker
 $ dos2unix run.sh
 dos2unix: 正在转换文件 run.sh 为Unix格式...
 {% endhighlight %}
