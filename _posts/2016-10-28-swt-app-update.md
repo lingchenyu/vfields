@@ -15,7 +15,7 @@ icon: code
 
 更新流程比较简单，就不画图了，简单描述如下:
 
-1. 添加钩子，钩子里面用<xcode>Runtime</xcode>把替换当前<xcode>swtApp</code>交给另一个<xcode>update.exe</xcode>
+1. 添加钩子，钩子里面用<xcode>Runtime</xcode>把替换当前<xcode>swtApp</xcode>交给另一个<xcode>update.exe</xcode>
 2. <xcode>update.exe</xcode>把下载好的新版本<xcode>swtApp</xcode>替换，然后启动新版本<xcode>swtApp</xcode>
 
 ### 代码 ###
