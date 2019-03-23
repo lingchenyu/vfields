@@ -175,7 +175,7 @@ icon: code
     }</icode>
     </pre>
 
-3. <xcode>version.txt</xcode>内容如下：
+3. <code>version.txt</code>内容如下：
     {% highlight txt %}
     version=2.2.5
     downloadUrl=http://xx.xx.xx.xx/xx/diff-tool/downloads/diff-tool225.exe
