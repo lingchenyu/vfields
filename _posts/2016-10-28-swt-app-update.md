@@ -175,7 +175,7 @@ icon: code
     }</icode>
     </pre>
 
-3. <code>version.txt</code>内容如下：
+3. <xcode>version.txt</xcode>内容如下：
     {% highlight txt %}
     version=2.2.5
     downloadUrl=http://xx.xx.xx.xx/xx/diff-tool/downloads/diff-tool225.exe
@@ -188,12 +188,12 @@ icon: code
 1. 首先判断<xcode>update.exe</xcode>存不存在，如果不存在，则去下载；如果存在，则下载新版本的<xcode>swtApp</xcode>
 
 2. 等新版本的<xcode>swtApp</xcode>下载完成后，则把替换工作交给<xcode>update.exe</xcode>。
-    这是因为，在<xcode>windows</xcode>下好像是不能修改正在运行的程序的，这个我不是很肯定，但之前用脚本重命名-->移动新的过来-->删掉旧的-->启动新的，这个在<code>windows7</code>上不行。
+    这是因为，在<xcode>windows</xcode>下好像是不能修改正在运行的程序的，这个我不是很肯定，但之前用脚本重命名-->移动新的过来-->删掉旧的-->启动新的，这个在<code>windows7</xcode>上不行。
     可能是我操作不对，但我用我自己的方式解决了这个问题，虽然并不优雅，但内部使用，就先这样了。
 
 3. <xcode>update.exe</xcode>做的工作超级简单，就是替换，然后启动
 
-4. 其实用<xcode>Java</xcode>写桌面应用真的不好，我也在学<xcode>pyqt</xcode>，但<xcode>pyqt</xcode>没找到[NatTable](http://www.eclipse.org/nattable/)这么好用的<xcode>table</xcode>处理框架，就又回来折腾<code>Java</code>了，哭/(ㄒoㄒ)/~~
+4. 其实用<xcode>Java</xcode>写桌面应用真的不好，我也在学<xcode>pyqt</xcode>，但<xcode>pyqt</xcode>没找到[NatTable](http://www.eclipse.org/nattable/)这么好用的<xcode>table</xcode>处理框架，就又回来折腾<xcode>Java</xcode>了，哭/(ㄒoㄒ)/~~
 
 5. 之前一直觉得想想就好难，但没想过可以这么简单，哎，还是要鼓起勇气多折腾= =
 
