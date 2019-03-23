@@ -188,7 +188,7 @@ icon: code
 1. 首先判断<xcode>update.exe</xcode>存不存在，如果不存在，则去下载；如果存在，则下载新版本的<xcode>swtApp</xcode>
 
 2. 等新版本的<xcode>swtApp</xcode>下载完成后，则把替换工作交给<xcode>update.exe</xcode>。
-    这是因为，在<xcode>windows</xcode>下好像是不能修改正在运行的程序的，这个我不是很肯定，但之前用脚本重命名-->移动新的过来-->删掉旧的-->启动新的，这个在<code>windows7</xcode>上不行。
+    这是因为，在<xcode>windows</xcode>下好像是不能修改正在运行的程序的，这个我不是很肯定，但之前用脚本重命名-->移动新的过来-->删掉旧的-->启动新的，这个在<xcode>windows7</xcode>上不行。
     可能是我操作不对，但我用我自己的方式解决了这个问题，虽然并不优雅，但内部使用，就先这样了。
 
 3. <code>update.exe</code>做的工作超级简单，就是替换，然后启动
