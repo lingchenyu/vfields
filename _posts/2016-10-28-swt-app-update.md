@@ -229,10 +229,10 @@ error code 127
 具体的报错因为但是没截图，又是内网比较难取出来，只记得这些，想了一下，这个更新逻辑也不是很复杂，直接用<xcode>c</xcode>写算了，代码如下：
 
 <pre class="prettyprint">
-<icode class="c">#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+<icode class="c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+#include &lt;unistd.h&gt;
  
 int main(int argc, char **argv)
 {
@@ -260,5 +260,6 @@ int main(int argc, char **argv)
 }
 </icode>
 </pre>
+
 
 暂时能用，后面遇到问题再更新，嗯，希望不需要再更新了，踩了这么多坑也是醉了。。。
