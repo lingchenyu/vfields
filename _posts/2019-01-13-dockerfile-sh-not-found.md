@@ -6,7 +6,7 @@ categories: docker
 icon: code
 ---
 
-折腾了整整两天，终于解决了，感人励志。。。
+折腾了整整一天，终于解决了，感人励志。。。
 
 一开始<xcode>Dockerfile</xcode>最后一行是：
 

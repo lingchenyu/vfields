@@ -15,8 +15,8 @@ icon: code
 
 更新流程比较简单，就不画图了，简单描述如下:
 
-1. 添加钩子，钩子里面用<code>Runtime</code>把替换当前<code>swtApp</code>交给另一个<code>update.exe</code>
-2. <code>update.exe</code>把下载好的新版本<code>swtApp</code>替换，然后启动新版本<code>swtApp</code>
+1. 添加钩子，钩子里面用<xcode>Runtime</xcode>把替换当前<xcode>swtApp</code>交给另一个<xcode>update.exe</xcode>
+2. <xcode>update.exe</xcode>把下载好的新版本<xcode>swtApp</xcode>替换，然后启动新版本<xcode>swtApp</xcode>
 
 ### 代码 ###
 
@@ -185,20 +185,20 @@ icon: code
 ### 结束 ###
 看代码也知道，逻辑真的超级简单。当然，我的异常处理写得不好。
 
-1. 首先判断<code>update.exe</code>存不存在，如果不存在，则去下载；如果存在，则下载新版本的<code>swtApp</code>
+1. 首先判断<xcode>update.exe</xcode>存不存在，如果不存在，则去下载；如果存在，则下载新版本的<xcode>swtApp</xcode>
 
-2. 等新版本的<code>swtApp</code>下载完成后，则把替换工作交给<code>update.exe</code>。
-    这是因为，在<code>windows</code>下好像是不能修改正在运行的程序的，这个我不是很肯定，但之前用脚本重命名-->移动新的过来-->删掉旧的-->启动新的，这个在<code>windows7</code>上不行。
+2. 等新版本的<xcode>swtApp</xcode>下载完成后，则把替换工作交给<xcode>update.exe</xcode>。
+    这是因为，在<xcode>windows</xcode>下好像是不能修改正在运行的程序的，这个我不是很肯定，但之前用脚本重命名-->移动新的过来-->删掉旧的-->启动新的，这个在<code>windows7</code>上不行。
     可能是我操作不对，但我用我自己的方式解决了这个问题，虽然并不优雅，但内部使用，就先这样了。
 
-3. <code>update.exe</code>做的工作超级简单，就是替换，然后启动
+3. <xcode>update.exe</xcode>做的工作超级简单，就是替换，然后启动
 
-4. 其实用<code>Java</code>写桌面应用真的不好，我也在学<code>pyqt</code>，但<code>pyqt</code>没找到[NatTable](http://www.eclipse.org/nattable/)这么好用的<code>table</code>处理框架，就又回来折腾<code>Java</code>了，哭/(ㄒoㄒ)/~~
+4. 其实用<xcode>Java</xcode>写桌面应用真的不好，我也在学<xcode>pyqt</xcode>，但<xcode>pyqt</xcode>没找到[NatTable](http://www.eclipse.org/nattable/)这么好用的<code>table</code>处理框架，就又回来折腾<code>Java</code>了，哭/(ㄒoㄒ)/~~
 
 5. 之前一直觉得想想就好难，但没想过可以这么简单，哎，还是要鼓起勇气多折腾= =
 
 ### 2018.05.30更新 ###
-之前的<code>update.exe</code>是用<code>Java</code>写的，更新之后会出现文件拖拽失效的问题。一直没找到原因，后来改用<code>Python</code>写可以解决问题。
+之前的<xcode>update.exe</xcode>是用<xcode>Java</xcode>写的，更新之后会出现文件拖拽失效的问题。一直没找到原因，后来改用<xcode>Python</xcode>写可以解决问题。
 <pre class="prettyprint">
 <icode class="python">#!/usr/bin/env python3
 import os
@@ -215,3 +215,50 @@ if __name__ == '__main__':
         os.system("cmd.exe /c" + nowExe)
 </icode>
 </pre>
+
+
+### 2019.03.23更新 ###
+在使用上面的<xcode>python</xcode>代码使用<xcode>pyinstaller</xcode>编译为<xcode>exe</xcode>之后，一直没出过什么问题，直到最近工具用到了不能连外网的电脑上，有一台机子会报
+
+<pre class="prettyprint">
+<icode class="txt">Error loading python Python35.Dll,
+error code 127
+</icode>
+</pre>
+
+具体的报错因为但是没截图，又是内网比较难取出来，只记得这些，想了一下，这个更新逻辑也不是很复杂，直接用<xcode>c</xcode>写算了，代码如下：
+
+<pre class="prettyprint">
+<icode class="c">#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+ 
+int main(int argc, char **argv)
+{
+   if(argc < 2){
+      return 0; 
+   }
+   char *source_file = argv[1];
+   char *target_file = argv[2];
+   if(access( source_file, F_OK ) == -1) {
+     return 0;
+   } 
+    
+   if(access( target_file, F_OK ) != -1) {
+     remove(target_file); 
+   }
+ 
+   rename(source_file, target_file);
+   
+   char command[80] = "cmd.exe /c ";
+   strcat(command, target_file);
+   
+   system(command);
+ 
+   return 0;
+}
+</icode>
+</pre>
+
+暂时能用，后面遇到问题再更新，嗯，希望不需要再更新了，踩了这么多坑也是醉了。。。
