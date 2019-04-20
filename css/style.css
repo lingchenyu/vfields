@@ -378,6 +378,14 @@ hr {
     font-size: 10px;
 }
 
+.v .vlist {
+    padding: 10px;
+}
+
+.info {
+    padding: 10px;
+}
+
 figure pre {
     background-color: #ebebeb;
 }
