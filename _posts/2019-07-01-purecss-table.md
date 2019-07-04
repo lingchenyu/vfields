@@ -40,7 +40,7 @@ icon: code
 
     .pure-table {
         width: 100%;
-		border: 0;
+        border: 0;
     }
     .pure-g {
         letter-spacing: 0;
