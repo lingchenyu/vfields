@@ -34,13 +34,14 @@ icon: code
 
     .content {
         margin: 30px auto;
-        background-color: #f3f3f3;
-        box-shadow: 1px 2px 5px rgba(0, 0, 0, .1);
     }
 
     .pure-table {
-        width: 100%;
+        margin: 0 auto;
+        width: 80%;
         border: 0;
+        background-color: #f3f3f3;
+        box-shadow: 1px 2px 5px rgba(0, 0, 0, .1);
     }
     .pure-g {
         letter-spacing: 0;
@@ -48,7 +49,7 @@ icon: code
 </style>
 <body>
 <div class="pure-g ">
-    <div class="pure-u-xl-3-5 pure-u-lg-22-24 pure-u-md-22-24 pure-u-sm-23-24 content">
+    <div class="pure-u-xl-3-5 pure-u-lg-22-24 pure-u-md-22-24 pure-u-sm-23-24 pure-u-23-24 content">
         <table class="pure-table pure-table-bordered">
             <thead>
             <tr>
