@@ -67,3 +67,8 @@ public class TestAppSingleton {
     }
 }</icode>
 </pre>
+
+### 后续 ###
+今天是2019年07月08日，今天发现使用<xcode>Launch4j</xcode>默认有单例模式，如下图：
+
+<img src="/images/20180528/launch4j-singleton.png" alt="Launch4j单例图"/>
