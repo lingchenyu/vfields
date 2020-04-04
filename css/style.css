@@ -375,6 +375,7 @@ hr {
 .code-pretty-container pre{
     border-radius: 0 4px 4px;
     margin-bottom: 0px;
+    font-size: 96%;
 }
 
 .v .vlist {
