@@ -14,20 +14,20 @@ icon: code
 
 代码也比较简单，如下：
 
-{% highlight html %}
-<html lang="zh">
-<head>
-    <title>测试</title>
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
-          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-    <!--[if lte IE 8]>
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css">
-    <![endif]-->
-    <!--[if gt IE 8]><!-->
-        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-    <!--<![endif]-->
-</head>
-<style>
+<pre class="prettyprint">
+<icode class="html">&lt;html lang="zh"&gt;
+&lt;head&gt;
+    &lt;title&gt;测试&lt;/title&gt;
+    &lt;link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous"&gt;
+    &lt;!--[if lte IE 8]&gt;
+        &lt;link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-old-ie-min.css"&gt;
+    &lt;![endif]--&gt;
+    &lt;!--[if gt IE 8]&gt;&lt;!--&gt;
+        &lt;link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css"&gt;
+    &lt;!--&lt;![endif]--&gt;
+&lt;/head&gt;
+&lt;style&gt;
     body {
         background-color: #d1d1d1;
     }
@@ -46,28 +46,28 @@ icon: code
     .pure-g {
         letter-spacing: 0;
     }
-</style>
-<body>
-<div class="pure-g ">
-    <div class="pure-u-xl-3-5 pure-u-lg-22-24 pure-u-md-22-24 pure-u-sm-23-24 pure-u-23-24 content">
-        <table class="pure-table pure-table-bordered">
-            <thead>
-            <tr>
-                <td>描述</td>
-                <td>指令</td>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>描述1</td>
-                <td>指令1</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-</body>
-</html>
-{% endhighlight %}
+&lt;/style&gt;
+&lt;body&gt;
+&lt;div class="pure-g "&gt;
+    &lt;div class="pure-u-xl-3-5 pure-u-lg-22-24 pure-u-md-22-24 pure-u-sm-23-24 pure-u-23-24 content"&gt;
+        &lt;table class="pure-table pure-table-bordered"&gt;
+            &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;td&gt;描述&lt;/td&gt;
+                &lt;td&gt;指令&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;描述1&lt;/td&gt;
+                &lt;td&gt;指令1&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</icode>
+</pre>
 
 代码为了节省版面，删掉了两行数据。

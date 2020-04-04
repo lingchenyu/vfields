@@ -4,3 +4,6 @@ _site/
 *.yml
 
 .jekyll-cache
+
+
+_config.yml

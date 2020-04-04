@@ -9,14 +9,14 @@ icon: code
 <img src="/images/20200319/20200319.png" alt="DataTables自定义效果图"/>
 
 代码优化空间比较大，但暂时先这样，如下：
-{% highlight html %}
-<html>
-<head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/sumoselect.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
-          integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
-    <style>
+<pre class="prettyprint">
+<icode class="html">&lt;html&gt;
+&lt;head&gt;
+    &lt;link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css"&gt;
+    &lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/sumoselect.min.css"&gt;
+    &lt;link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css"
+          integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous"&gt;
+    &lt;style&gt;
         .content {
             margin: 10px auto;
             max-width: 900px;
@@ -67,54 +67,54 @@ icon: code
         }
 
 
-    </style>
-</head>
-<body>
-<div class="pure-g content">
-    <div class="pure-u-x1-22-24 pure-g-lg-22-24 pure-u-md-22-24 pure-u-sm-23-24 pure-u-23-24">
-        <div class="search-bar pure-form">
-            <label>选择搜索列</label>
-            <select id="filterBox" multiple="multiple" placeholder="要搜索的列" class="SlectBox">
-                <option value="0">Column 1</option>
-                <option value="1">Column 2</option>
-                <option value="2">Column 3</option>
-            </select>
-            <input type="text" id="searchTxt" placeholder="关键词" class="pure-input-rounded">
-            <button id="search" type="button" class="pure-button pure-button-primary">搜索</button>
-            <button id="reset" type="button" class="pure-button pure-button-primary">重置</button>
-            <input id="showC3" type="checkbox">
-            <label for="showC3">显示Column 3</label>
-        </div>
-        <table id="table_id" class="display">
-            <thead>
-            <tr>
-                <th>Column 1</th>
-                <th>Column 2</th>
-                <th>Column 3</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Row 1 Data 11</td>
-                <td>Row 1 Data 12</td>
-                <td>Row 1 Data 13</td>
-            </tr>
-            <tr>
-                <td>Row 2 Data 21</td>
-                <td>Row 2 Data 22</td>
-                <td>Row 2 Data 23</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-<script type="text/javascript" charset="utf8"
-        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-</script>
-<script type="text/javascript" charset="utf8"
-        src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/jquery.sumoselect.min.js"></script>
-<script type="text/javascript">
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div class="pure-g content"&gt;
+    &lt;div class="pure-u-x1-22-24 pure-g-lg-22-24 pure-u-md-22-24 pure-u-sm-23-24 pure-u-23-24"&gt;
+        &lt;div class="search-bar pure-form"&gt;
+            &lt;label&gt;选择搜索列&lt;/label&gt;
+            &lt;select id="filterBox" multiple="multiple" placeholder="要搜索的列" class="SlectBox"&gt;
+                &lt;option value="0"&gt;Column 1&lt;/option&gt;
+                &lt;option value="1"&gt;Column 2&lt;/option&gt;
+                &lt;option value="2"&gt;Column 3&lt;/option&gt;
+            &lt;/select&gt;
+            &lt;input type="text" id="searchTxt" placeholder="关键词" class="pure-input-rounded"&gt;
+            &lt;button id="search" type="button" class="pure-button pure-button-primary"&gt;搜索&lt;/button&gt;
+            &lt;button id="reset" type="button" class="pure-button pure-button-primary"&gt;重置&lt;/button&gt;
+            &lt;input id="showC3" type="checkbox"&gt;
+            &lt;label for="showC3"&gt;显示Column 3&lt;/label&gt;
+        &lt;/div&gt;
+        &lt;table id="table_id" class="display"&gt;
+            &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Column 1&lt;/th&gt;
+                &lt;th&gt;Column 2&lt;/th&gt;
+                &lt;th&gt;Column 3&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Row 1 Data 11&lt;/td&gt;
+                &lt;td&gt;Row 1 Data 12&lt;/td&gt;
+                &lt;td&gt;Row 1 Data 13&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;Row 2 Data 21&lt;/td&gt;
+                &lt;td&gt;Row 2 Data 22&lt;/td&gt;
+                &lt;td&gt;Row 2 Data 23&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript" charset="utf8"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"&gt;
+&lt;/script&gt;
+&lt;script type="text/javascript" charset="utf8"
+        src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"&gt;&lt;/script&gt;
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.sumoselect/3.0.2/jquery.sumoselect.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
     let searchCols = null;
     let searchTxt = '';
     $.fn.dataTable.ext.search.push(
@@ -123,10 +123,10 @@ icon: code
                 return true;
             }
             const len = searchCols.length;
-            if (len < 1 || searchTxt === '') {
+            if (len &lt; 1 || searchTxt === '') {
                 return true;
             }
-            for (let i = 0; i < len; i++) {
+            for (let i = 0; i &lt; len; i++) {
                 const d = data[searchCols[i]];
                 if (d === searchTxt || d.includes(searchTxt)) {
                     return true;
@@ -162,7 +162,7 @@ icon: code
 
         $('#search').click(function () {
             var columns = $('#filterBox').val();
-            if (!columns || columns.length < 1) {
+            if (!columns || columns.length &lt; 1) {
                 return;
             }
             searchCols = columns;
@@ -185,8 +185,8 @@ icon: code
             table.draw();
         }
     });
-</script>
-</body>
-</html>
-
-{% endhighlight %}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</icode>
+</pre>
