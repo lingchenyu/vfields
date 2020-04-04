@@ -15,7 +15,7 @@ host: "vfields.com" # the base hostname
 author: wait
 
 # Gems
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 # Build settings
 markdown: kramdown
