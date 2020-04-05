@@ -91,11 +91,11 @@ xcode {
 #ad{
     background-color:#f6f6f6;
     width:310px;
-    height:330px;
+    height:300px;
     position:fixed;
     bottom:0;
     right:40px;
-    margin-bottom:-270px;
+    margin-bottom:-240px;
     z-index:10000;
     border: 1px solid #808f81;
     border-bottom: none;

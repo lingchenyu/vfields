@@ -25,7 +25,7 @@ $(document).ready(function(){
 		
 		if(el.hasClass('down')){
 			anim = {
-				mb : -270,
+				mb : -240,
 				pt : 10
 			};
 		}
