@@ -6,4 +6,4 @@ _site/
 .jekyll-cache
 
 
-_config.yml
+./_config.yml

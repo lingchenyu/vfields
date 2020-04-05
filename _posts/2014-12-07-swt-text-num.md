@@ -142,7 +142,7 @@ public class SWTNumberText {
 
 &nbsp;&nbsp; 上面的例子中，<xcode>swt</xcode>的<xcode>text</xcode>可以及时监听输入。注意：这里有一个前提，就是每一个<xcode>text</xcode>要有默认值，或者在计算的时候自己去判断 <xcode>getText()</xcode>为空。这里为了简便，就不判空。
 
-<div class="alert-box warning"><span>注意</span><br/><xcode>Text</xcode>加了监听器之后，直接调用<xcode>setText()</xcode>方法会有问题，拿到一个空值，所以在<xcode>setText()</xcode>之前，要先remove掉这两个监听器，在<xcode>setText()</xcode>之后，再添加回来。</div>
+<div class="alert alert-warning" role="alert"> <h5 class="alert-heading">注意</h5><hr><xcode>Text</xcode>加了监听器之后，直接调用<xcode>setText()</xcode>方法会有问题，拿到一个空值，所以在<xcode>setText()</xcode>之前，要先remove掉这两个监听器，在<xcode>setText()</xcode>之后，再添加回来。</div>
 如下：
 
 <pre class="prettyprint">
